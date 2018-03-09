@@ -1,0 +1,21 @@
+* {
+	box-sizing: border-box;
+}
+
+form {
+	width: 60%;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 1.2em;
+}
+
+label {
+
+}
+
+input {
+	margin: 5px;
+	width: 70%;
+	height: 30px;
+}
+
