@@ -1,11 +1,37 @@
 const express = require('express');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const jsonParser = bodyParser.json();
 const app = express();
+
+app.use(morgan('common'));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
 	res.sendFile(_dirname, 'public/index.html');
 });
 
+// get all of your posts once you login
+app.get('/user_id:/blogPosts', (req, res) => {
+
+});
+
+// get an individual post
+app.get('/user_id:/blogPosts/:post_id', (req, res) => {
+
+});
+
+app.post('/user_id:/blogPost', (req, res) => {
+
+});
+
+app.put('/user_id:/blogPosts/:post_id', (req, res) => {
+
+});
+
+app.delete('/user_id:/blogPosts/:post_id', (req, res) => {
+
+});
 
 let server;
 
