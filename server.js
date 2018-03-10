@@ -7,6 +7,8 @@ const app = express();
 app.use(morgan('common'));
 app.use(express.static('public'));
 
+const { JournalEntries } = require('./models');
+
 app.get('/', (req, res) => {
 	res.sendFile(_dirname, 'public/index.html');
 });
@@ -32,6 +34,12 @@ app.put('/user_id:/blogPosts/:post_id', (req, res) => {
 app.delete('/user_id:/blogPosts/:post_id', (req, res) => {
 
 });
+
+
+JournalEntries.create('Title A', 'Lorem ipsum dolor sit amet');
+JournalEntries.create('Title B', 'Duis aute irure dolor in reprehenderit ');
+JournalEntries.create('Title C', 'Excepteur sint occaecat cupidatat non proident');
+
 
 let server;
 
