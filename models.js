@@ -4,10 +4,10 @@ const JournalEntries = {
 	create: function(title, content, publishDate) {
 		console.log('Creating new journal entry');
 		const entry = {
-			id: uuid.v4();
+			id: uuid.v4(),
 			title: title,
 			content: content,
-			publishDate: publishDate || Date.now
+			publishDate: publishDate || Date.now()
 		}
 		this.entries.push(entry);
 		return entry;

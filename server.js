@@ -14,24 +14,24 @@ app.get('/', (req, res) => {
 });
 
 // get all of your posts once you login
-app.get('/user_id:/blogPosts', (req, res) => {
-
+app.get('/journalEntries', (req, res) => {
+	res.json(JournalEntries.get());
 });
 
 // get an individual post
-app.get('/user_id:/blogPosts/:post_id', (req, res) => {
+app.get('/journalEntry/:entry_id', (req, res) => {
+	res.json(JournalEntries.get(req.params.entry_id));
+});
+
+app.post('/journalEntries', jsonParser, (req, res) => {
 
 });
 
-app.post('/user_id:/blogPost', (req, res) => {
+app.put('/journalEntries/:entry_id', jsonParser, (req, res) => {
 
 });
 
-app.put('/user_id:/blogPosts/:post_id', (req, res) => {
-
-});
-
-app.delete('/user_id:/blogPosts/:post_id', (req, res) => {
+app.delete('/journalEntries/:entry_id', (req, res) => {
 
 });
 
@@ -39,6 +39,8 @@ app.delete('/user_id:/blogPosts/:post_id', (req, res) => {
 JournalEntries.create('Title A', 'Lorem ipsum dolor sit amet');
 JournalEntries.create('Title B', 'Duis aute irure dolor in reprehenderit ');
 JournalEntries.create('Title C', 'Excepteur sint occaecat cupidatat non proident');
+
+
 
 
 let server;
