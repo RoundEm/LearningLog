@@ -1,8 +1,8 @@
 const uuid = require('uuid');
 
-const JournalEntries = {
+const LogEntries = {
 	create: function(title, content, publishDate) {
-		console.log('Creating new journal entry');
+		console.log('Creating new log entry');
 		const entry = {
 			id: uuid.v4(),
 			title: title,
@@ -37,10 +37,10 @@ const JournalEntries = {
 	}
 }
 
-function createJournalEntryModel() {
+function createLogEntryModel() {
 	const storage = Object.create(JournalEntries);
 	storage.entries = [];
 	return storage;
 }
 
-module.exports = { JournalEntries: createJournalEntryModel() };
+module.exports = { LogEntries: createLogEntryModel() };
