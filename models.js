@@ -30,7 +30,7 @@ const JournalEntries = {
 		return this.entries[entryIndex];
 	},
 	delete: function(id) {
-		const entryIndex = this.entries.findIndex(post => post.id === revisedEntry.id);
+		const entryIndex = this.entries.findIndex(post => post.entry_id === id);
 		if (entryIndex > -1) {
 			this.entries.splice(entryIndex, 1);
 		}
