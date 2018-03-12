@@ -49,9 +49,9 @@ app.delete('/logEntries/:entry_id', (req, res) => {
 });
 
 
-JournalEntries.create('Title A', 'Lorem ipsum dolor sit amet');
-JournalEntries.create('Title B', 'Duis aute irure dolor in reprehenderit ');
-JournalEntries.create('Title C', 'Excepteur sint occaecat cupidatat non proident');
+LogEntries.create('Title A', 'Lorem ipsum dolor sit amet');
+LogEntries.create('Title B', 'Duis aute irure dolor in reprehenderit ');
+LogEntries.create('Title C', 'Excepteur sint occaecat cupidatat non proident');
 
 
 let server;
