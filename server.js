@@ -7,33 +7,33 @@ const app = express();
 app.use(morgan('common'));
 app.use(express.static('public'));
 
-const { JournalEntries } = require('./models');
+const { LogEntries } = require('./models');
 
 app.get('/', (req, res) => {
 	res.sendFile(`${__dirname}/views/index.html`);
 });
 
-app.get('/journalEntries', (req, res) => {
+app.get('/logEntries', (req, res) => {
 	res.sendFile(`${__dirname}/views/logs.html`);
 });
 
 // get all of your posts
-app.get('/journalEntries', (req, res) => {
-	res.json(JournalEntries.get());
+app.get('/logEntries', (req, res) => {
+	res.json(LogEntries.get());
 });
 
 // get an individual post
-app.get('/journalEntry/:entry_id', (req, res) => {
-	res.json(JournalEntries.get(req.params.entry_id));
+app.get('/logEntry/:entry_id', (req, res) => {
+	res.json(LogEntries.get(req.params.entry_id));
 });
 
-app.post('/journalEntries', jsonParser, (req, res) => {
-	const entry = JournalEntries.create(req.body.title, req.body.content);
+app.post('/logEntries', jsonParser, (req, res) => {
+	const entry = LogEntries.create(req.body.title, req.body.content);
 	res.status(201).json(entry);
 });
 
-app.put('/journalEntries/:entry_id', jsonParser, (req, res) => {
-	const revisedEntry = JournalEntries.update({
+app.put('/logEntries/:entry_id', jsonParser, (req, res) => {
+	const revisedEntry = LogEntries.update({
 		id: req.params.entry_id,
 		title: req.body.title,
 		content: req.body.content,
@@ -42,9 +42,9 @@ app.put('/journalEntries/:entry_id', jsonParser, (req, res) => {
 	res.status(204).end();
 });
 
-app.delete('/journalEntries/:entry_id', (req, res) => {
+app.delete('/logEntries/:entry_id', (req, res) => {
 	JournalEntries.delete(req.params.id);
-	console.log(`Deleted journal entry \`${req.params.entry_id}\``)
+	console.log(`Deleted log entry \`${req.params.entry_id}\``)
 	res.status(204).end();
 });
 
