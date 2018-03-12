@@ -38,7 +38,7 @@ const LogEntries = {
 }
 
 function createLogEntryModel() {
-	const storage = Object.create(JournalEntries);
+	const storage = Object.create(LogEntries);
 	storage.entries = [];
 	return storage;
 }
