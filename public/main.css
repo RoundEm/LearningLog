@@ -1,21 +1,56 @@
 * {
 	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: 'Cantarell', sans-serif;
 }
 
-form {
-	width: 60%;
-	margin: 0 auto;
+header {
+	padding: 5px 0 10px;
+	font-size: 1.55em;
+}
+
+header h1 {
 	text-align: center;
-	font-size: 1.2em;
 }
 
-label {
-
+body {
+	width: 85%;
+	margin: 0 auto;
 }
 
-input {
-	margin: 5px;
-	width: 70%;
-	height: 30px;
+main {	
+	font-size: 1.4em;
 }
+
+.logs-main {
+	text-align: center;
+}
+
+.benefits p {
+	margin: 5px auto;
+	padding: 10px 30px;
+	text-align: center;
+}
+
+.benefits p:nth-child(odd) {
+	border: 2px solid #2E64FE;
+}
+
+.benefits p:nth-child(even) {
+	border: 2px solid #FA5882;
+}
+
+.btn-container {
+	margin: 20px auto 0;
+	text-align: center;
+}
+
+button {
+	width: 40%;
+	padding: 10px 15px;
+	border: 2px solid;
+	font-size: 1em;
+}
+
 
