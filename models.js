@@ -1,13 +1,18 @@
 const uuid = require('uuid');
 
 const LogEntries = {
-	create: function(title, content, publishDate) {
+	create: function(title, content) {
 		console.log('Creating new log entry');
+		const dateObj = new Date();
+		const month = dateObj.getUTCMonth() + 1;
+		const day = dateObj.getUTCDate();
+		const year = dateObj.getUTCFullYear(); 
+		const fullDate = `${month}/${day}/${year}`;
 		const entry = {
 			id: uuid.v4(),
 			title: title,
 			content: content,
-			publishDate: publishDate || Date.now()
+			publishDate: fullDate
 		}
 		this.entries.push(entry);
 		return entry;
