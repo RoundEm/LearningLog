@@ -27,6 +27,29 @@ main {
 	text-align: center;
 }
 
+.log-section {
+	margin: 40px 0;
+}
+
+.newPage {
+	text-decoration: none;
+	padding: 10px 15px;
+	border: 2px solid;
+}
+
+.newPage:hover {
+	background-color: #FFCE00;
+	cursor: pointer;
+}
+
+select {
+	font-size: .7em;
+}
+
+label {
+	font-size: 1.25em;
+}
+
 .benefits p {
 	margin: 5px auto;
 	padding: 10px 30px;
@@ -46,11 +69,12 @@ main {
 	text-align: center;
 }
 
-button {
-	width: 40%;
-	padding: 10px 15px;
+.logList-section div {
 	border: 2px solid;
-	font-size: 1em;
+	margin: 5px;
 }
+
+
+
 
 
