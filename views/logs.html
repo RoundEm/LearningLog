@@ -15,12 +15,28 @@
 		</div>
 	</header>
 
-	<main role="main">
+	<main role="main" class="logs-main">
 
-		<section>
+		<section class="newLog">
 			<button>Add New Log</button>
 		
-			<h2>Logs</h2>
+		</section>
+
+		<section class="logHistory">
+			<h2>Log History</h2>
+			<div class="filter-div">
+				<form name="filter">
+					<label>Filter Results</label>
+					<select>
+						<option disabled selected> -- select an option -- </option>
+						<option value"new_old">Newest to Oldest</option>
+						<option value"old_new">Oldest to Newest</option>
+						<option value"a_z">A-Z by Title</option>
+						<option value"z_a">Z-A by Title</option>
+						<option value"tags">By Tags</option>
+					</select>
+				</form>
+			</div>
 		</section>
 
 
