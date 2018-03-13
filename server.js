@@ -13,8 +13,12 @@ app.get('/', (req, res) => {
 	res.sendFile(`${__dirname}/views/index.html`);
 });
 
-app.get('/logEntries', (req, res) => {
+app.get('/view-logs', (req, res) => {
 	res.sendFile(`${__dirname}/views/logs.html`);
+});
+
+app.get('/add-log', (req, res) => {
+	res.sendFile(`${__dirname}/views/addLog.html`);
 });
 
 // get all of your posts
@@ -28,7 +32,7 @@ app.get('/logEntry/:entry_id', (req, res) => {
 });
 
 app.post('/logEntries', jsonParser, (req, res) => {
-	const entry = LogEntries.create(req.body.title, req.body.content);
+	const entry = LogEntries.create(req.body.title, req.body.content, req.body.tag);
 	res.status(201).json(entry);
 });
 
@@ -37,7 +41,8 @@ app.put('/logEntries/:entry_id', jsonParser, (req, res) => {
 		id: req.params.entry_id,
 		title: req.body.title,
 		content: req.body.content,
-		publishDate: req.body.publishDate
+		publishDate: req.body.publishDate,
+		tag: req.body.tag
 	});
 	res.status(204).end();
 });
@@ -49,9 +54,9 @@ app.delete('/logEntries/:entry_id', (req, res) => {
 });
 
 
-LogEntries.create('Title A', 'Lorem ipsum dolor sit amet');
-LogEntries.create('Title B', 'Duis aute irure dolor in reprehenderit ');
-LogEntries.create('Title C', 'Excepteur sint occaecat cupidatat non proident');
+LogEntries.create('Title A', 'Lorem ipsum dolor sit amet', 'JavaScript Promises');
+LogEntries.create('Title B', 'Duis aute irure dolor in reprehenderit', 'Angular');
+LogEntries.create('Title C', 'Excepteur sint occaecat cupidatat non proident', 'MongoDB');
 
 
 let server;
