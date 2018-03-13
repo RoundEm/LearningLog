@@ -18,25 +18,29 @@
 	<main role="main" class="logs-main">
 
 		<section class="newLog log-section">
-			<a href="/add-log">Add New Log</a>
+			<a href="/add-log" class="newPage">Add New Log</a>
 		
 		</section>
 
 		<section class="logHistory log-section">
+
 			<h2>Log History</h2>
-			<div class="filter-div">
+			<section class="filter-section">
 				<form name="filter">
-					<label>Filter Results</label>
+					<label>Sort Results</label>
 					<select>
-						<option disabled selected> -- select an option -- </option>
 						<option value"new_old">Newest to Oldest</option>
 						<option value"old_new">Oldest to Newest</option>
 						<option value"a_z">A-Z by Title</option>
 						<option value"z_a">Z-A by Title</option>
-						<option value"tags">By Tags</option>
 					</select>
 				</form>
-			</div>
+			</section> 
+
+			<section class="logList-section">
+				
+			</section>
+
 		</section>
 
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
