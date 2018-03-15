@@ -18,7 +18,7 @@
 	<main role="main" class="logs-main">
 
 		<section class="newLog log-section">
-			<a href="/add-log" class="newPage">Add New Log</a>
+			<a href="/add-log" class="newPage">Add/Edit Log</a>
 		
 		</section>
 
@@ -29,10 +29,10 @@
 				<form name="filter">
 					<label>Sort Results</label>
 					<select>
-						<option value"new_old">Newest to Oldest</option>
-						<option value"old_new">Oldest to Newest</option>
-						<option value"a_z">A-Z by Title</option>
-						<option value"z_a">Z-A by Title</option>
+						<option value="title_new" class="sortTitle_new">Newest to Oldest</option>
+						<option value="title_old" class="sortTitle_old">Oldest to Newest</option>
+						<option value="tag_a" class="sortTag_a">A-Z by Tag</option>
+						<option value="tag_b" class="sortTag_z">Z-A by Tag</option>
 					</select>
 				</form>
 			</section> 
