@@ -3,16 +3,19 @@ const uuid = require('uuid');
 const LogEntries = {
 	create: function(title, content, tag, publishDate) {
 		console.log('Creating new log entry');
-		const dateObj = new Date();
-		const month = dateObj.getUTCMonth() + 1;
-		const day = dateObj.getUTCDate();
-		const year = dateObj.getUTCFullYear(); 
-		const fullDate = `${month}/${day}/${year}`;
+		const d = new Date();
+		// const month = d.getMonth() + 1;
+		// const day = d.getDate();
+		// const year = d.getFullYear(); 
+		// const fullDate = `${month}/${day}/${year}`;
+
+		// current time, formatted
+
 		const entry = {
 			id: uuid.v4(),
 			title: title,
 			content: content,
-			publishDate: publishDate || fullDate,
+			publishDate: publishDate || `${d}`,
 			tag: tag
 		}
 		this.entries.push(entry);
