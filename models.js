@@ -1,21 +1,13 @@
 const uuid = require('uuid');
 
 const LogEntries = {
-	create: function(title, content, tag, publishDate) {
+	create: function(title, content, tag) {
 		console.log('Creating new log entry');
-		const d = new Date();
-		// const month = d.getMonth() + 1;
-		// const day = d.getDate();
-		// const year = d.getFullYear(); 
-		// const fullDate = `${month}/${day}/${year}`;
-
-		// current time, formatted
-
 		const entry = {
 			id: uuid.v4(),
 			title: title,
 			content: content,
-			publishDate: publishDate || `${d}`,
+			publishDate: Date.now(),
 			tag: tag
 		}
 		this.entries.push(entry);
@@ -26,7 +18,7 @@ const LogEntries = {
 			return this.entries.find(entry => entry.id === id);
 		}
 		return this.entries.sort((a, b) => {
-			b.publishDate - a.publishDate;
+			return b.publishDate - a.publishDate;
 		});
 	},
 	update: function(revisedEntry) {
