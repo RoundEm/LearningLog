@@ -49,13 +49,17 @@ const Ajax = {
 					return a.publishDate - b.publishDate;
 				});
 			} else if (sortValue === 'tag_a') {
-				Ajax.logData.tag.sort(function(a, b) {
-					
+				Ajax.logData.sort(function(a, b) {
+					if (a.tag < b.tag) return -1;
+					if (a.tag > b.tag) return 1;
+					return 0;
 				});
 				console.log('Ajax.logData tag_a', Ajax.logData);
 			} else {
 				Ajax.logData.sort(function(a, b) {
-					
+					if (b.tag < a.tag) return -1;
+					if (b.tag > a.tag) return 1;
+					return 0;
 				});
 				console.log('Ajax.logData tag_z', Ajax.logData);
 			}
