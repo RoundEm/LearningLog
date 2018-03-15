@@ -4,77 +4,99 @@
 	padding: 0;
 	font-family: 'Cantarell', sans-serif;
 }
-
 header {
 	padding: 5px 0 10px;
 	font-size: 1.55em;
 }
-
 header h1 {
 	text-align: center;
 }
-
 body {
 	width: 85%;
 	margin: 0 auto;
 }
-
 main {	
 	font-size: 1.4em;
 }
-
 .logs-main {
 	text-align: center;
 }
-
 .log-section {
 	margin: 40px 0;
 }
-
 .newPage {
 	text-decoration: none;
+	border: none;
 	padding: 10px 15px;
 	border: 2px solid;
 }
-
-.newPage:hover {
+.newPage-container {
+	margin: 20px auto 0;
+	text-align: center;
+}
+.newPage:hover, .add-log button:hover {
 	background-color: #FFCE00;
 	cursor: pointer;
 }
-
 select {
 	font-size: .7em;
 }
-
 label {
 	font-size: 1.25em;
 }
-
 .benefits p {
 	margin: 5px auto;
 	padding: 10px 30px;
 	text-align: center;
 }
-
 .benefits p:nth-child(odd) {
 	border: 2px solid #2E64FE;
 }
-
 .benefits p:nth-child(even) {
 	border: 2px solid #FA5882;
 }
-
-.btn-container {
-	margin: 20px auto 0;
-	text-align: center;
-}
-
 .logList-section div {
 	border: 2px solid;
 	margin: 5px;
+	padding: 3px;
 }
 
+/* addLog page: */
 
+label {
+	display: inline-block;
+	margin: 10px 0 0;
+}
+.add-log input, textarea {
+	padding: 5px;
+	font-size: .75em;
+	border: 1px solid;
+	border-radius: 3px;
+}
+textarea {
+	width: 100%;
+	height: 200px;	
+}
+.add-log input[name="title"] {
+	height: 35px;
+	width: 75%
+}
+.add-log input[name="tag"] {
+	height: 35px;
+	width: 55%
+}
+.add-log input[name="submit"] {
+	margin: 25px 0;
+}
+.add-log input[name="attachment"] {
+	border: none;
 
+}
+.add-log button	{
+	padding: 10px;
+	margin: 25px 0 10px;
+	border-radius: 3px;
+	font-size: .85em;
+}
 
 
