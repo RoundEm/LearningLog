@@ -10,8 +10,11 @@ const AddLogs = {
 			let contentValue = contentTarget.val();
 			let tagTarget = $(this).find('#add-tag');
 			let tagValue = tagTarget.val();
+			titleTarget.val('');
+			contentTarget.val('');
+			tagTarget.val('');
+			// something to grab attachment or save for later feature?
 		});
-
 	},
 	setup: function() {
 		AddLogs.collectData();
