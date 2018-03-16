@@ -23,32 +23,19 @@ const Ajax = {
 				let month = d.getMonth();
 				let dateOfMonth = d.getDate();
 				// console.log('full date:', `${month}/${dateOfMonth}/${year} - ${hour}:${minutes}:${milliSecs}`); 
-				Ajax.logData[i].dateFormatted = `${month}/${dateOfMonth}/${year} - ${hour}:${minutes}:${milliSecs}`;
+				Ajax.logData[i].dateTime = `${month}/${dateOfMonth}/${year} - ${hour}:${minutes}:${milliSecs}`;
 			}
-			// data.forEach(function(i) {
-			// 	console.log('i', i);
-			// 	let d = new Date(i.publishDate);
-			// 	console.log('date:', d);
-			// 	let hour = d.getHours();
-			// 	let minutes = d.getMinutes();
-			// 	let milliSecs = d.getMilliseconds();
-			// 	let year = d.getFullYear();
-			// 	let month = d.getMonth();
-			// 	let dateOfMonth = d.getDate();
-			// 	// console.log('full date:', `${month}/${dateOfMonth}/${year} - ${hour}:${minutes}:${milliSecs}`); 
-			// 	Ajax.logData.dateFormatted = `${month}/${dateOfMonth}/${year} - ${hour}:${minutes}:${milliSecs}`;
-			// });
-			Ajax.displayData(data);
+			Ajax.displayData(Ajax.logData);
 		});   
 	},
-	displayData: function(data) {
-		console.log('displayData:', data);
+	displayData: function(logData) {
+		console.log('displayData:', logData);
 		let logListSections = '';
-		for (let i = 0; i < data.length; i++) {
-			let logContent = data[i].content;
-			let logDate = data[i].publishDate;
-			let logTitle = data[i].title;
-			let logTag = data[i].tag;
+		for (let i = 0; i < logData.length; i++) {
+			let logContent = logData[i].content;
+			let logDate = logData[i].dateTime;
+			let logTitle = logData[i].title;
+			let logTag = logData[i].tag;
 			logListSections +=
 				`<div class="logEntry">	
 					<p>${logTitle}</p>
