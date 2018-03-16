@@ -12,6 +12,32 @@ const Ajax = {
 	processLogData: function() {
 		console.log('processLogData ran');
 		let data = Ajax.getData().then(function(data) {
+			// format date/time
+			for (let i = 0; i < data.length; i++) {
+				let d = new Date(data[i].publishDate);
+				console.log('date:', d);
+				let hour = d.getHours();
+				let minutes = d.getMinutes();
+				let milliSecs = d.getMilliseconds();
+				let year = d.getFullYear();
+				let month = d.getMonth();
+				let dateOfMonth = d.getDate();
+				// console.log('full date:', `${month}/${dateOfMonth}/${year} - ${hour}:${minutes}:${milliSecs}`); 
+				Ajax.logData[i].dateFormatted = `${month}/${dateOfMonth}/${year} - ${hour}:${minutes}:${milliSecs}`;
+			}
+			// data.forEach(function(i) {
+			// 	console.log('i', i);
+			// 	let d = new Date(i.publishDate);
+			// 	console.log('date:', d);
+			// 	let hour = d.getHours();
+			// 	let minutes = d.getMinutes();
+			// 	let milliSecs = d.getMilliseconds();
+			// 	let year = d.getFullYear();
+			// 	let month = d.getMonth();
+			// 	let dateOfMonth = d.getDate();
+			// 	// console.log('full date:', `${month}/${dateOfMonth}/${year} - ${hour}:${minutes}:${milliSecs}`); 
+			// 	Ajax.logData.dateFormatted = `${month}/${dateOfMonth}/${year} - ${hour}:${minutes}:${milliSecs}`;
+			// });
 			Ajax.displayData(data);
 		});   
 	},
@@ -32,21 +58,6 @@ const Ajax = {
 				</div>`;
 		}
 		$('.logList-section').empty().append(logListSections);
-	},
-	formatDateTime: function() {
-		Ajax.logData.forEach(function(i) {
-			console.log('i', i);
-			let d = new Date(i.publishDate);
-			console.log('date:', d);
-			let hour = d.getHours();
-			let minutes = d.getMinutes();
-			let milliSecs = d.getMilliseconds();
-			let year = d.getFullYear();
-			let month = d.getMonth();
-			let dateOfMonth = d.getDate();
-			console.log('full date:', `${month}/${dateOfMonth}/${year} - ${hour}:${minutes}:${milliSecs}`); 
-		});	
-
 	},
 	sortLogs: function() {
 		$('select').change(function() {
@@ -74,15 +85,12 @@ const Ajax = {
 					return 0;
 				});
 			}
-			Ajax.formatDateTime();
 			Ajax.displayData(Ajax.logData);
 		});
 	},
 	setup: function() {
-		console.log('setup ran');
 		Ajax.processLogData();
 		Ajax.sortLogs();
-		
 	}
 }
 
