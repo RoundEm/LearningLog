@@ -1,7 +1,27 @@
 'use strict';
 
 const AddLogs = {
-	collectData: function() {
+	createLogEntry: function(title, content, tag) {
+		console.log('createLogEntry ran');
+		const params = {
+			title: title,
+			content: content,
+			tag: tag
+		}
+		return $.ajax({
+			url: '/logEntries', 
+			dataType: 'json',
+			method: 'post',
+			data: params
+		})
+		.done(function(data) {
+			console.log('params:', params);
+			console.log('data:' data);
+			return data;
+		});
+
+	},
+	bindSubmit: function() {
 		$('.add-log').submit(function(event) {
 			event.preventDefault();
 			let titleTarget = $(this).find('#add-title');
@@ -13,11 +33,17 @@ const AddLogs = {
 			titleTarget.val('');
 			contentTarget.val('');
 			tagTarget.val('');
-			// something to grab attachment or save for later feature?
-		});
+
+			AddLogs.createLogEntry(titleValue, contentValue, tagValue);
+			// console.log('returnData', returnData);
+
+			// window.location ='http://localhost:8080/view-logs';
+			// window.location.href='http://localhost:8080/view-logs';
+			// window.location.replace('http://localhost:8080/view-logs');
+		});	 
 	},
 	setup: function() {
-		AddLogs.collectData();
+		AddLogs.bindSubmit();
 	}
 }
 
