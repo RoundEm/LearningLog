@@ -26,7 +26,6 @@ main {
 }
 .newPage {
 	text-decoration: none;
-	border: none;
 	padding: 10px 15px;
 	border: 2px solid;
 }
@@ -87,10 +86,6 @@ textarea {
 }
 .add-log input[name="submit"] {
 	margin: 25px 0;
-}
-.add-log input[name="attachment"] {
-	border: none;
-
 }
 .add-log button	{
 	padding: 10px;
