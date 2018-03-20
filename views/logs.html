@@ -18,7 +18,7 @@
 	<main role="main" class="logs-main">
 
 		<section class="newLog log-section">
-			<a href="/add-log" class="newPage">Add/Edit Log</a>
+			<a href="/add-log" class="newPage">Add Log</a>
 		
 		</section>
 
@@ -29,10 +29,10 @@
 				<form name="filter">
 					<label>Sort Results</label>
 					<select>
-						<option value="title_new" class="sortTitle_new">Newest to Oldest</option>
-						<option value="title_old" class="sortTitle_old">Oldest to Newest</option>
+						<option value="log_newest" class="sortLog_newest">Newest to Oldest</option>
+						<option value="log_oldest" class="sortLog_oldest">Oldest to Newest</option>
 						<option value="tag_a" class="sortTag_a">A-Z by Tag</option>
-						<option value="tag_b" class="sortTag_z">Z-A by Tag</option>
+						<option value="tag_z" class="sortTag_z">Z-A by Tag</option>
 					</select>
 				</form>
 			</section> 
@@ -43,7 +43,8 @@
 
 		</section>
 
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="/ajax.js"></script>
 	</main>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="/logs.js"></script>
 </body>
