@@ -8,7 +8,7 @@
 	<link type="text/css" rel="stylesheet" href="main.css">
 	<title>Learning Log - Add a Log</title>
 </head>
-<body>
+<body>			
 	<header role="banner">
 		<div>
 			<h1>Learning Log - Add/Edit a Log</h1>
@@ -17,9 +17,10 @@
 
 	<main>
 		<section>
-			<form class="add-log" action="" method="">
-				<label for="title">Title</label> <br>
-				<input type="text" name="title" id="add-title" required /> <br>
+			<!-- are action and method needed? -->
+			<form class="add-log" action="/logEntries" method="POST">
+				<label for="title">Title</label><br>
+				<input type="text" name="title" id="add-title" required /><br>
 				<label for="content">Content</label> <br>
 				<textarea id="add-content" name="textarea" required>  </textarea><br>
 				<label for="tag">Tag</label><br>
@@ -29,4 +30,6 @@
 		</section>
 	</main>
 
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="addLogs.js"></script>
 </body>
