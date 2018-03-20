@@ -1,13 +1,28 @@
-const express = require('express');
-const morgan = require('morgan');
-const bodyParser = require('body-parser');
-const jsonParser = bodyParser.json();
-const app = express();
+const express = require('express'),
+	morgan = require('morgan'),
+	bodyParser = require('body-parser'),
+	util = require('util'),
+	jsonParser = bodyParser.json(),
+	app = express();
+
 
 app.use(morgan('common'));
 app.use(express.static('public'));
 
 const { LogEntries } = require('./models');
+
+
+// Create dummy data
+const setTimeoutPromise = util.promisify(setTimeout);
+LogEntries.create('A', 'Lorem ipsum dolor sit amet', 'JavaScript Promises');
+setTimeoutPromise(2000, 'a').then((value) => {
+	LogEntries.create('B', 'Duis aute irure dolor in reprehenderit', 'Angular');
+}).then((value) => {
+	setTimeoutPromise(2000, 'b').then((value) => {
+		LogEntries.create('C', 'Excepteur sint occaecat cupidatat non proident', 'MongoDB');
+	});
+});
+
 
 app.get('/', (req, res) => {
 	res.sendFile(`${__dirname}/views/index.html`);
@@ -53,10 +68,6 @@ app.delete('/logEntries/:entry_id', (req, res) => {
 	res.status(204).end();
 });
 
-
-LogEntries.create('Title A', 'Lorem ipsum dolor sit amet', 'JavaScript Promises');
-LogEntries.create('Title B', 'Duis aute irure dolor in reprehenderit', 'Angular');
-LogEntries.create('Title C', 'Excepteur sint occaecat cupidatat non proident', 'MongoDB');
 
 
 let server;
