@@ -14,10 +14,9 @@ const AddLogs = {
 			method: 'post',
 			data: params
 		})
-		.done(function(data) {
+		.then(function(data) {
 			console.log('params:', params);
-			console.log('data:' data);
-			return data;
+			console.log('data:', data);
 		});
 
 	},
@@ -35,7 +34,6 @@ const AddLogs = {
 			tagTarget.val('');
 
 			AddLogs.createLogEntry(titleValue, contentValue, tagValue);
-			// console.log('returnData', returnData);
 
 			// window.location ='http://localhost:8080/view-logs';
 			// window.location.href='http://localhost:8080/view-logs';
