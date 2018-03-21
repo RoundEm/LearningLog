@@ -55,7 +55,13 @@ app.get('/logEntries', (req, res) => {
 
 // get an individual post
 app.get('/logEntry/:entry_id', (req, res) => {
-	res.json(LogEntries.get(req.params.entry_id));
+	LearningLog
+		.findById(req.params.entry_id)
+		.then(log => res.json(log))
+		.catch(err => {
+			console.error(err);
+				res.status(500).json({message: 'Internal server error'})
+		});
 });
 
 app.post('/logEntries', jsonParser, (req, res) => {
