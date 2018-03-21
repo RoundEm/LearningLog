@@ -1,16 +1,18 @@
 const express = require('express'),
+	app = express(),
 	morgan = require('morgan'),
 	bodyParser = require('body-parser'),
 	util = require('util'),
 	jsonParser = bodyParser.json(),
-	app = express();
-
+	mongoose = require('mongoose');
+	
+mongoose.Promise = global.Promise;
 
 app.use(morgan('common'));
 app.use(express.static('public'));
 
 const { LogEntries } = require('./models');
-
+const { PORT, DB_URL };
 
 // Create dummy data
 const setTimeoutPromise = util.promisify(setTimeout);
@@ -30,7 +32,7 @@ app.get('/', (req, res) => {
 
 app.get('/view-logs', (req, res) => {
 	res.sendFile(`${__dirname}/views/logs.html`);
-});
+});	
 
 app.get('/add-log', (req, res) => {
 	res.sendFile(`${__dirname}/views/addLog.html`);
@@ -69,18 +71,36 @@ app.delete('/logEntries/:entry_id', (req, res) => {
 });
 
 
-
 let server;
 
-function runServer() {
-	const port = process.env.PORT || 8080;
+// Prior to mongo refactoring
+// function runServer() {
+// 	const port = process.env.PORT || 8080;
+// 	return new Promise((resolve, reject) => {
+// 		server = app.listen(port, () => {
+// 			console.log(`App is listening on port ${port}`);
+// 			resolve(server);
+// 		})
+// 			.on('error', err => {
+// 				reject(err);
+// 		});
+// 	});
+// }
+
+function runServer(dbUrl, port=PORT) {
 	return new Promise((resolve, reject) => {
-		server = app.listen(port, () => {
-			console.log(`App is listening on port ${port}`);
-			resolve(server);
-		})
+		mongoose.connect(dbUrl, err => {
+			if (err) {
+				return reject(err);
+			}
+			server = app.listen(port, () => {
+				console.log(`App is listening on port ${port}`);
+				resolve();
+			})
 			.on('error', err => {
+				mongoose.disconnect();
 				reject(err);
+			});
 		});
 	});
 }
@@ -102,7 +122,7 @@ function closeServer() {
 // if server.js is called directly (aka, with `node server.js`), this block
 // runs. but we also export the runServer command so other code (for instance, test code) can start the server as needed.
 if (require.main === module) {
-	runServer().catch(err => console.log(err));
+	runServer(DB_URL).catch(err => console.log(err));
 }
 
 module.exports = { runServer, closeServer, app };
