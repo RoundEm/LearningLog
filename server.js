@@ -40,8 +40,17 @@ app.get('/add-log', (req, res) => {
 
 // get all of your posts
 app.get('/logEntries', (req, res) => {
-
-	res.json(LogEntries.get());
+	LearningLog
+		.find()
+		.then(logs => {
+			res.json({
+				logs: logs
+			});
+		})
+		.catch(err => {
+			console.error(err);
+			res.status(500).json({message: 'Internal server error'});
+		});
 });
 
 // get an individual post
