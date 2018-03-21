@@ -9,18 +9,18 @@ const AddLogs = {
 			tag: tag
 		}
 		return $.ajax({
+
+			// QQ: is this URL correct??
 			url: '/logEntries', 
 			dataType: 'json',
 			method: 'post',
 			data: params
 		})
 		.then(function(data) {
-			console.log('params:', params);
-			console.log('data:', data);
+			console.log(`Successfully posted ${params}`);
 		});
-
 	},
-	bindSubmit: function() {
+	bindSubmitBtn: function() {
 		$('.add-log').submit(function(event) {
 			event.preventDefault();
 			let titleTarget = $(this).find('#add-title');
@@ -37,11 +37,15 @@ const AddLogs = {
 
 			// window.location ='http://localhost:8080/view-logs';
 			// window.location.href='http://localhost:8080/view-logs';
-			// window.location.replace('http://localhost:8080/view-logs');
+			window.location.replace('http://localhost:8080/view-logs');
 		});	 
 	},
+	bindCancelBtn: function() {
+
+	},
 	setup: function() {
-		AddLogs.bindSubmit();
+		AddLogs.bindSubmitBtn();
+		AddLogs.bindCancelBtn();
 	}
 }
 
