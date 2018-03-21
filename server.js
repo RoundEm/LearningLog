@@ -60,13 +60,26 @@ app.get('/logEntry/:entry_id', (req, res) => {
 		.then(log => res.json(log))
 		.catch(err => {
 			console.error(err);
-				res.status(500).json({message: 'Internal server error'})
+				res.status(500).json({message: 'Internal server error'});
 		});
 });
 
+// QQ: Do I still need jsonParser??
 app.post('/logEntries', jsonParser, (req, res) => {
-	const entry = LogEntries.create(req.body.title, req.body.content, req.body.tag);
-	res.status(201).json(entry);
+	LearningLog
+		.create({
+			id: req.body.entry_id,
+			title: req.body.title,
+			content: req.body.content,
+			publishDateTime: req.body.content,
+			tag: req.body.tag
+		})
+		.then(log => res.status(201).json(log))
+		.catch(err => {
+			console.error(err);
+			res.status(500).json({message: 'Internal server error'});
+		});
+
 });
 
 app.put('/logEntries/:entry_id', jsonParser, (req, res) => {
