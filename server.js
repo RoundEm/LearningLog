@@ -11,19 +11,19 @@ mongoose.Promise = global.Promise;
 app.use(morgan('common'));
 app.use(express.static('public'));
 
-const { LogEntries } = require('./models');
-const { PORT, DB_URL };
+const { LearningLog } = require('./models');
+const { PORT, DB_URL } = require('./config')
 
-// Create dummy data
-const setTimeoutPromise = util.promisify(setTimeout);
-LogEntries.create('A', 'Lorem ipsum dolor sit amet', 'JavaScript Promises');
-setTimeoutPromise(2000, 'a').then((value) => {
-	LogEntries.create('B', 'Duis aute irure dolor in reprehenderit', 'Angular');
-}).then((value) => {
-	setTimeoutPromise(2000, 'b').then((value) => {
-		LogEntries.create('C', 'Excepteur sint occaecat cupidatat non proident', 'MongoDB');
-	});
-});
+// // Create dummy data
+// const setTimeoutPromise = util.promisify(setTimeout);
+// LogEntries.create('A', 'Lorem ipsum dolor sit amet', 'JavaScript Promises');
+// setTimeoutPromise(2000, 'a').then((value) => {
+// 	LogEntries.create('B', 'Duis aute irure dolor in reprehenderit', 'Angular');
+// }).then((value) => {
+// 	setTimeoutPromise(2000, 'b').then((value) => {
+// 		LogEntries.create('C', 'Excepteur sint occaecat cupidatat non proident', 'MongoDB');
+// 	});
+// });
 
 
 app.get('/', (req, res) => {
@@ -40,6 +40,7 @@ app.get('/add-log', (req, res) => {
 
 // get all of your posts
 app.get('/logEntries', (req, res) => {
+
 	res.json(LogEntries.get());
 });
 
@@ -69,7 +70,6 @@ app.delete('/logEntries/:entry_id', (req, res) => {
 	console.log(`Deleted log entry \`${req.params.entry_id}\``)
 	res.status(204).end();
 });
-
 
 let server;
 
