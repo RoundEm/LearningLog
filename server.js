@@ -14,7 +14,7 @@ app.use(express.static('public'));
 const { LearningLog } = require('./models');
 const { PORT, DB_URL } = require('./config')
 
-// // Create dummy data
+// Create dummy data
 // const setTimeoutPromise = util.promisify(setTimeout);
 // LogEntries.create('A', 'Lorem ipsum dolor sit amet', 'JavaScript Promises');
 // setTimeoutPromise(2000, 'a').then((value) => {
@@ -54,9 +54,9 @@ app.get('/logEntries', (req, res) => {
 });
 
 // get an individual post
-app.get('/logEntry/:entry_id', (req, res) => {
+app.get('/logEntry/:log_id', (req, res) => {
 	LearningLog
-		.findById(req.params.entry_id)
+		.findById(req.params.log_id)
 		.then(log => res.json(log))
 		.catch(err => {
 			console.error(err);
@@ -68,7 +68,7 @@ app.get('/logEntry/:entry_id', (req, res) => {
 app.post('/logEntries', jsonParser, (req, res) => {
 	LearningLog
 		.create({
-			id: req.body.entry_id,
+			id: req.body.log_id,
 			title: req.body.title,
 			content: req.body.content,
 			publishDateTime: req.body.content,
@@ -82,9 +82,9 @@ app.post('/logEntries', jsonParser, (req, res) => {
 
 });
 
-app.put('/logEntries/:entry_id', jsonParser, (req, res) => {
+app.put('/logEntries/:log_id', jsonParser, (req, res) => {
 	const revisedEntry = LogEntries.update({
-		id: req.params.entry_id,
+		id: req.params.log_id,
 		title: req.body.title,
 		content: req.body.content,
 		publishDate: req.body.publishDate,
@@ -93,10 +93,15 @@ app.put('/logEntries/:entry_id', jsonParser, (req, res) => {
 	res.status(204).end();
 });
 
-app.delete('/logEntries/:entry_id', (req, res) => {
+app.delete('/logEntries/:log_id', (req, res) => {
 	JournalEntries.delete(req.params.id);
-	console.log(`Deleted log entry \`${req.params.entry_id}\``)
+	console.log(`Deleted log entry \`${req.params.log_id}\``)
 	res.status(204).end();
+});
+
+// if none of the above routes are hit
+app.use((req, res) => {
+	res.sendStatus(404);
 });
 
 let server;
