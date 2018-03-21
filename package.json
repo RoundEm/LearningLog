@@ -2,7 +2,7 @@
   "name": "devjourney",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "mocha --exit"
   },
@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.2",
+    "mongo": "^0.1.0",
+    "mongoose": "^5.0.11",
     "morgan": "^1.9.0",
     "requirejs": "^2.3.5",
     "util": "^0.10.3",
