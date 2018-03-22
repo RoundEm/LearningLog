@@ -8,17 +8,8 @@ const AddLogs = {
 			content: content,
 			tag: tag
 		}
-		return $.ajax({
-			url: '/logEntries', 
-			dataType: 'json',
-			method: 'post',
-			data: params
-		})
-		.then(function(data) {
-			console.log('params:', params);
-			console.log('data:', data);
-		});
-
+		return $.post('/logEntries', params, function(data) {});
+		
 	},
 	bindSubmit: function() {
 		$('.add-log').submit(function(event) {
@@ -33,11 +24,8 @@ const AddLogs = {
 			contentTarget.val('');
 			tagTarget.val('');
 
-			AddLogs.createLogEntry(titleValue, contentValue, tagValue);
+			AddLogs.createLogEntry(titleValue, contentValue, tagValue).then(console.log('success!'));
 
-			// window.location ='http://localhost:8080/view-logs';
-			// window.location.href='http://localhost:8080/view-logs';
-			// window.location.replace('http://localhost:8080/view-logs');
 		});	 
 	},
 	setup: function() {
