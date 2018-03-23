@@ -11,7 +11,7 @@ const AddLogs = {
 		return $.post('/logEntries', params, function(data) {});
 		
 	},
-	bindSubmit: function() {
+	bindSubmitBtn: function() {
 		$('.add-log').submit(function(event) {
 			event.preventDefault();
 			let titleTarget = $(this).find('#add-title');
@@ -25,11 +25,18 @@ const AddLogs = {
 			tagTarget.val('');
 
 			AddLogs.createLogEntry(titleValue, contentValue, tagValue).then(console.log('success!'));
+			window.location.replace('http://localhost:8080/view-logs');
 
 		});	 
 	},
+	bindAbortBtn: function() {
+		$('#abortLog').click(function() {
+			console.log('abort ran');
+		});
+	},
 	setup: function() {
-		AddLogs.bindSubmit();
+		AddLogs.bindSubmitBtn();
+		AddLogs.bindAbortBtn();
 	}
 }
 

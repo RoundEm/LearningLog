@@ -15,17 +15,17 @@
 		</div>
 	</header>
 
-	<main>
+	<main role="main">
 		<section>
-			<!-- are action and method needed? -->
-			<form class="add-log" action="/logEntries" method="POST">
+			<form class="add-log">
 				<label for="title">Title</label><br>
 				<input type="text" name="title" id="add-title" required /><br>
 				<label for="content">Content</label> <br>
 				<textarea id="add-content" name="textarea" required>  </textarea><br>
 				<label for="tag">Tag</label><br>
 				<input type="text" name="tag" id="add-tag" /><br>
-				<button type="submit" name="save">Save Log</button>
+				<button type="submit" name="save" id="saveLog">Save Log</button><br>
+				<button name="close" id="abortLog">Abort Log Entry</button>
 			</form>
 		</section>
 	</main>

@@ -70,7 +70,10 @@ app.delete('/logEntries/:entry_id', (req, res) => {
 	res.status(204).end();
 });
 
-
+// if no routes are hit
+app.use((req, res) => {
+	res.sendStatus(404);
+});
 
 let server;
 
