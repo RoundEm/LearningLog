@@ -5,10 +5,9 @@ const express = require('express'),
 	jsonParser = bodyParser.json(),
 	app = express();
 
-
 app.use(morgan('common'));
 app.use(express.static('public'));
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 
 const { LogEntries } = require('./models');
 
@@ -40,7 +39,7 @@ app.get('/add-log', (req, res) => {
 // get all of your posts
 app.get('/logEntries', (req, res) => {
 	res.json(LogEntries.get());
-});
+});	
 
 // get an individual post
 app.get('/logEntry/:entry_id', (req, res) => {
@@ -50,7 +49,9 @@ app.get('/logEntry/:entry_id', (req, res) => {
 app.post('/logEntries', jsonParser, (req, res) => {
 	console.log('POST req', req)
 	const entry = LogEntries.create(req.body.title, req.body.content, req.body.tag);
-	res.status(201).json(entry);
+	// res.status(201).json(entry);
+	res.redirect(303, '/view-logs');
+	// // console.log('',);
 });
 
 app.put('/logEntries/:entry_id', jsonParser, (req, res) => {
@@ -63,7 +64,7 @@ app.put('/logEntries/:entry_id', jsonParser, (req, res) => {
 	});
 	res.status(204).end();
 });
-
+	
 app.delete('/logEntries/:entry_id', (req, res) => {
 	JournalEntries.delete(req.params.id);
 	console.log(`Deleted log entry \`${req.params.entry_id}\``)
