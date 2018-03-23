@@ -43,8 +43,8 @@ app.get('/logEntries', (req, res) => {
 });
 
 // get an individual post
-app.get('/logEntry/:entry_id', (req, res) => {
-	res.json(LogEntries.get(req.params.entry_id));
+app.get('/logEntry/:log_id', (req, res) => {
+	res.json(LogEntries.get(req.params.log_id));
 });
 
 app.post('/logEntries', jsonParser, (req, res) => {
@@ -53,9 +53,9 @@ app.post('/logEntries', jsonParser, (req, res) => {
 	res.status(201).json(entry);
 });
 
-app.put('/logEntries/:entry_id', jsonParser, (req, res) => {
+app.put('/logEntries/:log_id', jsonParser, (req, res) => {
 	const revisedEntry = LogEntries.update({
-		id: req.params.entry_id,
+		id: req.params.log_id,
 		title: req.body.title,
 		content: req.body.content,
 		publishDate: req.body.publishDate,
@@ -64,9 +64,9 @@ app.put('/logEntries/:entry_id', jsonParser, (req, res) => {
 	res.status(204).end();
 });
 
-app.delete('/logEntries/:entry_id', (req, res) => {
-	JournalEntries.delete(req.params.id);
-	console.log(`Deleted log entry \`${req.params.entry_id}\``)
+app.delete('/logEntries/:log_id', (req, res) => {
+	JournalEntries.delete(req.params.log_id);
+	console.log(`Deleted log entry \`${req.params.log_id}\``)
 	res.status(204).end();
 });
 
