@@ -37,6 +37,10 @@ app.get('/add-log', (req, res) => {
 	res.sendFile(`${__dirname}/views/addLog.html`);
 });
 
+app.get('/view-log', (req, res) => {
+	res.sendFile(`${__dirname}/views/viewLog.html`);
+});
+
 // get all of your posts
 app.get('/logEntries', (req, res) => {
 	res.json(LogEntries.get());
@@ -45,6 +49,16 @@ app.get('/logEntries', (req, res) => {
 // get an individual post
 app.get('/logEntry/:log_id', (req, res) => {
 	res.json(LogEntries.get(req.params.log_id));
+});
+
+app.post('/nextLogEntry', jsonParser, (req, res) => {
+	console.log('req.body.logEntry', req.body);
+	LogEntries.setNextEntry(req.body);
+	res.status(201).json(req.body);
+});
+
+app.get('/nextLogEntry', (req, res) => {
+	res.json(LogEntries.getNextEntry());
 });
 
 app.post('/logEntries', jsonParser, (req, res) => {
@@ -74,6 +88,7 @@ app.delete('/logEntries/:log_id', (req, res) => {
 app.use((req, res) => {
 	res.sendStatus(404);
 });
+
 
 let server;
 
