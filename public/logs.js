@@ -1,11 +1,12 @@
 'use strict';
 
 const Logs = {
+	logsData: {},
 	logData: {},
 	getData: function() {
 		console.log('getData ran');
 		return $.getJSON( "/logEntries", function(data) {
-			Logs.logData = data;
+			Logs.logsData = data;
 			return data;
 		});
 	},
@@ -29,21 +30,21 @@ const Logs = {
 				let dateOfMonth = d.getDate();
 				let dayOfWeekIndex = d.getDay();
 				let dayOfWeek = daysOfWeek[dayOfWeekIndex];
-				Logs.logData[i].dateTime = `${dayOfWeek} - ${month}/${dateOfMonth}/${year} - ${hour}:${minutes}:${milliSecs}`;
+				Logs.logsData[i].dateTime = `${dayOfWeek} - ${month}/${dateOfMonth}/${year} - ${hour}:${minutes}:${milliSecs}`;
 			}
-			Logs.displayData(Logs.logData);
+			Logs.displayLogsData(Logs.logsData);
 		});   
 	},
-	displayData: function(logData) {
-		// console.log('displayData:', logData);
-		let logListSections = '';
-		for (let i = 0; i < logData.length; i++) {
-			let logContent = logData[i].content;
-			let logDateTime = logData[i].dateTime;
-			let logTitle = logData[i].title;
-			let logTag = logData[i].tag;
-			let logID = logData[i].id;
-			logListSections +=
+	displayLogsData: function(logsData) {
+		// console.log('displayLogsData:', logsData);
+		let logList = '';
+		for (let i = 0; i < logsData.length; i++) {
+			let logContent = logsData[i].content;
+			let logDateTime = logsData[i].dateTime;
+			let logTitle = logsData[i].title;
+			let logTag = logsData[i].tag;
+			let logID = logsData[i].id;
+			logList +=
 				`<div class="logEntry">	
 					<p>${logTitle}</p>
 					<p>${logTag}</p>
@@ -52,66 +53,67 @@ const Logs = {
 					<p class="entryId" hidden>${logID}</p>
 				</div>`;
 		}
-		$('.logList-section').empty().append(logListSections);
+		$('.logList-section').empty().append(logList);
 	},
 	sortLogs: function() {
 		$('select').change(function() {
 			let sortValue = $(this).val();
 			console.log('sortValue:', sortValue);
 			if (sortValue === 'log_newest') {
-				Logs.logData.sort(function(a, b) {
+				Logs.logsData.sort((a, b) => {
 					return b.publishDate - a.publishDate;
 				});
 			} else if (sortValue === 'log_oldest') {
-				Logs.logData.sort(function(a, b) {
+				Logs.logsData.sort((a, b) => {
 					return a.publishDate - b.publishDate;
 				});
 			} else if (sortValue === 'tag_a') {
-				Logs.logData.sort(function(a, b) {
+				Logs.logsData.sort((a, b) => {
 					let _a = a.tag.toLowerCase();
 					let _b = b.tag.toLowerCase();
-					console.log(_a);
 					if (_a < _b) return -1;
 					if (_a > _b) return 1;
 					return 0;
 				});
 			} else {
-				Logs.logData.sort(function(a, b) {
+				Logs.logsData.sort((a, b) => {
 					let _a = a.tag.toLowerCase();
 					let _b = b.tag.toLowerCase();
-					console.log(_a);
 					if (_b < _a) return -1;
 					if (_b > _a) return 1;
 					return 0;
 				});
 			}
-			Logs.displayData(Logs.logData);
+			Logs.displayLogsData(Logs.logsData);
 		});
 	},
-	viewLog: function(entry_id) {
+	getLogData: function(entry_id) {
 		return $.getJSON(`/logEntry/${entry_id}`, function(data) {
 			console.log(data);
+			Logs.logData = data;
+			const params = {
+				logEntry: data
+			};
+			console.log('params:', params)
+			return $.post('/nextLogEntry', params);
 		});
 	},
-	// deleteLog: function() {
-
-	// },
-	// updateLog: function() {
-
-	// },
 	bindLogClick: function() {
 		$('.logList-section').on('click', '.logEntry', function() {
 			let entryId = $(this).find('.entryId').text();
 			console.log('entryId:', entryId);
-			Logs.viewLog(entryId);
+			Logs.getLogData(entryId);
 		});
 	},
-	setup: function() {
+	setupViewLogs: function() {
 		Logs.processLogData();
 		Logs.sortLogs();
 		Logs.bindLogClick();
-		Logs.viewLog();
+	},
+	setupViewLog: function() {
+		// Logs.bindLogClick();
+		// Logs.processLogData();
 	}
 }
 
-$(Logs.setup);	
+	
