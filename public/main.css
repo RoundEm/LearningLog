@@ -54,7 +54,7 @@ label {
 .benefits p:nth-child(even) {
 	border: 2px solid #FA5882;
 }
-.logList-section div {
+.render-log-section div {
 	border: 2px solid;
 	margin: 5px;
 	padding: 3px;

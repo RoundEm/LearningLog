@@ -36,7 +36,7 @@ const Logs = {
 		});   
 	},
 	displayLogsData: function(logsData) {
-		// console.log('displayLogsData:', logsData);
+		console.log('displayLogsData data:', logsData);
 		let logList = '';
 		for (let i = 0; i < logsData.length; i++) {
 			let logContent = logsData[i].content;
@@ -53,7 +53,7 @@ const Logs = {
 					<p class="entryId" hidden>${logID}</p>
 				</div>`;
 		}
-		$('.logList-section').empty().append(logList);
+		$('.render-log-section').empty().append(logList);
 	},
 	sortLogs: function() {
 		$('select').change(function() {
@@ -87,6 +87,13 @@ const Logs = {
 			Logs.displayLogsData(Logs.logsData);
 		});
 	},
+	bindLogClick: function() {
+		$('.render-log-section').on('click', '.logEntry', function() {
+			let entryId = $(this).find('.entryId').text();
+			console.log('entryId:', entryId);
+			Logs.getLogData(entryId);
+		});
+	},
 	getLogData: function(entry_id) {
 		return $.getJSON(`/logEntry/${entry_id}`, function(data) {
 			console.log(data);
@@ -94,16 +101,14 @@ const Logs = {
 			const params = {
 				logEntry: data
 			};
-			console.log('params:', params)
-			return $.post('/nextLogEntry', params);
+			return $.post('/nextLogEntry', params/*, Logs.viewLogData*/);
 		});
 	},
-	bindLogClick: function() {
-		$('.logList-section').on('click', '.logEntry', function() {
-			let entryId = $(this).find('.entryId').text();
-			console.log('entryId:', entryId);
-			Logs.getLogData(entryId);
+	viewLogData: function() {
+		$.getJSON('/nextLogEntry', function(data) {
+			Logs.displayLogsData(data);
 		});
+		window.location.href = 'http://localhost:8080/view-log';
 	},
 	setupViewLogs: function() {
 		Logs.processLogData();
