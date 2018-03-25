@@ -8,8 +8,7 @@ const AddLogs = {
 			content: content,
 			tag: tag
 		}
-		return $.post('/logEntries', params, function(data) {});
-		
+		return $.post('/logEntries', params);
 	},
 	bindSubmitBtn: function() {
 		$('.add-log').submit(function(event) {
@@ -25,8 +24,8 @@ const AddLogs = {
 			tagTarget.val('');
 
 			AddLogs.createLogEntry(titleValue, contentValue, tagValue).then(console.log('success!'));
+			// TODO remove and add success notification
 			window.location.replace('http://localhost:8080/view-logs');
-
 		});	 
 	},
 	bindAbortBtn: function() {
