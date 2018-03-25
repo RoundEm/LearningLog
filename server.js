@@ -19,7 +19,7 @@ LogEntries.create('A', 'Lorem ipsum dolor sit amet', 'JavaScript Promises');
 setTimeoutPromise(2000, 'a').then((value) => {
 	LogEntries.create('B', 'Duis aute irure dolor in reprehenderit', 'Angular');
 }).then((value) => {
-	setTimeoutPromise(2000, 'b').then((value) => {
+	setTimeoutPromise(1000, 'b').then((value) => {
 		LogEntries.create('C', 'Excepteur sint occaecat cupidatat non proident', 'MongoDB');
 	});
 });
@@ -52,7 +52,7 @@ app.get('/logEntry/:log_id', (req, res) => {
 });
 
 app.post('/nextLogEntry', jsonParser, (req, res) => {
-	console.log('req.body.logEntry', req.body);
+	console.log('req.body', req.body);
 	LogEntries.setNextEntry(req.body);
 	res.status(201).json(req.body);
 });

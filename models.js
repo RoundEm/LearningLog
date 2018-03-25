@@ -14,8 +14,9 @@ const LogEntries = {
 		return entry;
 	},
 	setNextEntry: function(entry) {
+		console.log('setNextEntry ran');
 		this.nextEntry = entry;
-		console.log('entry', entry);
+		console.log('entry:', entry);
 		return entry;
 	},
 	getNextEntry: function() {
