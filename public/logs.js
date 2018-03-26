@@ -108,7 +108,6 @@ const Logs = {
 		$.getJSON('/nextLogEntry', function(data) {
 			Logs.displayLogsData(data);
 		});
-		window.location.href = 'http://localhost:8080/view-log';
 	},
 	setupViewLogs: function() {
 		Logs.processLogData();
