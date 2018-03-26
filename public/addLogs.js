@@ -19,23 +19,13 @@ const AddLogs = {
 			let contentValue = contentTarget.val();
 			let tagTarget = $(this).find('#add-tag');
 			let tagValue = tagTarget.val();
-			titleTarget.val('');
-			contentTarget.val('');
-			tagTarget.val('');
-
-			AddLogs.createLogEntry(titleValue, contentValue, tagValue).then(console.log('success!'));
-			// TODO remove and add success notification
-			window.location.replace('http://localhost:8080/view-logs');
+			$('.add-log input, .add-log textarea').prop('readonly', true);
+			AddLogs.createLogEntry(titleValue, contentValue, tagValue).then(console.log('log successfully created'));		
+    		$('.successMsg').append(`Your log titled has been saved. You can <a href="/add-log">add another log</a> or <a href="/view-logs">return to your saved logs`);
 		});	 
-	},
-	bindAbortBtn: function() {
-		$('#abortLog').click(function() {
-			console.log('abort ran');
-		});
 	},
 	setup: function() {
 		AddLogs.bindSubmitBtn();
-		AddLogs.bindAbortBtn();
 	}
 }
 
