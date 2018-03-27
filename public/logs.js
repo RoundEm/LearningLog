@@ -120,15 +120,25 @@ const Logs = {
 			Logs.displayLogsData(data);
 		});
 	},
+	editLog: function() {
+		$('#editLog').click(function() {
+			console.log('editLog ran')
+		});
+	},
+	deleteLog: function() {
+		$('#deleteLog').click(function() {
+			console.log('deleteLog ran')
+		});
+	},
 	setupViewLogs: function() {
 		Logs.processLogData();
 		Logs.sortLogs();
 		Logs.bindLogClick();
 	},
 	setupViewLog: function() {
-		Logs.viewLogData().then(
-			// TODO: bind edit and delete handlers
-			)
+		Logs.viewLogData()
+			.then(Logs.deleteLog())
+			.then(Logs.editLog());
 	}
 }
 
