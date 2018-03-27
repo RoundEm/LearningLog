@@ -14,7 +14,6 @@ const Logs = {
 		console.log('processLogData ran');
 		let data = Logs.getData().then(function(data) {
 			console.log('data:', data);
-			// format date/time
 			const daysOfWeek = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
 			for (let i = 0; i < data.length; i++) {
 				let d = new Date(data[i].publishDate);
@@ -38,6 +37,20 @@ const Logs = {
 	displayLogsData: function(logsData) {
 		console.log('displayLogsData data:', logsData);
 		let logList = '';
+		// If single item passed is not array wrap object in array
+		if (!Array.isArray(logsData)) {
+			// TODO format date time for view-log page
+			let newArray = [
+				{
+					title: logsData.title ? logsData.title : 'default title',
+					tag: logsData.tag ? logsData.tag : 'default tag',
+					content: logsData.content ? logsData.content : 'default content',
+					id: logsData.id ? logsData.id : 'default ID',
+					dateTime: logsData.publishDate ? logsData.publishDate : 'default dateTime'
+				}
+			];
+			logsData = newArray;
+		}
 		for (let i = 0; i < logsData.length; i++) {
 			let logContent = logsData[i].content;
 			let logDateTime = logsData[i].dateTime;
@@ -53,6 +66,7 @@ const Logs = {
 					<p class="entryId" hidden>${logID}</p>
 				</div>`;
 		}
+		console.log('logList:', logList);
 		$('.render-log-section').empty().append(logList);
 	},
 	sortLogs: function() {
@@ -92,20 +106,17 @@ const Logs = {
 			let entryId = $(this).find('.entryId').text();
 			console.log('entryId:', entryId);
 			Logs.getLogData(entryId);
+			window.location.href = '/view-log';
 		});
 	},
 	getLogData: function(entry_id) {
 		return $.getJSON(`/logEntry/${entry_id}`, function(data) {
-			console.log(data);
 			Logs.logData = data;
-			const params = {
-				logEntry: data
-			};
-			return $.post('/nextLogEntry', params/*, Logs.viewLogData*/);
+			return $.post('/nextLogEntry', Logs.logData);
 		});
 	},
 	viewLogData: function() {
-		$.getJSON('/nextLogEntry', function(data) {
+		return $.getJSON('/nextLogEntry', function(data) {
 			Logs.displayLogsData(data);
 		});
 	},
@@ -115,8 +126,9 @@ const Logs = {
 		Logs.bindLogClick();
 	},
 	setupViewLog: function() {
-		// Logs.bindLogClick();
-		// Logs.processLogData();
+		Logs.viewLogData().then(
+			// TODO: bind edit and delete handlers
+			)
 	}
 }
 
