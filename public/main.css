@@ -37,6 +37,12 @@ main {
 	background-color: #FFCE00;
 	cursor: pointer;
 }
+button {
+	padding: 10px;
+	margin: 25px 0 10px;
+	border-radius: 3px;
+	font-size: .85em;
+}
 select {
 	font-size: .7em;
 }
@@ -63,7 +69,6 @@ label {
 	cursor: pointer;
 }
 
-/* addLog page: */
 
 label {
 	display: inline-block;
@@ -90,11 +95,6 @@ textarea {
 .add-log input[name="submit"] {
 	margin: 25px 0;
 }
-.add-log button	{
-	padding: 10px;
-	margin: 25px 0 10px;
-	border-radius: 3px;
-	font-size: .85em;
-}
+
 
 
