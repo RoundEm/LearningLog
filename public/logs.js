@@ -3,6 +3,7 @@
 const Logs = {
 	logsData: {},
 	logData: {},
+	editLogData: {},
 	getData: function() {
 		console.log('getData ran');
 		return $.getJSON( "/logEntries", function(data) {
@@ -31,7 +32,7 @@ const Logs = {
 				let dayOfWeek = daysOfWeek[dayOfWeekIndex];
 				Logs.logsData[i].dateTime = `${dayOfWeek} - ${month}/${dateOfMonth}/${year} - ${hour}:${minutes}:${milliSecs}`;
 			}
-			Logs.displayLogsData(Logs.logsData);
+				Logs.displayLogsData(Logs.logsData);
 		});   
 	},
 	displayLogsData: function(logsData) {
@@ -122,7 +123,9 @@ const Logs = {
 	},
 	editLog: function() {
 		$('#editLog').click(function() {
-			console.log('editLog ran')
+			let entryId = $(this).siblings('.render-log-section').find('.entryId').text();
+			console.log('entryId:', entryId);
+			window.location.href = `/edit-log/${entryId}`;
 		});
 	},
 	deleteLog: function() {
