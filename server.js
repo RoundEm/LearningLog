@@ -16,10 +16,10 @@ const { LogEntries } = require('./models');
 // Create dummy data
 const setTimeoutPromise = util.promisify(setTimeout);
 LogEntries.create('A', 'Lorem ipsum dolor sit amet', 'JavaScript Promises');
-setTimeoutPromise(2000, 'a').then((value) => {
+setTimeoutPromise(1000, 'a').then((value) => {
 	LogEntries.create('B', 'Duis aute irure dolor in reprehenderit', 'Angular');
 }).then((value) => {
-	setTimeoutPromise(1000, 'b').then((value) => {
+	setTimeoutPromise(500, 'b').then((value) => {
 		LogEntries.create('C', 'Excepteur sint occaecat cupidatat non proident', 'MongoDB');
 	});
 });
@@ -39,6 +39,10 @@ app.get('/add-log', (req, res) => {
 
 app.get('/view-log', (req, res) => {
 	res.sendFile(`${__dirname}/views/viewLog.html`);
+});
+
+app.get('/edit-log/:log_id', (req, res) => {
+	res.sendFile(`${__dirname}/views/editLog.html`);
 });
 
 // get all of your posts

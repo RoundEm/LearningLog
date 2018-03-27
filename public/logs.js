@@ -124,7 +124,6 @@ const Logs = {
 	editLog: function() {
 		$('#editLog').click(function() {
 			let entryId = $(this).siblings('.render-log-section').find('.entryId').text();
-			console.log('entryId:', entryId);
 			window.location.href = `/edit-log/${entryId}`;
 		});
 	},
