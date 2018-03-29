@@ -33,7 +33,7 @@ main {
 	margin: 20px auto 0;
 	text-align: center;
 }
-.newPage:hover, .add-log button:hover {
+.newPage:hover, button:hover {
 	background-color: #FFCE00;
 	cursor: pointer;
 }
@@ -43,6 +43,7 @@ button {
 	border-radius: 3px;
 	font-size: .85em;
 }
+
 select {
 	font-size: .7em;
 }
@@ -74,7 +75,7 @@ label {
 	display: inline-block;
 	margin: 10px 0 0;
 }
-.add-log input, textarea {
+.logForm input, textarea {
 	padding: 5px;
 	font-size: .75em;
 	border: 1px solid;
@@ -84,15 +85,15 @@ textarea {
 	width: 100%;
 	height: 200px;	
 }
-.add-log input[name="title"] {
+.logForm input[name="title"] {
 	height: 35px;
 	width: 75%
 }
-.add-log input[name="tag"] {
+.logForm input[name="tag"] {
 	height: 35px;
 	width: 55%
 }
-.add-log input[name="submit"] {
+.logForm  input[name="submit"] {
 	margin: 25px 0;
 }
 
