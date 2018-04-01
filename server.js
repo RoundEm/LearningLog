@@ -37,11 +37,11 @@ app.get('/add-log', (req, res) => {
 	res.sendFile(`${__dirname}/views/addLog.html`);
 });
 
-app.get('/view-log', (req, res) => {
+app.get('/view-log/:logId', (req, res) => {
 	res.sendFile(`${__dirname}/views/viewLog.html`);
 });
 
-app.get('/edit-log/:log_id', (req, res) => {
+app.get('/edit-log/:logId', (req, res) => {
 	res.sendFile(`${__dirname}/views/editLog.html`);
 });
 
@@ -51,8 +51,8 @@ app.get('/logEntries', (req, res) => {
 });
 
 // get an individual post
-app.get('/logEntry/:log_id', (req, res) => {
-	res.json(LogEntries.get(req.params.log_id));
+app.get('/logEntries/:logId', (req, res) => {
+	res.json(LogEntries.get(req.params.logId));
 });
 
 app.post('/nextLogEntry', jsonParser, (req, res) => {
@@ -71,20 +71,21 @@ app.post('/logEntries', jsonParser, (req, res) => {
 	res.status(201).json(entry);
 });
 
-app.put('/logEntries/:log_id', jsonParser, (req, res) => {
+app.put('/logEntries/:logId', jsonParser, (req, res) => {
 	const revisedEntry = LogEntries.update({
-		id: req.params.log_id,
+		id: req.params.logId,
 		title: req.body.title,
 		content: req.body.content,
 		publishDate: req.body.publishDate,
 		tag: req.body.tag
 	});
-	res.status(204).end();
+	console.log('revisedEntry', revisedEntry)
+	res.status(200).json(revisedEntry);
 });
 
-app.delete('/logEntries/:log_id', (req, res) => {
-	JournalEntries.delete(req.params.log_id);
-	console.log(`Deleted log entry \`${req.params.log_id}\``)
+app.delete('/logEntries/:logId', (req, res) => {
+	LogEntries.delete(req.params.logId);
+	console.log(`Deleted log entry \`${req.params.logId}\``)
 	res.status(204).end();
 });
 
