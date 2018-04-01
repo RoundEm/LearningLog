@@ -1,6 +1,6 @@
-const editFormModel = {
-	 
-}
+const editFormModel = {}
+
+const editLogId = window.location.pathname.split('/')[2];
 
 function populateEditLogFields() {
 	let logContent = editFormModel.content;
@@ -11,14 +11,30 @@ function populateEditLogFields() {
 	$('#edit-tag').val(logTag);
 }
 
+function handleUpdate(err, response) {
+	if (err) {
+		return console.log(err);
+	} 
+	alert('Log was successfully updated');
+	window.history.back();
+}
+
+function handleDelete(err, response) {
+	if (err) {
+		return console.log(err);
+	} 
+	alert('Log was successfully deleted');
+	window.location.href = '/view-logs';
+}
+
 function bindHandlers() {
 	$('#deleteLog').click(function(event) {
 		event.preventDefault();
-		console.log('deleteLog ran')
+		Data.removeLog(editLogId, handleDelete);
 	});
 	$('#saveLog').click(function(event) {
 		event.preventDefault();
-		console.log('saveLog ran')
+		Data.updateLog(editLogId, editFormModel, handleUpdate);
 	});
 	$('#edit-content').on('input', function(event) {
 		updateEditFormModel('content', event.target.value);
@@ -26,8 +42,8 @@ function bindHandlers() {
 	$('#edit-title').on('input', function(event) {
 		updateEditFormModel('title', event.target.value);
 	});
-	$('#edit-tag').on('tag', function(event) {
-		updateEditFormModel('content', event.target.value);
+	$('#edit-tag').on('input', function(event) {
+		updateEditFormModel('tag', event.target.value);
 	});
 }
 
@@ -36,8 +52,7 @@ function updateEditFormModel(key, value) {
 }
 
 function initEditLog() {
-	const logId = window.location.pathname.split('/')[2];
-	Data.getLog(logId, function(data) {
+	Data.getLog(editLogId, function(err, data) {
 		Object.keys(data).forEach(function(key) {
 			updateEditFormModel(key, data[key]);
 		});
