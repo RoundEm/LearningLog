@@ -4,15 +4,15 @@ const Logs = {
 	logsData: {},
 	logData: {},
 	editLogData: {},
-	getData: function() {
-		console.log('getData ran');
+	getData: function() { 
 		return $.getJSON( "/logEntries", function(data) {
 			Logs.logsData = data;
 			return data;
 		});
 	},
+	// formatDateTime: function() {	
+	// },
 	processLogData: function() {
-		console.log('processLogData ran');
 		let data = Logs.getData().then(function(data) {
 			console.log('data:', data);
 			const daysOfWeek = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
@@ -35,29 +35,15 @@ const Logs = {
 				Logs.displayLogsData(Logs.logsData);
 		});   
 	},
-	displayLogsData: function(logsData) {
+	displayLogData: function(data) {
 		console.log('displayLogsData data:', logsData);
 		let logList = '';
-		// If single item passed is not array wrap object in array
-		if (!Array.isArray(logsData)) {
-			// TODO format date time for view-log page
-			let newArray = [
-				{
-					title: logsData.title ? logsData.title : 'default title',
-					tag: logsData.tag ? logsData.tag : 'default tag',
-					content: logsData.content ? logsData.content : 'default content',
-					id: logsData.id ? logsData.id : 'default ID',
-					dateTime: logsData.publishDate ? logsData.publishDate : 'default dateTime'
-				}
-			];
-			logsData = newArray;
-		}
-		for (let i = 0; i < logsData.length; i++) {
-			let logContent = logsData[i].content;
-			let logDateTime = logsData[i].dateTime;
-			let logTitle = logsData[i].title;
-			let logTag = logsData[i].tag;
-			let logID = logsData[i].id;
+		for (let i = 0; i < data.length; i++) {
+			let logContent = data[i].content;
+			let logDateTime = data[i].publishDate;
+			let logTitle = data[i].title;
+			let logTag = data[i].tag;
+			let logID = data[i].id;
 			logList +=
 				`<div class="logEntry">	
 					<p>${logTitle}</p>
@@ -67,7 +53,6 @@ const Logs = {
 					<p class="entryId" hidden>${logID}</p>
 				</div>`;
 		}
-		console.log('logList:', logList);
 		$('.render-log-section').empty().append(logList);
 	},
 	sortLogs: function() {
@@ -107,17 +92,18 @@ const Logs = {
 			let entryId = $(this).find('.entryId').text();
 			console.log('entryId:', entryId);
 			Logs.getLogData(entryId);
-			window.location.href = '/view-log';
+			window.location.href = `/view-log/${entryId}`;
 		});
 	},
-	getLogData: function(entry_id) {
-		return $.getJSON(`/logEntry/${entry_id}`, function(data) {
+	getLogData: function(entryId) {
+		return $.getJSON(`/logEntries/${entryId}`, function(data) {
 			Logs.logData = data;
 			return $.post('/nextLogEntry', Logs.logData);
 		});
 	},
 	viewLogData: function() {
 		return $.getJSON('/nextLogEntry', function(data) {
+			console.log('viewLogData:', data);
 			Logs.displayLogsData(data);
 		});
 	},
@@ -127,20 +113,11 @@ const Logs = {
 			window.location.href = `/edit-log/${entryId}`;
 		});
 	},
-	deleteLog: function() {
-		$('#deleteLog').click(function() {
-			console.log('deleteLog ran')
-		});
-	},
+	
 	setupViewLogs: function() {
 		Logs.processLogData();
 		Logs.sortLogs();
 		Logs.bindLogClick();
-	},
-	setupViewLog: function() {
-		Logs.viewLogData()
-			.then(Logs.deleteLog())
-			.then(Logs.editLog());
 	}
 }
 
