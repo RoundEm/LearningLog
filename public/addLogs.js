@@ -8,7 +8,8 @@ const AddLogs = {
 			content: content,
 			tag: tag
 		}
-		return $.post('/logEntries', params);
+		// return $.post('/logEntries', params);
+		Data.postLog(params);
 	},
 	bindSubmitBtn: function() {
 		$('.add-log').submit(function(event) {
