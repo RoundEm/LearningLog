@@ -55,16 +55,6 @@ app.get('/logEntries/:logId', (req, res) => {
 	res.json(LogEntries.get(req.params.logId));
 });
 
-app.post('/nextLogEntry', jsonParser, (req, res) => {
-	console.log('req.body', req.body);
-	LogEntries.setNextEntry(req.body);
-	res.status(201).json(req.body);
-});
-
-app.get('/nextLogEntry', (req, res) => {
-	res.json(LogEntries.getNextEntry());
-});
-
 app.post('/logEntries', jsonParser, (req, res) => {
 	console.log('POST req', req)
 	const entry = LogEntries.create(req.body.title, req.body.content, req.body.tag);
