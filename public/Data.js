@@ -1,28 +1,32 @@
 var Data = {
+	// GET log entry by id
 	getLog: function (logId, cb) {
 		$.ajax({
 			url: `/logEntries/${logId}`,
 			type: 'GET',
 			success: function(res) {
-		   		cb(null, res);
+				console.log('getLog:', res);
+				cb(null, res);
 		   	},
 		   	error: function(err) {
 		   		cb(err);
 		   	}
-		})
+		});
 	},
+	// GET all log entries
 	getLogs: function (cb) {
 		$.ajax({
 			url: '/logEntries',
 			type: 'GET',
 			success: function(res) {
-				cb(null, res);
+				cb(res);
 			},
-			error: function() {
+			error: function(err) {
 				cb(err);
 			}
 		});
 	},
+	// POST new log entry
 	postLog: function(cb) {
 		$.ajax({
 			url: '/logEntries',
@@ -33,8 +37,9 @@ var Data = {
 		   	error: function(err) {
 		   		cb(err);
 		   	}
-		})
+		});
 	},
+	// PUT updates on log by id
 	updateLog: function(logId, newLog, cb) {
 		$.ajax({
 		   url: `/logEntries/${logId}`,
@@ -48,6 +53,7 @@ var Data = {
 		   }
 		});
 	},
+	// DELETE log by id
 	removeLog: function(logId, cb) {
 		$.ajax({
 		   url: `/logEntries/${logId}`,
