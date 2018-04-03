@@ -19,7 +19,7 @@ var Data = {
 			url: '/logEntries',
 			type: 'GET',
 			success: function(res) {
-				cb(res);
+				cb(null, res);
 			},
 			error: function(err) {
 				cb(err);
