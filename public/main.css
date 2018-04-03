@@ -50,6 +50,9 @@ select {
 label {
 	font-size: 1.25em;
 }
+a {
+	color: black;
+}
 .benefits p {
 	margin: 5px auto;
 	padding: 10px 30px;
