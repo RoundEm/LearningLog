@@ -7,7 +7,7 @@ function handleLogs(err, logs) {
 	if (err) {
 		return console.log(err);
 	}
-	logsData = data;
+	logsData = logs;
 	const logsHTML = renderLogs(logs);
 	$('.render-log-section').empty().append(logsHTML.join(''));
 }
@@ -53,7 +53,7 @@ function bindHandlers() {
 
 function initViewLogs() {
 	bindHandlers();
-	Data.getLogs(processLogData);
+	Data.getLogs(handleLogs);
 }
 
 $(initViewLogs);
