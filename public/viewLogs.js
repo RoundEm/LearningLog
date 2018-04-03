@@ -2,54 +2,19 @@
 
 let logsData = {}
 
-function processLogData(data) {
-		logsData = data;
-		console.log('processLogData data:', data);
-		const daysOfWeek = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
-		for (let i = 0; i < data.length; i++) {
-			let d = new Date(data[i].publishDate);
-			let hour = d.getHours();
-			let minutes = d.getMinutes();
-			if (minutes < 10) {
-				minutes = `0${minutes}`;
-			}
-			// remove milliSecs in production
-			let milliSecs = d.getMilliseconds();
-			let year = d.getFullYear();
-			let month = d.getMonth() + 1;
-			let dateOfMonth = d.getDate();
-			let dayOfWeekIndex = d.getDay();
-			let dayOfWeek = daysOfWeek[dayOfWeekIndex];
-			logsData[i].dateTime = `${dayOfWeek} - ${month}/${dateOfMonth}/${year} - ${hour}:${minutes}:${milliSecs}`;
-		}
-		displayLogsData(logsData);
-}
-
-function displayLogsData(data) {
-	console.log('displayLogsData data:', data);
-	let logList = '';
-	for (let i = 0; i < data.length; i++) {
-		let logContent = data[i].content;
-		let logDateTime = data[i].dateTime;
-		let logTitle = data[i].title;
-		let logTag = data[i].tag;
-		let logID = data[i].id;
-		logList +=
-			`<div class="logEntry">	
-				<p>${logTitle}</p>
-				<p>${logTag}</p>
-				<p>${logContent}</p>
-				<p>${logDateTime}</p>
-				<p class="entryId" hidden>${logID}</p>
-			</div>`;
+function handleLogs(err, logs) {
+	// console.log(err, data)
+	if (err) {
+		return console.log(err);
 	}
-	$('.render-log-section').empty().append(logList);
+	logsData = data;
+	const logsHTML = renderLogs(logs);
+	$('.render-log-section').empty().append(logsHTML.join(''));
 }
 
 function bindHandlers() {
 	$('.render-log-section').on('click', '.logEntry', function() {
 		let entryId = $(this).find('.entryId').text();
-		console.log('entryId:', entryId);
 		window.location.href = `/view-log/${entryId}`;
 	});
 
@@ -82,7 +47,7 @@ function bindHandlers() {
 				return 0;
 			});
 		}
-		displayLogsData(logsData);
+		processLogData(null, logsData);
 	});
 }
 
