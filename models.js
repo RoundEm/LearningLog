@@ -13,14 +13,6 @@ const LogEntries = {
 		this.entries.push(entry);
 		return entry;
 	},
-	setNextEntry: function(entry) {
-		this.nextEntry = entry;
-		console.log('setNextEntry entry:', entry);
-		return entry;
-	},
-	getNextEntry: function() {
-		return this.nextEntry;
-	},
 	get: function(id = null) {
 		if (id !== null) {
 			return this.entries.find(entry => entry.id === id);
