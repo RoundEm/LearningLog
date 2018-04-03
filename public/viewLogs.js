@@ -47,7 +47,7 @@ function bindHandlers() {
 				return 0;
 			});
 		}
-		processLogData(null, logsData);
+		handleLogs(null, logsData);
 	});
 }
 
