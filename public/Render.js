@@ -27,6 +27,20 @@ function renderLog(log) {
 			</div>`;
 }
 
+function renderViewLog(log) {
+	return `<div class="viewLog">
+				<span>Title</span>	
+				<p>${log.title}</p>
+				<span>Tag</span>
+				<p>${log.tag}</p>
+				<span>Content</span>
+				<p>${log.content}</p>
+				<span>Last Updated</span>
+				
+				<p class="entryId" hidden>${log.id}</p>
+			</div>`;
+}
+
 function renderLogs(logs) {
 	return logs.map(function(log) {
 		return renderLog(log);
