@@ -1,5 +1,9 @@
+'use strict'
+
 function renderLog(log) {
 	const daysOfWeek = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
+	// '+' in new Date constructor ensures that the date is converted from a 
+	// string to a integer when coming back from editLog page
 	let d = new Date(+log.publishDate);
 	let hour = d.getHours();
 	let minutes = d.getMinutes();

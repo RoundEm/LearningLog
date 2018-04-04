@@ -3,7 +3,6 @@
 let logsData = {}
 
 function handleLogs(err, logs) {
-	// console.log(err, data)
 	if (err) {
 		return console.log(err);
 	}
