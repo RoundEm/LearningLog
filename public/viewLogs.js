@@ -7,18 +7,21 @@ function handleLogs(err, logs) {
 	if (err) {
 		return console.log(err);
 	}
+	// Assign data to logsData so it can be temporarily stored for sorting
 	logsData = logs;
 	const logsHTML = renderLogs(logs);
 	$('.render-log-section').empty().append(logsHTML.join(''));
 }
 
 function bindHandlers() {
+
+	// Grab entry ID for targeting during log click
 	$('.render-log-section').on('click', '.logEntry', function() {
 		let entryId = $(this).find('.entryId').text();
 		window.location.href = `/view-log/${entryId}`;
 	});
 
-	// sorting logs
+	// Sort logs
 	$('select').change(function() {
 		let sortValue = $(this).val();
 		console.log('sortValue:', sortValue);
@@ -47,6 +50,7 @@ function bindHandlers() {
 				return 0;
 			});
 		}
+
 		handleLogs(null, logsData);
 	});
 }
