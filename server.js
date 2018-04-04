@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/view-logs', (req, res) => {
-	res.sendFile(`${__dirname}/views/logs.html`);
+	res.sendFile(`${__dirname}/views/viewLogs.html`);
 });
 
 app.get('/add-log', (req, res) => {
