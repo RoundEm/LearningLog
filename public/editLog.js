@@ -27,7 +27,7 @@ function handleDelete(err, response) {
 	} 
 	let answer = confirm('Are you sure you want to delete?')
 	if (answer) {
-		alert('Log was successfully deleted');
+		alert('Log was successfully deleted!');
 		window.location.href = '/view-logs';
 	}
 }
