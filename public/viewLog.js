@@ -9,19 +9,18 @@ function handleGetLog(err, log) {
 	$('.render-log-section').empty().append(renderLog(log));
 }
 
-function bindEditBtn() {
+function bindHandlers() {
 	$('#editLog').click(function() {
 		let entryId = $(this).siblings('.render-log-section').find('.entryId').text();
 		window.location.href = `/edit-log/${entryId}`;
 	});
-
 	$('#returnBtn').click(function() {
 		window.location.href = '/view-logs';
 	});
 }
 
 function initViewLog() {
-	bindEditBtn();
+	bindHandlers();
 	Data.getLog(viewLogId, handleGetLog);	
 }
 
