@@ -34,7 +34,7 @@ app.get('/view-logs', (req, res) => {
 });
 
 app.get('/add-log', (req, res) => {
-	res.sendFile(`${__dirname}/views/addLog.html`);
+	res.sendFile(`${__dirname}/views/addLogs.html`);
 });
 
 app.get('/view-log/:logId', (req, res) => {
