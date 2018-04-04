@@ -1,3 +1,5 @@
+'use strict'
+
 const editFormModel = {}
 
 const editLogId = window.location.pathname.split('/')[2];
@@ -23,8 +25,11 @@ function handleDelete(err, response) {
 	if (err) {
 		return console.log(err);
 	} 
-	alert('Log was successfully deleted');
-	window.location.href = '/view-logs';
+	let answer = confirm('Are you sure you want to delete?')
+	if (answer) {
+		alert('Log was successfully deleted');
+		window.location.href = '/view-logs';
+	}
 }
 
 function bindHandlers() {
@@ -32,7 +37,7 @@ function bindHandlers() {
 		event.preventDefault();
 		Data.removeLog(editLogId, handleDelete);
 	});
-	$('#saveLog').click(function(event) {
+	$('#updateLog').click(function(event) {
 		event.preventDefault();
 		Data.updateLog(editLogId, editFormModel, handleUpdate);
 	});
