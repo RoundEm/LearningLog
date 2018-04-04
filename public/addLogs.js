@@ -9,7 +9,7 @@ function createLogEntry(title, content, tag) {
 	Data.postLog(params);
 }
 
-function bindSubmitBtn() {
+function bindHandlers() {
 	$('.logForm').submit(function(event) {
 		event.preventDefault();
 		console.log('bindSubmitBtn ran')
@@ -24,10 +24,17 @@ function bindSubmitBtn() {
 		$('#add-title, #add-content, #add-tag').css('background-color', '#fafafa');
 		$('.successMsg').append(`Your log has been saved! You can <a href="/add-log">add another log</a> or <a href="/view-logs">return to your saved logs.`);
 	});
+
+	$('#returnBtn').click(function() {
+		let answer = confirm('Any unsaved log data will be lost. Do you wish to continue?');
+		if (answer) {
+			window.location.href = '/view-logs';
+		}
+	});
 }
 
 function initAddLogs() {
-	bindSubmitBtn();
+	bindHandlers();
 }
 
 $(initAddLogs);
