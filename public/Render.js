@@ -7,7 +7,7 @@ function renderLog(log) {
 				<p>${log.tag}</p>
 				<p>${log.content}</p>
 				<p>${dateTime}</p>
-				<p class="entryId" hidden>${log.id}</p>
+				<p class="logId" hidden>${log.id}</p>
 			</div>`;
 }
 
@@ -28,7 +28,7 @@ function renderViewLog(log) {
 				<p>${log.tag}</p>
 				<span>Last Updated</span>
 				<p>${dateTime}</p>
-				<p class="entryId" hidden>${log.id}</p>
+				<p class="logId" hidden>${log.id}</p>
 			</div>`;
 }
 

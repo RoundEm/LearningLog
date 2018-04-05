@@ -6,13 +6,13 @@ function handleGetLog(err, log) {
 	if (err) {
 		return console.log(err);
 	} 
-	$('.render-log-section').empty().append(renderLog(log));
+	$('.render-log-section').empty().append(renderViewLog(log));
 }
 
 function bindHandlers() {
 	$('#editLog').click(function() {
-		let entryId = $(this).siblings('.render-log-section').find('.entryId').text();
-		window.location.href = `/edit-log/${entryId}`;
+		let logId = $(this).siblings('.render-log-section').find('.logId').text();
+		window.location.href = `/edit-log/${logId}`;
 	});
 	$('#returnBtn').click(function() {
 		window.location.href = '/view-logs';
