@@ -8,7 +8,7 @@ const express = require('express'),
 
 app.use(morgan('common'));
 app.use(express.static('public'));
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 
 const { LogEntries } = require('./models');
 
@@ -66,7 +66,7 @@ app.put('/logEntries/:logId', jsonParser, (req, res) => {
 		id: req.params.logId,
 		title: req.body.title,
 		content: req.body.content,
-		publishDate: req.body.publishDate,
+		publishDate: Date.now(),
 		tag: req.body.tag
 	});
 	console.log('revisedEntry', revisedEntry)
