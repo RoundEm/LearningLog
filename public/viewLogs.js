@@ -16,8 +16,8 @@ function bindHandlers() {
 
 	// Grab entry ID for targeting during log click
 	$('.render-log-section').on('click', '.logEntry', function() {
-		let entryId = $(this).find('.entryId').text();
-		window.location.href = `/view-log/${entryId}`;
+		let logId = $(this).find('.logId').text();
+		window.location.href = `/view-log/${logId}`;
 	});
 
 	// Sort logs
