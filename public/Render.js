@@ -2,10 +2,12 @@
 
 function renderLog(log) {
 	let dateTime = formatDateTime(log.publishDate);
-	return `<div class="logEntry">	
-				<p>${log.title}</p>
-				<p>${log.tag}</p>
-				<p>${log.content}</p>
+	return `<div class="logEntry">
+				<span>Title:</span>	
+				<p>${log.title}</p><br>
+				<span>Tag:</span>
+				<p>${log.tag}</p><br>
+				<span>Saved/Last Updated:</span>
 				<p>${dateTime}</p>
 				<p class="logId" hidden>${log.id}</p>
 			</div>`;
@@ -26,7 +28,7 @@ function renderViewLog(log) {
 				<p>${log.content}</p>
 				<span>Tag</span>
 				<p>${log.tag}</p>
-				<span>Last Updated</span>
+				<span>Saved/Last Updated</span>
 				<p>${dateTime}</p>
 				<p class="logId" hidden>${log.id}</p>
 			</div>`;
