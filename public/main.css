@@ -2,7 +2,7 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	font-family: 'Cantarell', sans-serif;
+	font-family: 'Quattrocento', serif;
 }
 header {
 	padding: 5px 0 10px;
@@ -10,6 +10,7 @@ header {
 }
 header h1 {
 	text-align: center;
+	margin: 10px 0 0;
 }
 body {
 	width: 85%;
@@ -23,6 +24,9 @@ main {
 }
 .log-section {
 	margin: 40px 0;
+}
+.log-section p {
+	margin: 0 0 10px;
 }
 .newPage {
 	text-decoration: none;
@@ -43,7 +47,6 @@ button {
 	border-radius: 3px;
 	font-size: .85em;
 }
-
 select {
 	font-size: .7em;
 }
@@ -52,6 +55,9 @@ label {
 }
 a {
 	color: black;
+}
+.successMsg {
+	background-color: #FFCE00;
 }
 .benefits p {
 	margin: 5px auto;
@@ -67,13 +73,21 @@ a {
 .render-log-section div {
 	border: 2px solid;
 	margin: 5px;
-	padding: 3px;
+	padding: 10px;
 }
 .render-log-section div:hover {
 	cursor: pointer;
 }
-
-
+.logEntry p:not(.logId) {
+	display: inline-block;
+	margin: 0 0 5px;
+}
+.viewLog span, .logEntry span {
+	font-weight: bolder;
+}
+.viewLog p {
+	margin: 0 0 10px;
+}
 label {
 	display: inline-block;
 	margin: 10px 0 0;
