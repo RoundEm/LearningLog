@@ -3,26 +3,28 @@ const express = require('express'),
 	bodyParser = require('body-parser'),
 	util = require('util'),
 	jsonParser = bodyParser.json(),
-	app = express();
+	app = express(),
+	mongoose = require('mongoose');
 
+mongoose.connect('mongodb://localhost/learningLogDev');
 
 app.use(morgan('common'));
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-const { LogEntries } = require('./models');
+const { Log } = require('./models');
 
 
 // Create dummy data
-const setTimeoutPromise = util.promisify(setTimeout);
-LogEntries.create('A', 'Lorem ipsum dolor sit amet', 'JavaScript Promises');
-setTimeoutPromise(1000, 'a').then((value) => {
-	LogEntries.create('B', 'Duis aute irure dolor in reprehenderit', 'Angular');
-}).then((value) => {
-	setTimeoutPromise(500, 'b').then((value) => {
-		LogEntries.create('C', 'Excepteur sint occaecat cupidatat non proident', 'MongoDB');
-	});
-});
+// const setTimeoutPromise = util.promisify(setTimeout);
+// LogEntries.create('A', 'Lorem ipsum dolor sit amet', 'JavaScript Promises');
+// setTimeoutPromise(1000, 'a').then((value) => {
+// 	LogEntries.create('B', 'Duis aute irure dolor in reprehenderit', 'Angular');
+// }).then((value) => {
+// 	setTimeoutPromise(500, 'b').then((value) => {
+// 		LogEntries.create('C', 'Excepteur sint occaecat cupidatat non proident', 'MongoDB');
+// 	});
+// });
 
 
 app.get('/', (req, res) => {
@@ -47,36 +49,48 @@ app.get('/edit-log/:logId', (req, res) => {
 
 // get all of your posts
 app.get('/logEntries', (req, res) => {
-	res.json(LogEntries.get());
+	Log.find({})
+		.then((logs) => {
+			console.log(logs);
+			res.json(logs.map((log) => {
+				return log.serialize();
+			}));
+		})
+		.catch(console.log);
 });
 
 // get an individual post
 app.get('/logEntries/:logId', (req, res) => {
-	res.json(LogEntries.get(req.params.logId));
+	Log.findById(req.params.logId)
+		.then((log) => {
+			res.json(log.serialize());
+		})
+		.catch(console.log);
 });
 
 app.post('/logEntries', jsonParser, (req, res) => {
-	console.log('POST req', req)
-	const entry = LogEntries.create(req.body.title, req.body.content, req.body.tag);
-	res.status(201).json(entry);
+	Log.create(req.body)
+		.then((log) => {
+			res.status(201).json(log.serialize());
+		})
+		.catch(console.log);
 });
 
 app.put('/logEntries/:logId', jsonParser, (req, res) => {
-	const revisedEntry = LogEntries.update({
-		id: req.params.logId,
-		title: req.body.title,
-		content: req.body.content,
-		publishDate: Date.now(),
-		tag: req.body.tag
-	});
-	console.log('revisedEntry', revisedEntry)
-	res.status(200).json(revisedEntry);
+	console.log('PUT BODY:', req.body)
+	Log.findByIdAndUpdate(req.params.logId, {$set: req.body})
+		.then((log) => {
+			res.status(204).end();
+		})
+		.catch(console.log);
 });
 
 app.delete('/logEntries/:logId', (req, res) => {
-	LogEntries.delete(req.params.logId);
-	console.log(`Deleted log entry \`${req.params.logId}\``)
-	res.status(204).end();
+	Log.findByIdAndRemove(req.params.logId)
+		.then(() => {
+			res.status(204).end();
+		})
+		.catch(console.log);	
 });
 
 // if no routes are hit
