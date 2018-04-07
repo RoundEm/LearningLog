@@ -23,7 +23,7 @@ function bindHandlers() {
 		createLogEntry(titleValue, contentValue, tagValue);	
 		$('#add-title, #add-content, #add-tag').css('background-color', '#fafafa');
 		$('.successMsg').append(`Your log has been saved! You can <a href="/add-log">add another log</a> or <a href="/view-logs">return to your saved logs.`);
-	});https://toggl.com/app/timer
+	})
 
 	$('#returnBtn').click(function() {
 		let answer = confirm('Any unsaved log data will be lost. Do you wish to continue?');
