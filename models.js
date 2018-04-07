@@ -1,48 +1,31 @@
-const uuid = require('uuid');
+mongoose = require('mongoose');
 
-const LogEntries = {
-	create: function(title, content, tag) {
-		console.log('Creating new log entry');
-		const entry = {
-			id: uuid.v4(),
-			title: title,
-			content: content,
-			publishDate: Date.now(),
-			tag: tag
-		}
-		this.entries.push(entry);
-		return entry;
-	},
-	get: function(id = null) {
-		if (id !== null) {
-			return this.entries.find(entry => entry.id === id);
-		}
-		return this.entries.sort((a, b) => {
-			return b.publishDate - a.publishDate;
-		});
-	},
-	update: function(revisedEntry) {
-		const { id } = revisedEntry;
-		const entryIndex = this.entries.findIndex(entry => entry.id === revisedEntry.id);
-		if (entryIndex === -1) {
-			throw `Entry \`${id}\` doesn't exist. Please provide a valid entry`;
-		}
-		this.entries[entryIndex] = Object.assign(this.entries[entryIndex], revisedEntry);
-		return this.entries[entryIndex];
-	},
-	delete: function(id) {
-		const entryIndex = this.entries.findIndex(post => post.entry_id === id);
-		if (entryIndex > -1) {
-			this.entries.splice(entryIndex, 1);
-		}
+// Question: Should I use this from thinkful example?:
+// Mongoose internally uses a promise-like object,
+// but its better to make Mongoose use built in es6 promises
+// mongoose.Promise = global.Promise;
+
+
+// Question: is this line necessary?
+const Schema = mongoose.Schema;
+
+const LogSchema = new Schema({
+	title: String,
+	content: String,
+	publishDate: Date,
+	tag: String
+});
+
+LogSchema.methods.serialize = function() {
+	return {
+		title: this.title,
+		content: this.content,
+		publishDate: this.publishDate,
+		tag: this.tag,
+		id: this._id
 	}
 }
 
-function createLogEntryModel() {
-	const storage = Object.create(LogEntries);
-	storage.entries = [];
-	storage.nextEntry = {};
-	return storage;
-}
+const Log = mongoose.model('Log', LogSchema)
 
-module.exports = { LogEntries: createLogEntryModel() };
+module.exports = { Log };
