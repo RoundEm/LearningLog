@@ -12,7 +12,10 @@ const Schema = mongoose.Schema;
 const LogSchema = new Schema({
 	title: String,
 	content: String,
-	publishDate: Date,
+	publishDate: { 
+		type: String, 
+		default: Date.now()
+	},
 	tag: String
 });
 

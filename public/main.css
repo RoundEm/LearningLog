@@ -4,19 +4,60 @@
 	padding: 0;
 	font-family: 'Quattrocento', serif;
 }
-header {
-	padding: 5px 0 10px;
-	font-size: 1.55em;
-}
-header h1 {
-	text-align: center;
-	margin: 10px 0 0;
-}
 body {
+	/*background-image: url('/images/randall-honold-505292-unsplash.jpg');*/
+	/*background-size: cover;*/
+	/*background-repeat: repeat; */
+	height: 100%;
 	width: 85%;
 	margin: 0 auto;
 }
-main {	
+header {
+	font-size: 1.55em;
+	margin: 20px 0 15px;
+	padding: 10px 0;
+	border: 2px solid #424242;
+}
+header.index {
+	margin: 200px 0 0 0;
+}
+header h1 {
+	text-align: center;
+	/*padding: 10px 0 0;*/
+	background-color: white;
+}
+header p {
+	background-color: white;
+	padding: 7px 50px;
+}
+.benefits {
+	background-color: white;
+	margin: 30px 0 0 0;
+	padding: 10px;
+	border: 2px solid #424242;
+	/*border-radius: 5px;*/
+}
+.benefits h1 {
+	margin: 10px 0 0 0;
+	text-align: center;
+	font-weight: bolder;
+	/*color: white;*/
+}
+.benefits ul {
+	benefitsmargin: 5px auto;
+	list-style-type: none;
+	text-align: center;
+}
+.benefits li {
+	margin: 7px 0;
+}
+.benefits li:nth-of-type(even) {
+	color: #819FF7;
+}
+.benefits li:nth-of-type(odd) {
+	color: #F7819F;
+}
+.main-contain {	
 	font-size: 1.4em;
 }
 .centerContent {
@@ -32,13 +73,14 @@ main {
 	text-decoration: none;
 	padding: 10px 15px;
 	border: 2px solid;
+	background-color: white;
 }
 .newPage-container {
-	margin: 20px auto 0;
+	margin: 40px auto 0;
 	text-align: center;
 }
 .newPage:hover, button:hover {
-	background-color: #FFCE00;
+	background-color: #ecaeab;
 	cursor: pointer;
 }
 button {
@@ -59,17 +101,6 @@ a {
 .successMsg {
 	background-color: #FFCE00;
 }
-.benefits p {
-	margin: 5px auto;
-	padding: 10px 30px;
-	text-align: center;
-}
-.benefits p:nth-child(odd) {
-	border: 2px solid #2E64FE;
-}
-.benefits p:nth-child(even) {
-	border: 2px solid #FA5882;
-}
 .render-log-section div {
 	border: 2px solid;
 	margin: 5px;
@@ -78,6 +109,9 @@ a {
 .render-log-section div:hover {
 	cursor: pointer;
 }
+.logEntry {
+	background-color: white;
+}
 .logEntry p:not(.logId) {
 	display: inline-block;
 	margin: 0 0 5px;
@@ -85,6 +119,7 @@ a {
 .viewLog span, .logEntry span {
 	font-weight: bolder;
 }
+
 .viewLog p {
 	margin: 0 0 10px;
 }
@@ -97,6 +132,7 @@ label {
 	font-size: .75em;
 	border: 1px solid;
 	border-radius: 3px;
+	margin: 0 0 15px 0;
 }
 textarea {
 	width: 100%;
