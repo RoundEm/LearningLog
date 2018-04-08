@@ -11,23 +11,26 @@
 <body>			
 	<header role="banner">
 		<div>
-			<h1>Learning Log - Add a Log</h1>
+			<h1>Add a Log</h1>
 		</div>
 	</header>
 
 	<main role="main">
-		<section>
-			<form class="logForm">
-				<label for="title">Title</label><br>
-				<input type="text" name="title" id="add-title" required /><br>
-				<label for="content">Content</label> <br>
-				<textarea id="add-content" name="textarea" required >  </textarea><br>
-				<label for="tag">Tag</label><br>
-				<input type="text" name="tag" id="add-tag" /><br>
-				<button type="submit" name="save" id="saveLog">Save Log</button>
-				<button type="button" name="return" id="returnBtn">Return to All Logs</button>
-			</form>
-			<span class="successMsg"></span>
+
+		<section class="main-contain">
+			<section>
+				<form class="logForm">
+					<label for="title">Title</label><br>
+					<input type="text" name="title" id="add-title" required /><br>
+					<label for="content">Content</label> <br>
+					<textarea id="add-content" name="textarea" required >  </textarea><br>
+					<label for="tag">Tag</label><br>
+					<input type="text" name="tag" id="add-tag" /><br>
+					<button type="submit" name="save" id="saveLog">Save Log</button>
+					<button type="button" name="return" id="returnBtn">Return to All Logs</button>
+				</form>
+				<span class="successMsg"></span>
+			</section>
 		</section>
 	</main>
 
