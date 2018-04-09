@@ -1,3 +1,13 @@
-exports.DB_URL = process.env.DATABASE_URL || 'mongodb://localhost/learning-log';
-exports.TEST_DB_URL = process.env.TEST_DATABASE_URL || 'mongodb://localhost/test-learning-log';
+function getDbUrl() {
+	let url = '';
+	if (process.env.NODE_ENV === 'production') {
+		url = process.env.DATABASE_URL;
+	} else if (process.env.NODE_ENV === 'test') {
+		url = 'mongodb://localhost/test-learning-log';
+	} 
+	return url || 'mongodb://localhost/learning-log';
+}
+
 exports.PORT = process.env.PORT || 8080;
+
+exports.DB_URL = getDbUrl();
