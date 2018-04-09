@@ -2,14 +2,15 @@
   "name": "devjourney",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "mocha --exit"
+    "test": "NODE_ENV=test mocha --exit"
   },
   "author": "Jason Roundtree",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.2",
+    "mongoose": "^5.0.13",
     "morgan": "^1.9.0",
     "requirejs": "^2.3.5",
     "util": "^0.10.3",
