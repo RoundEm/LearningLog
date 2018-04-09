@@ -6,17 +6,28 @@ mongoose = require('mongoose');
 // mongoose.Promise = global.Promise;
 
 
-// Question: is this line necessary?
 const Schema = mongoose.Schema;
 
 const LogSchema = new Schema({
-	title: String,
-	content: String,
+	title: {
+		type: String, 
+		min: 2,
+		max: 64,
+		required: true
+	},
+	content: {
+		type: String, 
+		required: true
+	},
 	publishDate: { 
 		type: String, 
-		default: Date.now()
+		default: Date.now(),
+		required: true
 	},
-	tag: String
+	tag: {
+		type: String, 
+		required: true
+	}
 });
 
 LogSchema.methods.serialize = function() {
