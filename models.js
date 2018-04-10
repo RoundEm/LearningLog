@@ -1,11 +1,5 @@
 mongoose = require('mongoose');
 
-// Question: Should I use this from thinkful example?:
-// Mongoose internally uses a promise-like object,
-// but its better to make Mongoose use built in es6 promises
-// mongoose.Promise = global.Promise;
-
-
 const Schema = mongoose.Schema;
 
 const LogSchema = new Schema({
@@ -20,7 +14,7 @@ const LogSchema = new Schema({
 		required: true
 	},
 	publishDate: { 
-		type: String, 
+		type: Date, 
 		default: Date.now(),
 		required: true
 	},
