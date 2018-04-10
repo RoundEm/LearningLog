@@ -7,7 +7,7 @@ function renderLog(log) {
 				<p>${log.title}</p><br>
 				<span>Tag:</span>
 				<p>${log.tag}</p><br>
-				<span>Saved/Last Updated:</span>
+				<span>Saved:</span>
 				<p>${dateTime}</p>
 				<p class="logId" hidden>${log.id}</p>
 			</div>`;
@@ -22,13 +22,13 @@ function renderLogs(logs) {
 function renderViewLog(log) {
 	let dateTime = formatDateTime(log.publishDate);
 	return `<div class="viewLog">
-				<span>Title</span>	
+				<span>Title:</span>	
 				<p>${log.title}</p>
-				<span>Content</span>
+				<span>Content:</span>
 				<p>${log.content}</p>
-				<span>Tag</span>
+				<span>Tag:</span>
 				<p>${log.tag}</p>
-				<span>Saved/Last Updated</span>
+				<span>Saved:</span>
 				<p>${dateTime}</p>
 				<p class="logId" hidden>${log.id}</p>
 			</div>`;
@@ -45,14 +45,12 @@ function formatDateTime(publishDate) {
 	if (minutes < 10) {
 		minutes = `0${minutes}`;
 	}
-	// remove milliSecs in production
-	let milliSecs = d.getMilliseconds();
 	let year = d.getFullYear();
 	let month = d.getMonth() + 1;
 	let dateOfMonth = d.getDate();
 	let dayOfWeekIndex = d.getDay();
 	let dayOfWeek = daysOfWeek[dayOfWeekIndex];
-	const dateTime = `${dayOfWeek} - ${month}/${dateOfMonth}/${year} - ${hour}:${minutes}:${milliSecs}`;
+	const dateTime = `${dayOfWeek} - ${month}/${dateOfMonth}/${year} - ${hour}:${minutes}`;
 	return dateTime;
 }
 
