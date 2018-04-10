@@ -5,9 +5,10 @@
 	font-family: 'Quattrocento', serif;
 }
 body {
-	/*background-image: url('/images/randall-honold-505292-unsplash.jpg');*/
-	/*background-size: cover;*/
-	/*background-repeat: repeat; */
+	/*background-color: #1E1905;*/
+	/*background-image: url('/images/randall-honold-505292-unsplash.jpg');
+	background-size: cover;
+	background-repeat: repeat;*/ 
 	height: 100%;
 	width: 85%;
 	margin: 0 auto;
@@ -15,48 +16,48 @@ body {
 header {
 	font-size: 1.55em;
 	margin: 20px 0 15px;
-	padding: 10px 0;
 	border: 2px solid #424242;
 }
 header.index {
-	margin: 200px 0 0 0;
+	margin: 100px 0 0 0;
 }
 header h1 {
 	text-align: center;
-	/*padding: 10px 0 0;*/
+	padding: 7px 0;
 	background-color: white;
 }
 header p {
 	background-color: white;
-	padding: 7px 50px;
+	padding: 0 50px 7px;
+}
+.filter-section label {
+	margin: 0 0 10px;
 }
 .benefits {
 	background-color: white;
 	margin: 30px 0 0 0;
 	padding: 10px;
 	border: 2px solid #424242;
-	/*border-radius: 5px;*/
 }
 .benefits h1 {
 	margin: 10px 0 0 0;
 	text-align: center;
 	font-weight: bolder;
-	/*color: white;*/
 }
 .benefits ul {
-	benefitsmargin: 5px auto;
+	margin: 5px auto;
 	list-style-type: none;
 	text-align: center;
 }
 .benefits li {
 	margin: 7px 0;
 }
-.benefits li:nth-of-type(even) {
+/*.benefits li:nth-of-type(even) {
 	color: #819FF7;
 }
 .benefits li:nth-of-type(odd) {
 	color: #F7819F;
-}
+}*/
 .main-contain {	
 	font-size: 1.4em;
 }
@@ -72,22 +73,28 @@ header p {
 .newPage {
 	text-decoration: none;
 	padding: 10px 15px;
-	border: 2px solid;
+	border: 2px solid #F4DF89;
 	background-color: white;
 }
 .newPage-container {
-	margin: 40px auto 0;
+	margin: 40px auto 100px;
 	text-align: center;
 }
 .newPage:hover, button:hover {
-	background-color: #ecaeab;
+	background-color: #ffde4d;
 	cursor: pointer;
+}
+.viewLog {
+	background-color: white;
 }
 button {
 	padding: 10px;
 	margin: 25px 0 10px;
-	border-radius: 3px;
+	border: 2px solid #F4DF89;
 	font-size: .85em;
+}
+button[name='return'], button[name='delete'] {
+	margin-left: 20px;
 }
 select {
 	font-size: .7em;
@@ -99,7 +106,12 @@ a {
 	color: black;
 }
 .successMsg {
-	background-color: #FFCE00;
+	/*background-color: #FFCE00;*/
+}
+.log-section {
+	background-color: white;
+	padding: 10px;
+	border: 2px solid;
 }
 .render-log-section div {
 	border: 2px solid;
@@ -109,8 +121,15 @@ a {
 .render-log-section div:hover {
 	cursor: pointer;
 }
+.viewLogRender div:hover {
+	cursor: initial;
+}
+.newLog {
+	margin: 40px 0 0 0;
+}
 .logEntry {
 	background-color: white;
+	border: 2px solid #ff9aac;
 }
 .logEntry p:not(.logId) {
 	display: inline-block;
