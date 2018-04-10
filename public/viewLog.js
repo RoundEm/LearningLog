@@ -14,8 +14,14 @@ function bindHandlers() {
 		let logId = $(this).siblings('.render-log-section').find('.logId').text();
 		window.location.href = `/edit-log/${logId}`;
 	});
-	$('#returnBtn').click(function() {
+	$('#returnBtn').click(() =>  {
 		window.location.href = '/view-logs';
+	});
+	$('button').focus(function() {
+		$(this).css('background-color', '#ffde4d');
+	});
+	$('button').blur(function() {
+		$(this).css('background-color', 'white');
 	});
 }
 

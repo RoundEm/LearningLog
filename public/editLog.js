@@ -33,22 +33,28 @@ function handleDelete(err, response) {
 }
 
 function bindHandlers() {
-	$('#deleteLog').click(function(event) {
+	$('#deleteLog').click(event => {
 		event.preventDefault();
 		Data.removeLog(editLogId, handleDelete);
 	});
-	$('#updateLog').click(function(event) {
+	$('#updateLog').click(event => {
 		event.preventDefault();
 		Data.updateLog(editLogId, editFormModel, handleUpdate);
 	});
-	$('#edit-content').on('input', function(event) {
+	$('#edit-content').on('input', event => {
 		updateEditFormModel('content', event.target.value);
 	});
-	$('#edit-title').on('input', function(event) {
+	$('#edit-title').on('input', event => {
 		updateEditFormModel('title', event.target.value);
 	});
-	$('#edit-tag').on('input', function(event) {
+	$('#edit-tag').on('input', event => {
 		updateEditFormModel('tag', event.target.value);
+	});
+	$('button').focus(function() {
+		$(this).css('background-color', '#ffde4d');
+	});
+	$('button').blur(function() {
+		$(this).css('background-color', 'white');
 	});
 }
 
@@ -57,8 +63,8 @@ function updateEditFormModel(key, value) {
 }
 
 function initEditLog() {
-	Data.getLog(editLogId, function(err, data) {
-		Object.keys(data).forEach(function(key) {
+	Data.getLog(editLogId, (err, data) => {
+		Object.keys(data).forEach(key => {
 			updateEditFormModel(key, data[key]);
 		});
 		populateEditLogFields();
