@@ -6,26 +6,18 @@ const express = require('express'),
 	app = express(),
 	mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/learningLogDev');
+const { DB_URL, PORT } = require('./config');
+
+mongoose.connect(DB_URL);
+
+// Do I need this?? 
+// mongoose.Promise = global.Promise;
 
 app.use(morgan('common'));
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const { Log } = require('./models');
-
-
-// Create dummy data
-// const setTimeoutPromise = util.promisify(setTimeout);
-// LogEntries.create('A', 'Lorem ipsum dolor sit amet', 'JavaScript Promises');
-// setTimeoutPromise(1000, 'a').then((value) => {
-// 	LogEntries.create('B', 'Duis aute irure dolor in reprehenderit', 'Angular');
-// }).then((value) => {
-// 	setTimeoutPromise(500, 'b').then((value) => {
-// 		LogEntries.create('C', 'Excepteur sint occaecat cupidatat non proident', 'MongoDB');
-// 	});
-// });
-
 
 app.get('/', (req, res) => {
 	res.sendFile(`${__dirname}/views/index.html`);
@@ -56,7 +48,10 @@ app.get('/logEntries', (req, res) => {
 				return log.serialize();
 			}));
 		})
-		.catch(console.log);
+		.catch((error) => {
+			console.log(error);
+			res.status(400).json(error);
+		});
 });
 
 // get an individual post
@@ -65,7 +60,10 @@ app.get('/logEntries/:logId', (req, res) => {
 		.then((log) => {
 			res.json(log.serialize());
 		})
-		.catch(console.log);
+		.catch((error) => {
+			console.log(error);
+			res.status(400).json(error);
+		});
 });
 
 app.post('/logEntries', jsonParser, (req, res) => {
@@ -73,16 +71,21 @@ app.post('/logEntries', jsonParser, (req, res) => {
 		.then((log) => {
 			res.status(201).json(log.serialize());
 		})
-		.catch(console.log);
+		.catch((error) => {
+			console.log(error);
+			res.status(400).json(error);
+		});
 });
 
 app.put('/logEntries/:logId', jsonParser, (req, res) => {
-	console.log('PUT BODY:', req.body)
 	Log.findByIdAndUpdate(req.params.logId, {$set: req.body})
 		.then((log) => {
 			res.status(204).end();
 		})
-		.catch(console.log);
+		.catch((error) => {
+			console.log(error);
+			res.status(400).json(error);
+		});
 });
 
 app.delete('/logEntries/:logId', (req, res) => {
@@ -90,7 +93,10 @@ app.delete('/logEntries/:logId', (req, res) => {
 		.then(() => {
 			res.status(204).end();
 		})
-		.catch(console.log);	
+		.catch((error) => {
+			console.log(error);
+			res.status(400).json(error);
+		});	
 });
 
 // if no routes are hit
@@ -102,7 +108,7 @@ app.use((req, res) => {
 let server;
 
 function runServer() {
-	const port = process.env.PORT || 8080;
+	const port = PORT;
 	return new Promise((resolve, reject) => {
 		server = app.listen(port, () => {
 			console.log(`App is listening on port ${port}`);
