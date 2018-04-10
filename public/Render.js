@@ -35,11 +35,9 @@ function renderViewLog(log) {
 }
 
 function formatDateTime(publishDate) {
-	console.log('publishDate:', publishDate);
+	// console.log('publishDate:', publishDate);
 	const daysOfWeek = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
-	// '+' in new Date constructor ensures that the date is converted from a 
-	// string to a integer when coming back from editLog page
-	let d = new Date(+publishDate);
+	let d = new Date(publishDate);
 	let hour = d.getHours();
 	let minutes = d.getMinutes();
 	if (minutes < 10) {
