@@ -1,16 +1,15 @@
-const express = require('express'),
-	morgan = require('morgan'),
-	bodyParser = require('body-parser'),
-	util = require('util'),
-	jsonParser = bodyParser.json(),
-	app = express(),
-	mongoose = require('mongoose');
+const express = require('express');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const util = require('util');
+const jsonParser = bodyParser.json();
+const app = express();
+const mongoose = require('mongoose');
 
 const { DB_URL, PORT } = require('./config');
 
 mongoose.connect(DB_URL);
 
-// Do I need this?? 
 // mongoose.Promise = global.Promise;
 
 app.use(morgan('common'));
