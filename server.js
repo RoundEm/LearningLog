@@ -12,7 +12,10 @@ mongoose.connect(DB_URL);
 
 // mongoose.Promise = global.Promise;
 
-app.use(morgan('common'));
+if (process.env.NODE_ENV !== 'test') {
+	app.use(morgan('common'));
+}   
+
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -42,7 +45,6 @@ app.get('/edit-log/:logId', (req, res) => {
 app.get('/logEntries', (req, res) => {
 	Log.find({})
 		.then((logs) => {
-			console.log(logs);
 			res.json(logs.map((log) => {
 				return log.serialize();
 			}));
