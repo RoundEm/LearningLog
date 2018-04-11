@@ -1,12 +1,16 @@
 'use strict'
 
-let logsData = {}
+let logsData = [];
 
 function handleLogs(err, logs) {
 	if (err) {
 		return console.log(err);
 	}
 	logsData = logs;
+	console.log('logsData:', logsData);
+	for (let i = 0; i < logsData.length; i++) {
+		logsData[i].publishDateParsed = Date.parse(logsData[i].publishDate);
+	}
 	sortLogs(logsData);
 }
 
@@ -15,18 +19,17 @@ function sortLogs(logsData, sortValue) {
 	console.log('logsData:', logsData);
 	if (sortValue === undefined) {
 		console.log('if ran');
-		// console.log('logs:', logs);
 		logsData.sort(function(a, b) {
-			return b.publishDate - a.publishDate;
+			return b.publishDateParsed - a.publishDateParsed;
 		});
 	} else if (sortValue === 'log_newest') {
 		logsData.sort(function(a, b) {
-			return b.publishDate - a.publishDate;
+			return b.publishDateParsed - a.publishDateParsed;
 		});
 	} else if (sortValue === 'log_oldest') {
 		console.log('log_oldest ran')
 		logsData.sort(function(a, b) {
-			return a.publishDate - b.publishDate;
+			return a.publishDateParsed - b.publishDateParsed;
 		});
 	} else if (sortValue === 'tag_a') {
 		logsData.sort(function(a, b) {
@@ -47,7 +50,6 @@ function sortLogs(logsData, sortValue) {
 	}
 	const logsHTML = renderLogs(logsData);
 	$('.render-log-section').empty().append(logsHTML.join(''));
-
 }
 
 function bindHandlers() {
