@@ -2,7 +2,7 @@
 
 function renderLog(log) {
 	let dateTime = formatDateTime(log.publishDate);
-	return `<div class="logEntry">
+	return `<div class="logEntry" tabindex="0">
 				<span>Title:</span>	
 				<p>${log.title}</p><br>
 				<span>Tag:</span>
