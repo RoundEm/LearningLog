@@ -6,9 +6,9 @@
 }
 body {
 	/*background-color: #1E1905;*/
-	/*background-image: url('/images/randall-honold-505292-unsplash.jpg');
+	/*background-image: url('/images/tim-marshall-267249-unsplash.jpg');
 	background-size: cover;
-	background-repeat: repeat;*/ 
+	background-repeat: repeat; */
 	height: 100%;
 	width: 85%;
 	margin: 0 auto;
@@ -19,7 +19,7 @@ header {
 	border: 2px solid #424242;
 }
 header.index {
-	margin: 100px 0 0 0;
+	margin: 80px 0 0 0;
 }
 header h1 {
 	text-align: center;
@@ -30,7 +30,7 @@ header p {
 	background-color: white;
 	padding: 0 50px 7px;
 }
-.filter-section label {
+.sort-section label, .filter-section label {
 	margin: 0 0 10px;
 }
 .benefits {
@@ -77,7 +77,7 @@ header p {
 	background-color: white;
 }
 .newPage-container {
-	margin: 40px auto 100px;
+	margin: 40px auto;
 	text-align: center;
 }
 .newPage:hover, button:hover {
@@ -89,7 +89,7 @@ header p {
 }
 button {
 	padding: 10px;
-	margin: 25px 0 10px;
+	margin: 25px 0 15px;
 	border: 2px solid #F4DF89;
 	font-size: .85em;
 }
@@ -98,6 +98,7 @@ button[name='return'], button[name='delete'] {
 }
 select {
 	font-size: .7em;
+	padding: 15px;
 }
 label {
 	font-size: 1.25em;
@@ -105,9 +106,13 @@ label {
 a {
 	color: black;
 }
-.successMsg {
-	/*background-color: #FFCE00;*/
-}
+
+
+/*.successMsg p {
+	background-color: #FFCE00;
+}*/
+
+
 .log-section {
 	background-color: white;
 	padding: 10px;
@@ -116,13 +121,24 @@ a {
 .render-log-section div {
 	border: 2px solid;
 	margin: 5px;
-	padding: 10px;
+	padding: 6px 10px 2px;
 }
-.render-log-section div:hover {
+.render-log-section div:not(.viewLog):hover {
 	cursor: pointer;
+	background-color: #ffde4d;
 }
+.render-log-section div:focus {
+	background-color: #ffde4d;
+}
+.render-log-section div:blur {
+	background-color: white;
+}
+/* changes the cursor to normal on viewLog page. Must go after hover for .render-log-section due to the same specificity */
 .viewLogRender div:hover {
 	cursor: initial;
+}
+.edit-log-section label {
+	color: #ffde4d;
 }
 .newLog {
 	margin: 40px 0 0 0;
@@ -131,6 +147,8 @@ a {
 	background-color: white;
 	border: 2px solid #ff9aac;
 }
+
+/* ensures the <p> elements except the log ID are displayed correctly. Otherwise the ID will render instead of staying hidden */
 .logEntry p:not(.logId) {
 	display: inline-block;
 	margin: 0 0 5px;
@@ -138,7 +156,6 @@ a {
 .viewLog span, .logEntry span {
 	font-weight: bolder;
 }
-
 .viewLog p {
 	margin: 0 0 10px;
 }
