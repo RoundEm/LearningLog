@@ -6,7 +6,7 @@
 	<meta name="description" content="">
 	<link href="https://fonts.googleapis.com/css?family=Quattrocento" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="/main.css">
-	<title>Learning Log - Manage Your Logs</title>
+	<title>Log & Learn - Manage Your Logs</title>
 </head>
 <body>
 	<header role="banner">
@@ -26,14 +26,31 @@
 			<section class="log-section">
 				<h2>Log History</h2>
 				<p>Select a log to view or edit its content</p>
-				<section class="filter-section">
-					<form name="filter">
+				<section class="sort-section">
+					<form name="sort">
 						<label>Sort Results</label>
 						<select>
 							<option value="log_newest" class="sortLog_newest">Newest to Oldest</option>
 							<option value="log_oldest" class="sortLog_oldest">Oldest to Newest</option>
 							<option value="tag_a" class="sortTag_a">A-Z by Tag</option>
 							<option value="tag_z" class="sortTag_z">Z-A by Tag</option>
+						</select>
+					</form>
+				</section> 
+
+				<section class="filter-section">
+					<form name="filter">
+						<label>Filter Results by Type</label>
+						<select>
+							<option disabled selected value> - select an option - </option>
+							<option value="filter_concepts" class="concepts">Concepts</option>
+							<option value="filter_goals" class="goals">Goals & Objectives</option>
+							<option value="filter_examples" class="examples">Examples</option>
+							<option value="filter_questions" class="questions">Questions</option>
+							<option value="filter_analogies" class="analogies">Analogies & Connections</option>
+							<option value="filter_resources" class="resources">Resources</option>
+							<option value="filter_ideas" class="ideas">New Ideas</option>
+							<option value="filter_accomplishments" class="accomplishments">Accomplishments</option>
 						</select>
 					</form>
 				</section> 
