@@ -21,7 +21,7 @@ function bindHandlers() {
 		$('.logForm input, .logForm textarea').prop('readonly', true);
 		createLogEntry(titleValue, contentValue, tagValue);	
 		$('#add-title, #add-content, #add-tag').css('background-color', '#E3E2DD');
-		$('.successMsg').append(`Your log has been saved! You can <a href="/add-log">add another log</a> or <a href="/view-logs">return to your saved logs.`);
+		$('.successMsg').append(`<p aria-live="assertive">Your log has been saved! You can <a href="/add-log">add another log</a> or <a href="/view-logs">return to your saved logs.</p>`);
 	});
 
 	$('button').focus(function() {
