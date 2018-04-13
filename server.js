@@ -79,9 +79,9 @@ app.post('/logEntries', jsonParser, (req, res) => {
 });
 
 app.put('/logEntries/:logId', jsonParser, (req, res) => {
-	Log.findByIdAndUpdate(req.params.logId, {$set: req.body})
+	Log.findByIdAndUpdate(req.params.logId, {$set: req.body}, { "new": true })
 		.then((log) => {
-			res.status(204).end();
+			res.status(200).json(log);
 		})
 		.catch((error) => {
 			console.log(error);
@@ -104,7 +104,6 @@ app.delete('/logEntries/:logId', (req, res) => {
 app.use((req, res) => {
 	res.sendStatus(404);
 });
-
 
 let server;
 
