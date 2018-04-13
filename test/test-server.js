@@ -4,7 +4,7 @@ const expect = chai.expect;
 chai.use(chaiHttp);
 
 const { runServer, closeServer, app } = require('../server');
-const { seedLogs } = require('../seeder');
+const { seedLogs, generateLogData } = require('../seeder');
 const { Log } = require('../models');
 
 function tearDownDb() {
@@ -14,7 +14,6 @@ function tearDownDb() {
 
 describe('My app', () => {
 
-	// Q: Should i pass test Db to runServer like thinkful example?
 	before(() => {
 		return runServer();
 	});
@@ -23,7 +22,10 @@ describe('My app', () => {
 		const addSeedDataToDb = seedLogs(Log);
 		addSeedDataToDb.then((logs) => {
 			done(); 
-		});
+		})
+		.catch((error) => {
+			console.log(error)
+		})
 	});
 
 	afterEach(() => {
@@ -44,7 +46,7 @@ describe('My app', () => {
 					expect(res).to.be.json;
 					res.body.forEach((log) => {
 						expect(log).to.be.a('object');
-						expect(log).to.include.keys('id', 'title', 'content', 'tag', 'publishDate');
+						expect(log).to.include.keys('id', 'title', 'content', 'tag', 'publishDate', 'type');
 					});
 				});
 		});	
@@ -61,21 +63,13 @@ describe('My app', () => {
 							.then((res) => {
 								expect(res).to.have.status(200);
 								expect(res.body).to.be.a('object');
-
-								// what else should I test for?
 							});
 					});
 		});
 	});
 	describe('POST endpoint', () => {
 		it('should create a new log with the required fields', () => {
-
-			// should i change this to use generateLogData() instead??
-			const newTestLog = {
-				title: 'POST test title',
-				content: 'POST test content',
-				tag: 'POST test tag'
-			};
+			const newTestLog = generateLogData();
 			return chai.request(app)
 				.post('/logEntries')
 				.send(newTestLog)
@@ -85,22 +79,17 @@ describe('My app', () => {
 					expect(res.body).to.be.a('object');
 
 					// expect(res.body.publishDate).to.be.a('date');
-					expect(res.body).to.include.keys('id', 'title', 'content', 'tag', 'publishDate');
-
-					// check if this is working correctly
+					expect(res.body).to.include.keys('id', 'title', 'content', 'tag', 'publishDate', 'type');
 					expect(res.body.title).to.equal(newTestLog.title);
 					expect(res.body.content).to.equal(newTestLog.content);
 					expect(res.body.tag).to.equal(newTestLog.tag);
+					expect(res.body.type).to.equal(newTestLog.type);
 				});
 		});
 	});
 	describe('PUT endpoint', () => {
 		it('should update the correct log data', () => {
-		const logToUpdate = {
-				title: 'PUT test title',
-				content: 'PUT test content',
-				tag: 'PUT test tag'
-			};	
+		const logToUpdate = generateLogData();	
 			return Log
 				.findOne()
 					.then((log) => {
@@ -110,14 +99,12 @@ describe('My app', () => {
 							.send(logToUpdate)
 					})
 					.then((res) => {
-						expect(res).to.have.status(204);
+						expect(res).to.have.status(200);
 						expect(res.body).to.be.a('object');
-						return Log.findById(logToUpdate.id);
-					})
-					.then((log) => {
-						expect(log.title).to.equal(logToUpdate.title);
-						expect(log.content).to.equal(logToUpdate.content);
-						expect(log.tag).to.equal(logToUpdate.tag);
+						expect(res.body.title).to.equal(logToUpdate.title);
+						expect(res.body.content).to.equal(logToUpdate.content);
+						expect(res.body.tag).to.equal(logToUpdate.tag);
+						expect(res.body.type).to.equal(logToUpdate.type);
 					});
 		});
 	});

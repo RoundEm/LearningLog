@@ -13,8 +13,9 @@ function generateLogData() {
 		title: faker.random.words(3),
 		content: faker.random.words(20),
 		publishDate: faker.date.past(),
+		type: faker.random.word(),
 		tag: faker.random.word()
 	}
 }
 
-module.exports = { seedLogs }
+module.exports = { seedLogs, generateLogData }
