@@ -28,7 +28,7 @@
 				<p>Select a log to view or edit its content</p>
 				<section class="sort-section">
 					<form name="sort">
-						<label>Sort Results</label>
+						<h3>Sort Results</h3>
 						<select>
 							<option value="log_newest" class="sortLog_newest">Newest to Oldest</option>
 							<option value="log_oldest" class="sortLog_oldest">Oldest to Newest</option>
@@ -40,18 +40,44 @@
 
 				<section class="filter-section">
 					<form name="filter">
-						<label>Filter Results by Type</label>
-						<select>
-							<option disabled selected value> - select an option - </option>
-							<option value="filter_concepts" class="concepts">Concepts</option>
-							<option value="filter_goals" class="goals">Goals & Objectives</option>
-							<option value="filter_examples" class="examples">Examples</option>
-							<option value="filter_questions" class="questions">Questions</option>
-							<option value="filter_analogies" class="analogies">Analogies & Connections</option>
-							<option value="filter_resources" class="resources">Resources</option>
-							<option value="filter_ideas" class="ideas">New Ideas</option>
-							<option value="filter_accomplishments" class="accomplishments">Accomplishments</option>
-						</select>
+
+						<!-- also update label above to h3?? -->
+						<h3>Filter Results by Type</h3>
+						<ul>
+							<li>
+								<input type="checkbox" id="filterConcepts" name="concepts" value="concepts" checked />
+								<label for="filterConcepts">Concepts</label>
+							</li>
+							<li>
+								<input type="checkbox" id="filterGoals" name="goals" value="" checked />
+								<label for="filterGoals">Goals & Objectives</label>
+							</li>
+							<li>
+								<input type="checkbox" id="filterExamples" name="examples" value="" checked />
+								<label for="filterExamples">Examples</label>
+							</li>
+							<li>
+								<input type="checkbox" id="filterQuestions" name="questions" value="" checked />
+								<label for="filterQuestions">Questions</label>
+							</li>
+							<li>
+								<input type="checkbox" id="filterAnalogies" name="analogies" value="" checked />
+								<label for="filterAnalogies">Analogies & Connections</label>
+							</li>
+							<li>
+								<input type="checkbox" id="filterResources" name="resources" value="" checked />
+								<label for="filterResources">Resources</label>
+							</li>
+							<li>
+								<input type="checkbox" id="filterIdeas" name="ideas" value="" checked />
+								<label for="filterIdeas">New Ideas</label>
+							</li>
+							<li>
+								<input type="checkbox" id="filterAccomplishments" name="accomplishments" value="" checked />
+								<label for="filterAccomplishments">Accomplishments & Inspiration</label>
+							</li>
+						</ul>
+							
 					</form>
 				</section> 
 
