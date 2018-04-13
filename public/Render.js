@@ -8,7 +8,7 @@ function renderLog(log) {
 				<span>Tag:</span>
 				<p>${log.tag}</p><br>
 				<span>Type:</span>
-				<p>${log.type}</p>
+				<p>${log.type}</p><br>
 				<span>Saved:</span>
 				<p>${dateTime}</p>
 				<p class="logId" hidden>${log.id}</p>
