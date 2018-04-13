@@ -19,8 +19,6 @@ var Data = {
 			url: '/logEntries',
 			type: 'GET',
 			success: function(res) {
-
-				// should this null be removed??
 				cb(null, res);
 			},
 			error: function(err) {
@@ -29,19 +27,17 @@ var Data = {
 		});
 	},
 	// POST new log entry
-	postLog: function(newLog) {
+	postLog: function(newLog, cb) {
 		$.ajax({
 			url: '/logEntries',
 			type: 'POST',
 			data: newLog,
-
-			// What to do with callback??
-			// success: function(res) {
-		 //   		cb(res);
-		 //   	},
-		 //   	error: function(err) {
-		 //   		cb(err);
-		 //   	}
+			success: function(res) {
+		   		cb(null, res);
+		   	},
+		   	error: function(err) {
+		   		cb(err);
+		   	}
 		});
 	},
 	// PUT updates on log by id
