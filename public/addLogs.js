@@ -7,7 +7,15 @@ function createLogEntry(title, content, tag, type) {
 		tag: tag,
 		type: type
 	}
-	Data.postLog(params);
+	Data.postLog(params, handlePostCallback);
+}
+
+function handlePostCallback(err, res) {
+	if (err) {
+		return console.log(err);
+	} 
+	alert('Log was successfully updated');
+	window.history.back();
 }
 
 function bindHandlers() {
@@ -36,7 +44,8 @@ function bindHandlers() {
 		$('.logForm input, .logForm textarea').prop('readonly', true);
 		$('.logForm input:radio').prop('disabled', true)
 		$('#add-title, #add-content, #add-tag').css('background-color', '#E3E2DD');
-		$('.successMsg').append(`<p aria-live="assertive">Your log has been saved! You can <a href="/add-log">add another log</a> or <a href="/view-logs">return to your saved logs.</p>`);
+		
+		// $('.successMsg').append(`<p aria-live="assertive">Your log has been saved! You can <a href="/add-log">add another log</a> or <a href="/view-logs">return to your saved logs.</p>`);
 	});
 
 	$('button').focus(function() {
@@ -46,7 +55,7 @@ function bindHandlers() {
 		$(this).css('background-color', 'white');
 	});
 
-	$('#returnBtn').click(() => {
+	$('#abortBtn').click(() => {
 		let answer = confirm('Any unsaved log data will be lost. Do you wish to continue?');
 		if (answer) {
 			window.location.href = '/view-logs';
