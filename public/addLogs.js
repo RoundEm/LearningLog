@@ -21,14 +21,14 @@ function bindHandlers() {
 		let tagValue = tagTarget.val();
 		let typeValue = '';
 		typeValue = $('.logForm li').find('input:checked').val();
-		if (typeValue === undefined) {
-			alert('Please select a checkbox for Log Content Type');
-		}
 		// $('.logForm li input').each(function() {
 		// 	if($(this).prop('checked')) {
 		// 		typeValue = $(this).val();
 		// 	}
 		// });
+		if (typeValue === undefined) {
+			alert('Please make a selection for Log Content Type');
+		}
 		console.log('typeValue:', typeValue)
 		createLogEntry(titleValue, contentValue, tagValue, typeValue);	
 
