@@ -18,6 +18,10 @@ const LogSchema = new Schema({
 		default: Date.now(),
 		required: true
 	},
+	type: {
+		type: String,
+		required: true
+	},
 	tag: {
 		type: String, 
 		required: true
@@ -30,6 +34,7 @@ LogSchema.methods.serialize = function() {
 		content: this.content,
 		publishDate: this.publishDate,
 		tag: this.tag,
+		type: this.type,
 		id: this._id
 	}
 }

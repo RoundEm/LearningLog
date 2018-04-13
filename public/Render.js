@@ -7,6 +7,8 @@ function renderLog(log) {
 				<p>${log.title}</p><br>
 				<span>Tag:</span>
 				<p>${log.tag}</p><br>
+				<span>Type:</span>
+				<p>${log.type}</p>
 				<span>Saved:</span>
 				<p>${dateTime}</p>
 				<p class="logId" hidden>${log.id}</p>
@@ -28,6 +30,8 @@ function renderViewLog(log) {
 				<p>${log.content}</p>
 				<span>Tag:</span>
 				<p>${log.tag}</p>
+				<span>Type:</span>
+				<p>${log.type}</p>
 				<span>Saved:</span>
 				<p>${dateTime}</p>
 				<p class="logId" hidden>${log.id}</p>

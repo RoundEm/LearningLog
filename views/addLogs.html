@@ -20,14 +20,51 @@
 		<section class="main-contain">
 			<section>
 				<form class="logForm">
-					<label for="title">Title</label><br>
+					<label for="add-title">Title</label><br>
 					<input type="text" name="title" id="add-title" required /><br>
-					<label for="content">Content</label> <br>
+					<label for="add-content">Content</label> <br>
 					<textarea id="add-content" name="textarea" required></textarea><br>
-					<label for="tag">Tag</label><br>
+					<label for="add-tag">Tag</label><br>
 					<input type="text" name="tag" id="add-tag" /><br>
-					<button type="submit" name="save" id="saveLog">Save Log</button>
-					<button type="button" name="return" id="returnBtn">Return to Logs</button>
+
+					<label>Log Content Type</label>
+					<ul>
+							<li>
+								<input type="radio" id="filterConcepts" name="filterType" value="concept" />
+								<label for="filterConcepts">Concepts</label>
+							</li>
+							<li>
+								<input type="radio" id="filterGoals" name="filterType" value="goal" />
+								<label for="filterGoals">Goals & Objectives</label>
+							</li>
+							<li>
+								<input type="radio" id="filterExamples" name="filterType" value="example" />
+								<label for="filterExamples">Examples</label>
+							</li>
+							<li>
+								<input type="radio" id="filterQuestions" name="filterType" value="question" />
+								<label for="filterQuestions">Questions</label>
+							</li>
+							<li>
+								<input type="radio" id="filterAnalogies" name="filterType" value="analogy" />
+								<label for="filterAnalogies">Analogies & Connections</label>
+							</li>
+							<li>
+								<input type="radio" id="filterResources" name="filterType" value="resource" />
+								<label for="filterResources">Resources</label>
+							</li>
+							<li>
+								<input type="radio" id="filterIdeas" name="filterType" value="idea" />
+								<label for="filterIdeas">New Ideas</label>
+							</li>
+							<li>
+								<input type="radio" id="filterAccomplishments" name="filterType" value="accomplishment" />
+								<label for="filterAccomplishments">Accomplishments & Inspiration</label>
+							</li>
+						</ul>
+
+						<button type="submit" name="save" id="saveLog">Save Log</button>
+						<button type="button" name="return" id="returnBtn">Return to Logs</button>
 				</form>
 				<span class="successMsg"></span>
 			</section>

@@ -1,10 +1,11 @@
 'use strict';
 
-function createLogEntry(title, content, tag) {
+function createLogEntry(title, content, tag, type) {
 	const params = {
 		title: title,
 		content: content,
-		tag: tag
+		tag: tag,
+		type: type
 	}
 	Data.postLog(params);
 }
@@ -18,8 +19,22 @@ function bindHandlers() {
 		let contentValue = contentTarget.val();
 		let tagTarget = $(this).find('#add-tag');
 		let tagValue = tagTarget.val();
+		let typeValue = '';
+		typeValue = $('.logForm li').find('input:checked').val();
+		if (typeValue === undefined) {
+			alert('Please select a checkbox for Log Content Type');
+		}
+		// $('.logForm li input').each(function() {
+		// 	if($(this).prop('checked')) {
+		// 		typeValue = $(this).val();
+		// 	}
+		// });
+		console.log('typeValue:', typeValue)
+		createLogEntry(titleValue, contentValue, tagValue, typeValue);	
+
+		// Make inputs uneditable upon submit
 		$('.logForm input, .logForm textarea').prop('readonly', true);
-		createLogEntry(titleValue, contentValue, tagValue);	
+		$('.logForm input:radio').prop('disabled', true)
 		$('#add-title, #add-content, #add-tag').css('background-color', '#E3E2DD');
 		$('.successMsg').append(`<p aria-live="assertive">Your log has been saved! You can <a href="/add-log">add another log</a> or <a href="/view-logs">return to your saved logs.</p>`);
 	});
