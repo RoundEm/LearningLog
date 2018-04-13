@@ -7,7 +7,8 @@ function handleLogs(err, logs) {
 		return console.log(err);
 	}
 	logsData = logs;
-	console.log('logsData:', logsData);
+
+	// possible to rewrite this as forEach or map?
 	for (let i = 0; i < logsData.length; i++) {
 		logsData[i].publishDateParsed = Date.parse(logsData[i].publishDate);
 	}
@@ -53,13 +54,15 @@ function sortLogs(logsData, sortValue) {
 }
 
 function bindHandlers() {
-	// Grab entry ID for targeting during log click
-	$('.render-log-section').on('click', '.logEntry', function() {
+	$('.viewLogsPage').on('click', '.logEntry', function() {
 		let logId = $(this).find('.logId').text();
 		window.location.href = `/view-log/${logId}`;
 	});
+	$('.viewLogsPage').on('keypress', '.logEntry', function() {
+		let logId = $(this).find('.logId').text();
+		window.location.href = `/view-log/${logId}`;
+	})
 
-	// Grab selected sort-by value 
 	$('select').change(function() {
 		let sortValue = $(this).val();
 		sortLogs(logsData, sortValue);
