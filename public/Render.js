@@ -2,17 +2,27 @@
 
 function renderLog(log) {
 	let dateTime = formatDateTime(log.publishDate);
-	return `<div class="logEntry" tabindex="0">
-				<span>Title:</span>	
-				<p>${log.title}</p><br>
-				<span>Tag:</span>
-				<p>${log.tag}</p><br>
-				<span>Type:</span>
-				<p>${log.type}</p><br>
-				<span>Saved:</span>
-				<p>${dateTime}</p>
-				<p class="logId" hidden>${log.id}</p>
-			</div>`;
+	return `<tr class="logEntry" tabindex="0">
+				<td>${log.title}</td>
+				<td>${log.tag}</td>
+				<td>${log.type}</td>
+				<td>${dateTime}</td>
+				<td class="logId" hidden>${log.id}</td>
+			</tr>`
+
+	// Non-tabular display:
+	//
+	// return `<div class="logEntry" tabindex="0">
+	// 			<span>Title:</span>	
+	// 			<p>${log.title}</p><br>
+	// 			<span>Tag:</span>
+	// 			<p>${log.tag}</p><br>
+	// 			<span>Type:</span>
+	// 			<p>${log.type}</p><br>
+	// 			<span>Saved:</span>
+	// 			<p>${dateTime}</p>
+	// 			<p class="logId" hidden>${log.id}</p>
+	// 		</div>`;
 }
 
 function renderLogs(logs) {
