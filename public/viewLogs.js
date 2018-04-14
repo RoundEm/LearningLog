@@ -16,10 +16,7 @@ function handleLogs(err, logs) {
 }
 
 function sortLogs(logsData, sortValue) {
-	console.log('sortValue:', sortValue);
-	console.log('logsData:', logsData);
 	if (sortValue === undefined) {
-		console.log('if ran');
 		logsData.sort(function(a, b) {
 			return b.publishDateParsed - a.publishDateParsed;
 		});
@@ -28,7 +25,6 @@ function sortLogs(logsData, sortValue) {
 			return b.publishDateParsed - a.publishDateParsed;
 		});
 	} else if (sortValue === 'log_oldest') {
-		console.log('log_oldest ran')
 		logsData.sort(function(a, b) {
 			return a.publishDateParsed - b.publishDateParsed;
 		});
@@ -50,15 +46,16 @@ function sortLogs(logsData, sortValue) {
 		});
 	}
 	const logsHTML = renderLogs(logsData);
-	$('.render-log-section').empty().append(logsHTML.join(''));
+	$('#tableHeadRow').after('');
+	$('#tableHeadRow').after(logsHTML.join(''));
 }
 
 function bindHandlers() {
-	$('.viewLogsPage').on('click', '.logEntry', function() {
+	$('#logTable').on('click', '.logEntry', function() {
 		let logId = $(this).find('.logId').text();
 		window.location.href = `/view-log/${logId}`;
 	});
-	$('.viewLogsPage').on('keypress', '.logEntry', function() {
+	$('#logTable').on('keypress', '.logEntry', function() {
 		let logId = $(this).find('.logId').text();
 		window.location.href = `/view-log/${logId}`;
 	})
