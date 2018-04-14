@@ -7,9 +7,11 @@ const editLogId = window.location.pathname.split('/')[2];
 function populateEditLogFields() {
 	let logContent = editFormModel.content;
 	let logTitle = editFormModel.title;
+	let logType = editFormModel.type;
 	let logTag = editFormModel.tag;
 	$('#edit-content').val(logContent);
 	$('#edit-title').val(logTitle);
+	$('#edit-type').val(logType);
 	$('#edit-tag').val(logTag);
 }
 
