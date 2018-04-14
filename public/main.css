@@ -111,7 +111,7 @@ button {
 	border: 2px solid #F4DF89;
 	font-size: .85em;
 }
-button[name='return'], button[name='delete'] {
+button[name='return'], button[name='delete'], button[name='abort'] {
 	margin-left: 20px;
 }
 select {
