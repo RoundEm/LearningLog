@@ -31,9 +31,6 @@ header p {
 	background-color: white;
 	padding: 0 50px 7px;
 }
-.filter-section h3 {
-	margin: 13px 0 0;
-}
 .filter-section ul {
 	list-style-type: none;
 	width: 80%;
@@ -120,6 +117,7 @@ button[name='return'], button[name='delete'] {
 select {
 	font-size: .7em;
 	padding: 15px;
+	margin: 0 0 15px;
 }
 label {
 	font-size: 1.25em;
@@ -127,38 +125,75 @@ label {
 a {
 	color: black;
 }
-/*.successMsg p {
-	background-color: #FFCE00;
-}*/
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+}
+td {
+	overflow: hidden;
+	font-size: .85em;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 6px;
+}
+.col-title {
+	width: 25%;
+}
+.col-date {
+	width: 35%;
+}
+.col-tag, .col-type {
+	width: 20%;
+}
 .log-section {
 	background-color: white;
 	padding: 10px;
 	border: 2px solid;
 }
-.render-log-section div {
+/*.render-log-section div {
 	border: 2px solid;
 	margin: 5px;
 	padding: 6px 10px 2px;
 	font-size: .85em;
+}*/
+#tableHeadRow {
+	background-color: #f2f2f2;
 }
-.render-log-section div:not(.viewLog):hover {
+/*.render-log-section div:not(.viewLog):hover {
 	cursor: pointer;
 	background: linear-gradient(to left, #ffde4d, #f4df89);
-	/*background-color: #ffde4d;*/
-}
-.render-log-section div:focus {
 	background-color: #ffde4d;
 }
-.render-log-section div:blur {
+*/
+#logTable .logEntry:hover {
+	background-color: #ffde4d;
+}
+/*.render-log-section div:focus {
+	background-color: #ffde4d;
+}*/
+#logTable .logEntry:focus {
+	background-color: #ffde4d;
+}
+/*.render-log-section div:blur {
+	background-color: white;
+}*/
+#logTable .logEntry:blur {
 	background-color: white;
 }
+
+/*ONLY NEED THIS IF YOU CHANGE CURSOR TO POINTER FOR TABLE LOGS*/
 /* changes the cursor to normal on viewLog page. Must go after hover for .render-log-section due to the same specificity */
-.viewLogRender div:hover {
+/*.viewLogRender div:hover {
 	cursor: initial;
-}
-.edit-log-section label {
-	color: #ffde4d;
-}
+}*/
+
+/*FOR EDIT LOG PAGE LABEL COLOR*/
+/*.edit-log-section label {
+	color: ;
+}*/
 .newLog {
 	margin: 40px 0 0 0;
 }
@@ -171,11 +206,16 @@ a {
 	display: inline-block;
 	margin: 0 0 5px;
 }
-.viewLog span, .logEntry span {
+.viewLog span {
 	font-weight: bolder;
+	text-decoration: underline;
 }
 .viewLog p {
 	margin: 0 0 10px;
+}
+.viewLog {
+	border: 2px solid;
+	padding: 7px;
 }
 label {
 	display: inline-block;
@@ -196,11 +236,15 @@ textarea {
 	height: 35px;
 	width: 75%
 }
+/*.logForm input[name="type"] {
+	height: 35px;
+	width: 55%
+}*/
 .logForm input[name="tag"] {
 	height: 35px;
 	width: 55%
 }
-.logForm  input[name="submit"] {
+.logForm input[name="submit"] {
 	margin: 25px 0;
 }
 

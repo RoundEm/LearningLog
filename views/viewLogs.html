@@ -26,8 +26,9 @@
 			<section class="log-section">
 				<h2>Log History</h2>
 				<p>Select a log to view or edit its content</p>
+
 				<section class="sort-section">
-					<form name="sort">
+					<form>
 						<h3>Sort Results</h3>
 						<select>
 							<option value="log_newest" class="sortLog_newest">Newest to Oldest</option>
@@ -39,55 +40,28 @@
 				</section> 
 
 				<section class="filter-section">
-					<form name="filter">
-
-						<!-- also update label above to h3?? -->
+					<form>
 						<h3>Filter Results by Type</h3>
-						<ul>
-							<li>
-								<input type="checkbox" id="filterConcepts" name="concepts" value="concepts" checked />
-								<label for="filterConcepts">Concepts</label>
-							</li>
-							<li>
-								<input type="checkbox" id="filterGoals" name="goals" value="" checked />
-								<label for="filterGoals">Goals & Objectives</label>
-							</li>
-							<li>
-								<input type="checkbox" id="filterExamples" name="examples" value="" checked />
-								<label for="filterExamples">Examples</label>
-							</li>
-							<li>
-								<input type="checkbox" id="filterQuestions" name="questions" value="" checked />
-								<label for="filterQuestions">Questions</label>
-							</li>
-							<li>
-								<input type="checkbox" id="filterAnalogies" name="analogies" value="" checked />
-								<label for="filterAnalogies">Analogies & Connections</label>
-							</li>
-							<li>
-								<input type="checkbox" id="filterResources" name="resources" value="" checked />
-								<label for="filterResources">Resources</label>
-							</li>
-							<li>
-								<input type="checkbox" id="filterIdeas" name="ideas" value="" checked />
-								<label for="filterIdeas">New Ideas</label>
-							</li>
-							<li>
-								<input type="checkbox" id="filterAccomplishments" name="accomplishments" value="" checked />
-								<label for="filterAccomplishments">Accomplishments & Inspiration</label>
-							</li>
-						</ul>
-							
+							<select>
+								<option value="" class="filterConcepts">Concepts</option>
+								<option value="" class="filterExamples">Examples</option>
+								<option value="" class="filterGoals">Goals & Objectives</option>
+								<option value="" class="filterQuestions">Questions</option>
+								<option value="" class="filterImprovement">Needs Improvement</option>
+								<option value="" class="filterResources">Resources</option>
+								<option value="" class="filterAccomplishments">Accomplishments & Inspiration</option>
+								<option value="" class="filterIdeas">New Ideas</option>
+							</select>
 					</form>
 				</section> 
 
 				<section class="render-log-section viewLogsPage">
 					<table id="logTable">
 						<tr id="tableHeadRow">
-							<th>Title</th>
-							<th>Tag</th>
-							<th>Type</th>
-							<th>Last Saved</th>
+							<th class="col-title">Title</th>
+							<th class="col-tag">Tag</th>
+							<th class="col-type">Type</th>
+							<th class="col-date">Last Saved</th>
 						</tr>
 
 						<!-- log data inserts here -->
