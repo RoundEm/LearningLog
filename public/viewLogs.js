@@ -46,7 +46,7 @@ function sortLogs(logsData, sortValue) {
 		});
 	}
 	const logsHTML = renderLogs(logsData);
-	$('#tableHeadRow').after('');
+	$('#tableHeadRow').nextAll().empty();
 	$('#tableHeadRow').after(logsHTML.join(''));
 }
 
@@ -63,6 +63,7 @@ function bindHandlers() {
 	$('select').change(function() {
 		let sortValue = $(this).val();
 		sortLogs(logsData, sortValue);
+		console.log('sortValue:', sortValue)
 	});
 }
 
