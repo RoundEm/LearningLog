@@ -42,15 +42,14 @@ function renderViewLog(log) {
 				<p>${log.tag}</p>
 				<span>Type:</span>
 				<p>${log.type}</p>
-				<span>Saved:</span>
+				<span>Last Saved:</span>
 				<p>${dateTime}</p>
 				<p class="logId" hidden>${log.id}</p>
 			</div>`;
 }
 
 function formatDateTime(publishDate) {
-	// console.log('publishDate:', publishDate);
-	const daysOfWeek = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
+	// const daysOfWeek = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
 	let d = new Date(publishDate);
 	let hour = d.getHours();
 	let minutes = d.getMinutes();
@@ -60,9 +59,9 @@ function formatDateTime(publishDate) {
 	let year = d.getFullYear();
 	let month = d.getMonth() + 1;
 	let dateOfMonth = d.getDate();
-	let dayOfWeekIndex = d.getDay();
-	let dayOfWeek = daysOfWeek[dayOfWeekIndex];
-	const dateTime = `${dayOfWeek} - ${month}/${dateOfMonth}/${year} - ${hour}:${minutes}`;
+	// let dayOfWeekIndex = d.getDay();
+	// let dayOfWeek = daysOfWeek[dayOfWeekIndex];
+	const dateTime = `${month}/${dateOfMonth}/${year} - ${hour}:${minutes}`;
 	return dateTime;
 }
 
