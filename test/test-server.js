@@ -40,13 +40,14 @@ describe('My app', () => {
 		it('should return all logs', () => {
 			return chai.request(app)
 				.get('/logEntries')
-				.then(function(res) {
+				.then((res) => {
 					expect(res).to.have.status(200);
 					expect(res.body).to.be.a('array');
 					expect(res).to.be.json;
 					res.body.forEach((log) => {
 						expect(log).to.be.a('object');
 						expect(log).to.include.keys('id', 'title', 'content', 'tag', 'publishDate', 'type');
+						expect(res.body).to.have.lengthOf(10);
 					});
 				});
 		});	
@@ -63,6 +64,7 @@ describe('My app', () => {
 							.then((res) => {
 								expect(res).to.have.status(200);
 								expect(res.body).to.be.a('object');
+								expect(res.body).to.include.keys('id', 'title', 'content', 'tag', 'publishDate', 'type');
 							});
 					});
 		});
@@ -77,8 +79,7 @@ describe('My app', () => {
 					expect(res).to.have.status(201);
 					expect(res).to.be.json;
 					expect(res.body).to.be.a('object');
-
-					// expect(res.body.publishDate).to.be.a('date');
+					expect(res.body.publishDate).to.be.a('string');
 					expect(res.body).to.include.keys('id', 'title', 'content', 'tag', 'publishDate', 'type');
 					expect(res.body.title).to.equal(newTestLog.title);
 					expect(res.body.content).to.equal(newTestLog.content);
