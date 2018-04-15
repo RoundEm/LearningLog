@@ -6,9 +6,10 @@ function handleLogs(err, logs) {
 	if (err) {
 		return console.log(err);
 	}
+	if (logs.length === 0) {
+		$('.render-log-section').empty().append(`<p class="noLogs">You currently have no log entries</p>`)
+	}
 	logsData = logs;
-
-	// possible to rewrite this as forEach or map?
 	for (let i = 0; i < logsData.length; i++) {
 		logsData[i].publishDateParsed = Date.parse(logsData[i].publishDate);
 	}
@@ -69,7 +70,6 @@ function bindHandlers() {
 	$('select').change(function() {
 		let sortValue = $(this).val();
 		sortLogs(logsData, sortValue);
-		console.log('sortValue:', sortValue)
 	});
 }
 
