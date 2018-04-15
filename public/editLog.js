@@ -11,7 +11,7 @@ function populateEditLogFields() {
 	let logTag = editFormModel.tag;
 	$('#edit-content').val(logContent);
 	$('#edit-title').val(logTitle);
-	$('#edit-type').val(logType);
+	$(`input[value="${logType}"]`).prop('checked', true);
 	$('#edit-tag').val(logTag);
 }
 
@@ -51,6 +51,9 @@ function bindHandlers() {
 	});
 	$('#edit-tag').on('input', event => {
 		updateEditFormModel('tag', event.target.value);
+	});
+	$('#edit-type').on('input', event => {
+		updateEditFormModel('type', event.target.value);
 	});
 	$('button').focus(function() {
 		$(this).css('background-color', '#ffde4d');
