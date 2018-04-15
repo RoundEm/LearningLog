@@ -58,7 +58,13 @@ function bindHandlers() {
 	$('#logTable').on('keypress', '.logEntry', function() {
 		let logId = $(this).find('.logId').text();
 		window.location.href = `/view-log/${logId}`;
-	})
+	});
+
+	$('.newPage').keypress((event) => {
+		if (event.which === 13) {
+			window.location.href = '/add-log'
+		}
+	});
 
 	$('select').change(function() {
 		let sortValue = $(this).val();
