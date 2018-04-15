@@ -31,31 +31,11 @@ header p {
 	background-color: white;
 	padding: 0 50px 7px;
 }
-.filter-section ul {
-	list-style-type: none;
-	width: 80%;
-	margin: 0 auto;
+.main-contain {	
+	font-size: 1.4em;
 }
-.filter-section li {
-	display: inline-block;
-}
-.filter-section label {
-	font-size: .7em;
-	margin-right: 10px;
-}
-.filter-section label:hover, .filter-section input:hover {
-	cursor: pointer;
-}
-.logForm ul {
-	list-style-type: none;
-	font-size: .8em;
-	padding: 0 0 0 10px;
-	border: 1px solid;
-	border-radius: 3px;
-} 
-.logForm li {
-	display: inline-block;
-	margin-right: 10px;
+.centerContent {
+	text-align: center;
 }
 .benefits {
 	background-color: white;
@@ -76,129 +56,16 @@ header p {
 .benefits li {
 	margin: 7px 0;
 }
-.main-contain {	
-	font-size: 1.4em;
-}
-.centerContent {
-	text-align: center;
-}
 .log-section {
 	margin: 40px 0;
 }
 .log-section p {
 	margin: 0 0 10px;
 }
-.newPage {
-	text-decoration: none;
-	padding: 10px 15px;
-	border: 2px solid #F4DF89;
-	background-color: white;
-}
-.newPage-container {
-	margin: 40px auto;
-	text-align: center;
-}
-.newPage:hover, button:hover {
-	background: linear-gradient(to left, #ffde4d, #f4df89);
-	cursor: pointer;
-}
-.viewLog {
-	background-color: white;
-}
-button {
-	padding: 10px;
-	margin: 25px 0 15px;
-	border: 2px solid #F4DF89;
-	font-size: .85em;
-}
-button[name='return'], button[name='delete'], button[name='abort'] {
-	margin-left: 20px;
-}
-select {
-	font-size: .7em;
-	padding: 15px;
-	margin: 0 0 15px;
-}
-label {
-	font-size: 1.25em;
-}
-a {
-	color: black;
-}
-table {
-    border-collapse: collapse;
-    table-layout: fixed;
-    width: 100%;
-}
-td {
-	overflow: hidden;
-	font-size: .85em;
-}
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 6px;
-}
-.col-title {
-	width: 25%;
-}
-.col-date {
-	width: 35%;
-}
-.col-tag, .col-type {
-	width: 20%;
-}
 .log-section {
 	background-color: white;
 	padding: 10px;
 	border: 2px solid;
-}
-/*.render-log-section div {
-	border: 2px solid;
-	margin: 5px;
-	padding: 6px 10px 2px;
-	font-size: .85em;
-}*/
-#tableHeadRow {
-	background-color: #f2f2f2;
-}
-/*.render-log-section div:not(.viewLog):hover {
-	cursor: pointer;
-	background: linear-gradient(to left, #ffde4d, #f4df89);
-	background-color: #ffde4d;
-}
-*/
-#logTable .logEntry:hover {
-	background-color: #ffde4d;
-}
-/*.render-log-section div:focus {
-	background-color: #ffde4d;
-}*/
-#logTable .logEntry:focus {
-	background-color: #ffde4d;
-}
-/*.render-log-section div:blur {
-	background-color: white;
-}*/
-#logTable .logEntry:blur {
-	background-color: white;
-}
-
-/*ONLY NEED THIS IF YOU CHANGE CURSOR TO POINTER FOR TABLE LOGS*/
-/* changes the cursor to normal on viewLog page. Must go after hover for .render-log-section due to the same specificity */
-/*.viewLogRender div:hover {
-	cursor: initial;
-}*/
-
-/*FOR EDIT LOG PAGE LABEL COLOR*/
-/*.edit-log-section label {
-	color: ;
-}*/
-.newLog {
-	margin: 40px 0 0 0;
-}
-.logEntry {
-	background-color: white;
 }
 
 /* ensures the <p> elements except the log ID are displayed correctly. Otherwise the ID will render instead of staying hidden */
@@ -217,9 +84,103 @@ td, th {
 	border: 2px solid;
 	padding: 7px;
 }
+
+
+/*Button/Link styling*/
+button {
+	padding: 10px;
+	margin: 25px 0 15px;
+	border: 2px solid #F4DF89;
+	font-size: .85em;
+}
+button[name='return'], button[name='delete'], button[name='abort'] {
+	margin-left: 20px;
+}
+a {
+	color: black;
+	text-decoration: none;
+}
+.main-contain .newPage {
+	width: 35%;
+	padding: 10px 15px;
+	margin: 40px auto;
+	border: 2px solid;
+	text-align: center;
+}
+.newPage:hover, button:hover {
+	background: linear-gradient(to left, #ffde4d, #f4df89);
+	cursor: pointer;
+}
+
+
+/* Table styling */
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+}
+td {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: .85em;
+}
+td, th {
+    border: 1px solid #f2f2f2;
+    text-align: left;
+    padding: 6px;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+#tableHeadRow {
+	background-color: #dddddd;
+}
+#logTable .logEntry:hover, #logTable .logEntry:focus {
+	background-color: #ffde4d;
+}
+#logTable .logEntry:hover { 
+	cursor: pointer;
+}
+#logTable .logEntry:blur {
+	background-color: white;
+}
+.col-title {
+	width: 25%;
+}
+.col-date {
+	width: 35%;
+}
+.col-tag, .col-type {
+	width: 20%;
+}
+
+/* changes the cursor to normal on viewLog page. Must go after hover for .render-log-section due to the same specificity */
+/*.viewLogRender div:hover {
+	cursor: initial;
+}*/
+
+/*FOR EDIT LOG PAGE LABEL COLOR*/
+/*.edit-log-section label {
+	color: ;
+}*/
+
+
+/*Form styling*/
+select {
+	font-size: .7em;
+	padding: 15px;
+	margin: 0 0 15px;
+}
+label {
+	font-size: 1.25em;
+}
 label {
 	display: inline-block;
 	margin: 10px 0 0;
+}
+textarea {
+	width: 100%;
+	height: 200px;	
 }
 .logForm input, textarea {
 	padding: 5px;
@@ -228,9 +189,16 @@ label {
 	border-radius: 3px;
 	margin: 0 0 15px 0;
 }
-textarea {
-	width: 100%;
-	height: 200px;	
+.logForm ul {
+	list-style-type: none;
+	font-size: .8em;
+	padding: 0 0 0 10px;
+	border: 1px solid;
+	border-radius: 3px;
+} 
+.logForm li {
+	display: inline-block;
+	margin-right: 10px;
 }
 .logForm input[name="title"] {
 	height: 35px;
