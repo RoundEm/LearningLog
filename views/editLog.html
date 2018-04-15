@@ -27,8 +27,42 @@
 					<textarea id="edit-content" name="textarea" required></textarea><br>
 					<label for="tag">Tag</label><br>
 					<input type="text" name="tag" id="edit-tag" /><br>
-					<label for="type">Type</label><br>
-					<input type="text" name="type" id="edit-type" required /><br>
+					<label>Log Content Type</label>
+					<ul>
+							<li>
+								<input type="radio" id="filterConcepts" name="filterType" value="concept" />
+								<label for="filterConcepts">Concepts</label>
+							</li>
+							<li>
+								<input type="radio" id="filterGoals" name="filterType" value="goal" />
+								<label for="filterGoals">Goals & Objectives</label>
+							</li>
+							<li>
+								<input type="radio" id="filterExamples" name="filterType" value="example" />
+								<label for="filterExamples">Examples</label>
+							</li>
+							<li>
+								<input type="radio" id="filterQuestions" name="filterType" value="question" />
+								<label for="filterQuestions">Questions</label>
+							</li>
+							<li>
+								<input type="radio" id="filterAnalogies" name="filterType" value="analogy" />
+								<label for="filterAnalogies">Analogies & Connections</label>
+							</li>
+							<li>
+								<input type="radio" id="filterResources" name="filterType" value="resource" />
+								<label for="filterResources">Resources</label>
+							</li>
+							<li>
+								<input type="radio" id="filterIdeas" name="filterType" value="idea" />
+								<label for="filterIdeas">New Ideas</label>
+							</li>
+							<li>
+								<input type="radio" id="filterAccomplishments" name="filterType" value="accomplishment" />
+								<label for="filterAccomplishments">Accomplishments & Inspiration</label>
+							</li>
+						</ul>
+
 					<button type="submit" name="update" id="updateLog">Update Log</button>
 					<button type="button" name="delete" id="deleteLog">Delete Log</button>
 				</form>
