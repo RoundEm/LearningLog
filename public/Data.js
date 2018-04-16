@@ -13,10 +13,14 @@ var Data = {
 		   	}
 		});
 	},
-	// GET all log entries
-	getLogs: function (cb) {
+	getLogs: function (cb, query) {
+		let url = '/logEntries';
+		if (query && query.type !== 'all') {
+			url += `?type=${query.type}`;
+		}
+		console.log('url', url)
 		$.ajax({
-			url: '/logEntries',
+			url: url,
 			type: 'GET',
 			success: function(res) {
 				cb(null, res);
