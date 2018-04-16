@@ -30,7 +30,7 @@
 				<section class="sort-section">
 					<form>
 						<h3>Sort Results</h3>
-						<select>
+						<select id="sort-select">
 							<option value="log_newest" class="sortLog_newest">Newest to Oldest</option>
 							<option value="log_oldest" class="sortLog_oldest">Oldest to Newest</option>
 							<option value="tag_a" class="sortTag_a">A-Z by Tag</option>
@@ -41,31 +41,33 @@
 
 				<section class="filter-section">
 					<form>
-						<h3>Filter Results by Type</h3>
-							<select>
-								<option value="" class="filterConcepts">Concepts</option>
-								<option value="" class="filterExamples">Examples</option>
-								<option value="" class="filterGoals">Goals & Objectives</option>
-								<option value="" class="filterQuestions">Questions</option>
-								<option value="" class="filterImprovement">Needs Improvement</option>
-								<option value="" class="filterResources">Resources</option>
-								<option value="" class="filterAccomplishments">Accomplishments & Inspiration</option>
-								<option value="" class="filterIdeas">New Ideas</option>
+						<h3>Filter Logs by Type</h3>
+							<select id="filter-select">
+								<option value="all" class="filterAll">All Types</option>
+								<option value="concept" class="filterConcepts">Concepts</option>
+								<option value="example" class="filterExamples">Examples</option>
+								<option value="goal" class="filterGoals">Goals & Objectives</option>
+								<option value="question" class="filterQuestions">Questions</option>
+								<option value="improvement" class="filterImprovement">Needs Improvement</option>
+								<option value="resource" class="filterResources">Resources</option>
+								<option value="accomplishment" class="filterAccomplishments">Accomplishments & Inspiration</option>
+								<option value="idea" class="filterIdeas">New Ideas</option>
 							</select>
 					</form>
 				</section> 
 
-				<section class="render-log-section viewLogsPage">
-					<table id="logTable">
+				<section class="render-log-section" aria-live="assertive">
+					<div class="render-log-error"></div>
+					<table id="logTable" >
 						<tr id="tableHeadRow">
 							<th class="col-title">Title</th>
 							<th class="col-tag">Tag</th>
 							<th class="col-type">Type</th>
 							<th class="col-date">Last Saved</th>
 						</tr>
-
+							
 						<!-- log data inserts here -->
-
+						
 					</table>
 				</section>
 			</section>

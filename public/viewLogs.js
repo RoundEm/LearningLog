@@ -6,18 +6,23 @@ function handleLogs(err, logs) {
 	if (err) {
 		return console.log(err);
 	}
-	if (logs.length === 0) {
-		$('.render-log-section').empty().append(`<p class="noLogs">You currently have no log entries</p>`)
-	}
 	logsData = logs;
 	for (let i = 0; i < logsData.length; i++) {
 		logsData[i].publishDateParsed = Date.parse(logsData[i].publishDate);
 	}
-	sortLogs(logsData);
+	sortLogs();
 }
 
-function sortLogs(logsData, sortValue) {
+function sortLogs(sortValue) {
+	// console.log('logsData:', logsData)
+	if (logsData.length === 0) {
+		$('.render-log-error').html(`<p class="noLogs">You currently have no log entries for this type</p>`);
+		// $('select').prop('disabled', true);
+	} else {
+		$('.render-log-error').empty();
+	}
 	if (sortValue === undefined) {
+		console.log('First if ran')
 		logsData.sort(function(a, b) {
 			return b.publishDateParsed - a.publishDateParsed;
 		});
@@ -46,9 +51,13 @@ function sortLogs(logsData, sortValue) {
 			return 0;
 		});
 	}
+	console.log('sorted logsData:', logsData)
 	const logsHTML = renderLogs(logsData);
-	$('#tableHeadRow').nextAll().empty();
-	$('#tableHeadRow').after(logsHTML.join(''));
+	// $('select').prop('disabled', false);	
+	// $('#logTable').children().not(':first').empty();
+	let renderedTable = $('table');
+	renderedTable.find("tr:gt(0)").empty();
+	$('#tableHeadRow').after(logsHTML.join(''));	
 }
 
 function bindHandlers() {
@@ -60,16 +69,18 @@ function bindHandlers() {
 		let logId = $(this).find('.logId').text();
 		window.location.href = `/view-log/${logId}`;
 	});
-
 	$('.newPage').keypress((event) => {
 		if (event.which === 13) {
 			window.location.href = '/add-log'
 		}
 	});
-
-	$('select').change(function() {
+	$('#sort-select').change(function() {
 		let sortValue = $(this).val();
-		sortLogs(logsData, sortValue);
+		sortLogs(sortValue);
+	});
+	$('#filter-select').change(function() {
+		let filterValue = $(this).val();
+		Data.getLogs(handleLogs, { type: filterValue });
 	});
 }
 
