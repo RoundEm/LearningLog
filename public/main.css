@@ -37,6 +37,9 @@ header p {
 .centerContent {
 	text-align: center;
 }
+.main-contain section {
+	margin: 20px 0 0 0;
+}
 .benefits {
 	background-color: white;
 	margin: 30px 0 0 0;
@@ -58,9 +61,6 @@ header p {
 }
 .log-section {
 	margin: 40px 0;
-}
-.log-section p {
-	margin: 0 0 10px;
 }
 .log-section {
 	background-color: white;
@@ -86,7 +86,7 @@ header p {
 }
 
 
-/*Button/Link styling*/
+/* Button/Link styling */
 button {
 	padding: 10px;
 	margin: 25px 0 15px;
@@ -100,7 +100,13 @@ a {
 	color: black;
 	text-decoration: none;
 }
-.main-contain .newPage {
+.newPage:focus, .newPage a:focus {
+	background-color: #ffde4d;
+}
+.newPage:blur {
+	background-color: white;
+}
+.newPage {
 	width: 35%;
 	padding: 10px 15px;
 	margin: 40px auto;
@@ -108,7 +114,7 @@ a {
 	text-align: center;
 }
 .newPage:hover, button:hover {
-	background: linear-gradient(to left, #ffde4d, #f4df89);
+	background: #f4df89;
 	cursor: pointer;
 }
 
@@ -145,14 +151,15 @@ tr:nth-child(even) {
 	background-color: white;
 }
 .col-title {
+	width: 30%;
+}
+.col-tag, .col-type {
 	width: 25%;
 }
 .col-date {
-	width: 35%;
+	width: 15%;
 }
-.col-tag, .col-type {
-	width: 20%;
-}
+
 
 /* changes the cursor to normal on viewLog page. Must go after hover for .render-log-section due to the same specificity */
 /*.viewLogRender div:hover {
@@ -181,6 +188,9 @@ label {
 textarea {
 	width: 100%;
 	height: 200px;	
+}
+.log-section option {
+	
 }
 .logForm input, textarea {
 	padding: 5px;
