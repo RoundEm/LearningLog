@@ -31,10 +31,6 @@ function bindHandlers() {
 			let contentValue = contentTarget.val();
 			let tagTarget = $(this).find('#add-tag');
 			let tagValue = tagTarget.val();
-			// 	if($(this).prop('checked')) {
-			// 		typeValue = $(this).val();
-			// 	}
-			// });
 			createLogEntry(titleValue, contentValue, tagValue, typeValue);	
 			// Make inputs uneditable upon submit
 			$('.log-form input, .log-form textarea').prop('readonly', true);
