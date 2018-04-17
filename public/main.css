@@ -37,8 +37,8 @@ header p {
 .center-content {
 	text-align: center;
 }
-.main-contain section {
-	margin: 20px 0 0 0;
+select:disabled {
+	cursor: not-allowed;
 }
 .benefits {
 	background-color: white;
@@ -84,7 +84,9 @@ header p {
 	border: 2px solid;
 	padding: 7px;
 }
-
+.no-logs {
+	margin: 0 0 7px	;
+}
 
 /* Button/Link styling */
 button {
@@ -117,7 +119,6 @@ a {
 	background: #f4df89;
 	cursor: pointer;
 }
-
 
 /* Table styling */
 table {

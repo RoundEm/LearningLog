@@ -16,9 +16,10 @@ function handleLogs(err, logs) {
 function sortLogs(sortValue) {
 	if (logsData.length === 0) {
 		$('.render-log-error').html(`<p class="no-logs">You currently have no log entries for this type</p>`);
-		// $('select').prop('disabled', true);
+		$('select').prop('disabled', true);
 	} else {
 		$('.render-log-error').empty();
+		$('select').prop('disabled', false);	
 	}
 	if (sortValue === undefined) {
 		console.log('First if ran')
@@ -52,7 +53,7 @@ function sortLogs(sortValue) {
 	}
 	console.log('sorted logsData:', logsData)
 	const logsHTML = renderLogs(logsData);
-	// $('select').prop('disabled', false);	
+
 	// $('#log-table').children().not(':first').empty();
 	let renderedTable = $('table');
 	renderedTable.find("tr:gt(0)").empty();
