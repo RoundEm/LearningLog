@@ -3,7 +3,7 @@ function getDbUrl() {
 	if (process.env.NODE_ENV === 'production') {
 		url = process.env.DATABASE_URL;
 	} else if (process.env.NODE_ENV === 'test') {
-		url = 'mongodb://localhost/test-learning-log';
+		url = process.env.TEST_DATABASE_URL || 'mongodb://localhost/test-learning-log';
 	} 
 	return url || 'mongodb://localhost/learning-log';
 }
