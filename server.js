@@ -10,8 +10,6 @@ const { DB_URL, PORT } = require('./config');
 
 mongoose.connect(DB_URL);
 
-// mongoose.Promise = global.Promise;
-
 if (process.env.NODE_ENV !== 'test') {
 	app.use(morgan('common'));
 }   
@@ -43,7 +41,8 @@ app.get('/edit-log/:logId', (req, res) => {
 
 // get all of your posts
 app.get('/logEntries', (req, res) => {
-	Log.find({})
+	const query = req.query || {};
+	Log.find(query)
 		.then((logs) => {
 			res.json(logs.map((log) => {
 				return log.serialize();
