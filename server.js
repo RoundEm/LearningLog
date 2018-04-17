@@ -78,7 +78,7 @@ app.post('/logEntries', jsonParser, (req, res) => {
 });
 
 app.put('/logEntries/:logId', jsonParser, (req, res) => {
-	Log.findByIdAndUpdate(req.params.logId, {$set: req.body}, { "new": true })
+	Log.findByIdAndUpdate(req.params.logId, { $set: req.body }, { "new": true })
 		.then((log) => {
 			res.status(200).json(log);
 		})
