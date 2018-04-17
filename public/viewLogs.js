@@ -22,7 +22,6 @@ function sortLogs(sortValue) {
 		$('select').prop('disabled', false);	
 	}
 	if (sortValue === undefined) {
-		console.log('First if ran')
 		logsData.sort(function(a, b) {
 			return b.publishDateParsed - a.publishDateParsed;
 		});
