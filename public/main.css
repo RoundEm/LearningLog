@@ -59,6 +59,9 @@ select:disabled {
 .benefits li {
 	margin: 7px 0;
 }
+.sort-section {
+	margin: 10px 0 0 0;
+}
 .log-section {
 	margin: 40px 0;
 }
