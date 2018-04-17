@@ -52,7 +52,7 @@ function bindHandlers() {
 	$('#edit-tag').on('input', event => {
 		updateEditFormModel('tag', event.target.value);
 	});
-	$('#edit-type').on('input', event => {
+	$('#edit-type input').on('change', event => {
 		updateEditFormModel('type', event.target.value);
 	});
 	$('button').focus(function() {
