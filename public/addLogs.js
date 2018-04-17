@@ -21,31 +21,27 @@ function handlePostCallback(err, res) {
 function bindHandlers() {
 	$('.logForm').submit(function(event) {
 		event.preventDefault();
-		let titleTarget = $(this).find('#add-title');
-		let titleValue = titleTarget.val();
-		let contentTarget = $(this).find('#add-content');
-		let contentValue = contentTarget.val();
-		let tagTarget = $(this).find('#add-tag');
-		let tagValue = tagTarget.val();
-		let typeValue = '';
-		typeValue = $('.logForm li').find('input:checked').val();
-		// $('.logForm li input').each(function() {
-		// 	if($(this).prop('checked')) {
-		// 		typeValue = $(this).val();
-		// 	}
-		// });
 		if (typeValue === undefined) {
 			alert('Please make a selection for Log Content Type');
+		} else {
+			let titleTarget = $(this).find('#add-title');
+			let titleValue = titleTarget.val();
+			let contentTarget = $(this).find('#add-content');
+			let contentValue = contentTarget.val();
+			let tagTarget = $(this).find('#add-tag');
+			let tagValue = tagTarget.val();
+			let typeValue = '';
+			typeValue = $('.logForm li').find('input:checked').val();
+			// 	if($(this).prop('checked')) {
+			// 		typeValue = $(this).val();
+			// 	}
+			// });
+			createLogEntry(titleValue, contentValue, tagValue, typeValue);	
+			// Make inputs uneditable upon submit
+			$('.logForm input, .logForm textarea').prop('readonly', true);
+			$('.logForm input:radio').prop('disabled', true)
+			$('#add-title, #add-content, #add-tag').css('background-color', '#E3E2DD');
 		}
-		console.log('typeValue:', typeValue)
-		createLogEntry(titleValue, contentValue, tagValue, typeValue);	
-
-		// Make inputs uneditable upon submit
-		$('.logForm input, .logForm textarea').prop('readonly', true);
-		$('.logForm input:radio').prop('disabled', true)
-		$('#add-title, #add-content, #add-tag').css('background-color', '#E3E2DD');
-		
-		// $('.successMsg').append(`<p aria-live="assertive">Your log has been saved! You can <a href="/add-log">add another log</a> or <a href="/view-logs">return to your saved logs.</p>`);
 	});
 
 	$('button').focus(function() {
