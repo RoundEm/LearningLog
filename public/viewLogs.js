@@ -14,9 +14,8 @@ function handleLogs(err, logs) {
 }
 
 function sortLogs(sortValue) {
-	// console.log('logsData:', logsData)
 	if (logsData.length === 0) {
-		$('.render-log-error').html(`<p class="noLogs">You currently have no log entries for this type</p>`);
+		$('.render-log-error').html(`<p class="no-logs">You currently have no log entries for this type</p>`);
 		// $('select').prop('disabled', true);
 	} else {
 		$('.render-log-error').empty();
@@ -54,22 +53,22 @@ function sortLogs(sortValue) {
 	console.log('sorted logsData:', logsData)
 	const logsHTML = renderLogs(logsData);
 	// $('select').prop('disabled', false);	
-	// $('#logTable').children().not(':first').empty();
+	// $('#log-table').children().not(':first').empty();
 	let renderedTable = $('table');
 	renderedTable.find("tr:gt(0)").empty();
-	$('#tableHeadRow').after(logsHTML.join(''));	
+	$('#table-head-row').after(logsHTML.join(''));	
 }
 
 function bindHandlers() {
-	$('#logTable').on('click', '.logEntry', function() {
-		let logId = $(this).find('.logId').text();
+	$('#log-table').on('click', '.log-entry', function() {
+		let logId = $(this).find('.log-id').text();
 		window.location.href = `/view-log/${logId}`;
 	});
-	$('#logTable').on('keypress', '.logEntry', function() {
-		let logId = $(this).find('.logId').text();
+	$('#log-table').on('keypress', '.log-entry', function() {
+		let logId = $(this).find('.log-id').text();
 		window.location.href = `/view-log/${logId}`;
 	});
-	$('.newPage').keypress((event) => {
+	$('.new-page').keypress((event) => {
 		if (event.which === 13) {
 			window.location.href = '/add-log'
 		}

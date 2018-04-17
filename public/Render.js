@@ -2,27 +2,13 @@
 
 function renderLog(log) {
 	let dateTime = formatDateTime(log.publishDate);
-	return `<tr class="logEntry" tabindex="0">
+	return `<tr class="log-entry" tabindex="0">
 				<td>${log.title}</td>
 				<td>${log.tag}</td>
 				<td>${log.type}</td>
 				<td>${dateTime}</td>
-				<td class="logId" hidden>${log.id}</td>
+				<td class="log-id" hidden>${log.id}</td>
 			</tr>`
-
-	// Non-tabular display:
-	//
-	// return `<div class="logEntry" tabindex="0">
-	// 			<span>Title:</span>	
-	// 			<p>${log.title}</p><br>
-	// 			<span>Tag:</span>
-	// 			<p>${log.tag}</p><br>
-	// 			<span>Type:</span>
-	// 			<p>${log.type}</p><br>
-	// 			<span>Saved:</span>
-	// 			<p>${dateTime}</p>
-	// 			<p class="logId" hidden>${log.id}</p>
-	// 		</div>`;
 }
 
 function renderLogs(logs) {
@@ -33,7 +19,7 @@ function renderLogs(logs) {
 
 function renderViewLog(log) {
 	let dateTime = formatDateTime(log.publishDate);
-	return `<div class="viewLog">
+	return `<div class="view-log">
 				<span>Title:</span>	
 				<p>${log.title}</p>
 				<span>Content:</span>
@@ -44,7 +30,7 @@ function renderViewLog(log) {
 				<p>${log.type}</p>
 				<span>Last Saved:</span>
 				<p>${dateTime}</p>
-				<p class="logId" hidden>${log.id}</p>
+				<p class="log-id" hidden>${log.id}</p>
 			</div>`;
 }
 

@@ -19,7 +19,7 @@ function handlePostCallback(err, res) {
 }
 
 function bindHandlers() {
-	$('.logForm').submit(function(event) {
+	$('.log-form').submit(function(event) {
 		event.preventDefault();
 		if (typeValue === undefined) {
 			alert('Please make a selection for Log Content Type');
@@ -31,15 +31,15 @@ function bindHandlers() {
 			let tagTarget = $(this).find('#add-tag');
 			let tagValue = tagTarget.val();
 			let typeValue = '';
-			typeValue = $('.logForm li').find('input:checked').val();
+			typeValue = $('.log-form li').find('input:checked').val();
 			// 	if($(this).prop('checked')) {
 			// 		typeValue = $(this).val();
 			// 	}
 			// });
 			createLogEntry(titleValue, contentValue, tagValue, typeValue);	
 			// Make inputs uneditable upon submit
-			$('.logForm input, .logForm textarea').prop('readonly', true);
-			$('.logForm input:radio').prop('disabled', true)
+			$('.log-form input, .log-form textarea').prop('readonly', true);
+			$('.log-form input:radio').prop('disabled', true)
 			$('#add-title, #add-content, #add-tag').css('background-color', '#E3E2DD');
 		}
 	});

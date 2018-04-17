@@ -34,7 +34,7 @@ header p {
 .main-contain {	
 	font-size: 1.4em;
 }
-.centerContent {
+.center-content {
 	text-align: center;
 }
 .main-contain section {
@@ -69,18 +69,18 @@ header p {
 }
 
 /* ensures the <p> elements except the log ID are displayed correctly. Otherwise the ID will render instead of staying hidden */
-.logEntry p:not(.logId) {
+.log-entry p:not(.log-id) {
 	display: inline-block;
 	margin: 0 0 5px;
 }
-.viewLog span {
+.view-log span {
 	font-weight: bolder;
 	text-decoration: underline;
 }
-.viewLog p {
+.view-log p {
 	margin: 0 0 10px;
 }
-.viewLog {
+.view-log {
 	border: 2px solid;
 	padding: 7px;
 }
@@ -100,20 +100,20 @@ a {
 	color: black;
 	text-decoration: none;
 }
-.newPage:focus, .newPage a:focus {
+.new-page:focus, .new-page a:focus {
 	background-color: #ffde4d;
 }
-.newPage:blur {
+.new-page:blur {
 	background-color: white;
 }
-.newPage {
+.new-page {
 	width: 35%;
 	padding: 10px 15px;
 	margin: 40px auto;
 	border: 2px solid;
 	text-align: center;
 }
-.newPage:hover, button:hover {
+.new-page:hover, button:hover {
 	background: #f4df89;
 	cursor: pointer;
 }
@@ -138,16 +138,16 @@ td, th {
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }
-#tableHeadRow {
+#table-head-row {
 	background-color: #dddddd;
 }
-#logTable .logEntry:hover, #logTable .logEntry:focus {
+#log-table .log-entry:hover, #log-table .log-entry:focus {
 	background-color: #ffde4d;
 }
-#logTable .logEntry:hover { 
+#log-table .log-entry:hover { 
 	cursor: pointer;
 }
-#logTable .logEntry:blur {
+#log-table .log-entry:blur {
 	background-color: white;
 }
 .col-title {
@@ -189,40 +189,33 @@ textarea {
 	width: 100%;
 	height: 200px;	
 }
-.log-section option {
-	
-}
-.logForm input, textarea {
+.log-form input, textarea {
 	padding: 5px;
 	font-size: .75em;
 	border: 1px solid;
 	border-radius: 3px;
 	margin: 0 0 15px 0;
 }
-.logForm ul {
+.log-form ul {
 	list-style-type: none;
 	font-size: .8em;
 	padding: 0 0 0 10px;
 	border: 1px solid;
 	border-radius: 3px;
 } 
-.logForm li {
+.log-form li {
 	display: inline-block;
 	margin-right: 10px;
 }
-.logForm input[name="title"] {
+.log-form input[name="title"] {
 	height: 35px;
 	width: 75%
 }
-/*.logForm input[name="type"] {
-	height: 35px;
-	width: 55%
-}*/
-.logForm input[name="tag"] {
+.log-form input[name="tag"] {
 	height: 35px;
 	width: 55%
 }
-.logForm input[name="submit"] {
+.log-form input[name="submit"] {
 	margin: 25px 0;
 }
 

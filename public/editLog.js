@@ -35,11 +35,11 @@ function handleDelete(err, response) {
 }
 
 function bindHandlers() {
-	$('#deleteLog').click(event => {
+	$('#delete-log').click(event => {
 		event.preventDefault();
 		Data.removeLog(editLogId, handleDelete);
 	});
-	$('#updateLog').click(event => {
+	$('#update-log').click(event => {
 		event.preventDefault();
 		Data.updateLog(editLogId, editFormModel, handleUpdate);
 	});

@@ -13,6 +13,7 @@ var Data = {
 		   	}
 		});
 	},
+	// GET all logs by type
 	getLogs: function (cb, query) {
 		let url = '/logEntries';
 		if (query && query.type !== 'all') {
