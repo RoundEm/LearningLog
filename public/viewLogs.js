@@ -16,10 +16,10 @@ function handleLogs(err, logs) {
 function sortLogs(sortValue) {
 	if (logsData.length === 0) {
 		$('.render-log-error').html(`<p class="no-logs">You currently have no log entries for this type</p>`);
-		$('select').prop('disabled', true);
+		$('#sort-select').prop('disabled', true);
 	} else {
 		$('.render-log-error').empty();
-		$('select').prop('disabled', false);	
+		$('#sort-select').prop('disabled', false);	
 	}
 	if (sortValue === undefined) {
 		logsData.sort(function(a, b) {
