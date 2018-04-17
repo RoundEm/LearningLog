@@ -10,11 +10,11 @@ function handleGetLog(err, log) {
 }
 
 function bindHandlers() {
-	$('#editLog').click(function() {
-		let logId = $(this).siblings('.render-log-section').find('.logId').text();
+	$('#edit-log').click(function() {
+		let logId = $(this).siblings('.render-log-section').find('.log-id').text();
 		window.location.href = `/edit-log/${logId}`;
 	});
-	$('#returnBtn').click(() =>  {
+	$('#return-btn').click(() =>  {
 		window.location.href = '/view-logs';
 	});
 	$('button').focus(function() {
