@@ -160,18 +160,6 @@ tr:nth-child(even) {
 	width: 15%;
 }
 
-
-/* changes the cursor to normal on viewLog page. Must go after hover for .render-log-section due to the same specificity */
-/*.viewLogRender div:hover {
-	cursor: initial;
-}*/
-
-/*FOR EDIT LOG PAGE LABEL COLOR*/
-/*.edit-log-section label {
-	color: ;
-}*/
-
-
 /*Form styling*/
 select {
 	font-size: .7em;
