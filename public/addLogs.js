@@ -21,6 +21,7 @@ function handlePostCallback(err, res) {
 function bindHandlers() {
 	$('.log-form').submit(function(event) {
 		event.preventDefault();
+		let typeValue = $('.log-form li').find('input:checked').val();
 		if (typeValue === undefined) {
 			alert('Please make a selection for Log Content Type');
 		} else {
@@ -30,8 +31,6 @@ function bindHandlers() {
 			let contentValue = contentTarget.val();
 			let tagTarget = $(this).find('#add-tag');
 			let tagValue = tagTarget.val();
-			let typeValue = '';
-			typeValue = $('.log-form li').find('input:checked').val();
 			// 	if($(this).prop('checked')) {
 			// 		typeValue = $(this).val();
 			// 	}
