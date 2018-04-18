@@ -22,7 +22,9 @@ function bindHandlers() {
 	$('.log-form').submit(function(event) {
 		event.preventDefault();
 		let typeValue = $('.log-form li').find('input:checked').val();
-		if (typeValue === undefined) {
+		let fullTypeValue = Types[typeValue];
+		console.log('fullTypeValue:', fullTypeValue)
+		if (fullTypeValue === undefined) {
 			alert('Please make a selection for Log Content Type');
 		} else {
 			let titleTarget = $(this).find('#add-title');
@@ -31,7 +33,7 @@ function bindHandlers() {
 			let contentValue = contentTarget.val();
 			let tagTarget = $(this).find('#add-tag');
 			let tagValue = tagTarget.val();
-			createLogEntry(titleValue, contentValue, tagValue, typeValue);	
+			createLogEntry(titleValue, contentValue, tagValue, fullTypeValue);	
 			// Make inputs uneditable upon submit
 			$('.log-form input, .log-form textarea').prop('readonly', true);
 			$('.log-form input:radio').prop('disabled', true)

@@ -53,7 +53,9 @@ function bindHandlers() {
 		updateEditFormModel('tag', event.target.value);
 	});
 	$('#edit-type input').on('change', event => {
-		updateEditFormModel('type', event.target.value);
+		let typeValue = event.target.value;
+		let fullTypeValue = Types[typeValue];
+		updateEditFormModel('type', fullTypeValue);
 	});
 	$('button').focus(function() {
 		$(this).css('background-color', '#ffde4d');
