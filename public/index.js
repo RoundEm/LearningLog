@@ -4,7 +4,7 @@
 			window.location.href = '/view-logs'
 		}
 	});
-	$('.new-page a').focus(function(event) {
+	$('.new-page a').focus((event) => {
 		$('.new-page').css('background-color', '#ffde4d');
 	});
 	$('.new-page a').blur((event) => {
