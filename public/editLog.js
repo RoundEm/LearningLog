@@ -67,15 +67,18 @@ function bindHandlers() {
 		updateEditFormModel('tag', event.target.value);
 	});
 	$('#edit-type input').on('change', event => {
-		// let typeValue = event.target.value;
-		console.log('event.target.value:', event.target.value)
 		updateEditFormModel('type', event.target.value);
 	});
 	$('button').focus(function() {
-		$(this).css('background-color', '#ffde4d');
+		$(this).css('background-color', '#FF6F59');
 	});
 	$('button').blur(function() {
-		$(this).css('background-color', 'white');
+		$(this).css('background-color', '#FFFCF2');
+	});
+	$('button').keypress((event) => {
+		if (event.which === 13) {
+			window.location.href = '/view-logs'
+		}
 	});
 }
 
