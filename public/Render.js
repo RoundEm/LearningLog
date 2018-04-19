@@ -6,7 +6,7 @@ function renderLog(log) {
 				<td>${log.title}</td>
 				<td>${log.tag}</td>
 				<td>${log.type}</td>
-				<td>${dateTime}</td>
+				<td class="col-date">${dateTime}</td>
 				<td class="log-id" hidden>${log.id}</td>
 			</tr>`
 }
