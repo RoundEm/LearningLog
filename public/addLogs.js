@@ -22,9 +22,7 @@ function bindHandlers() {
 	$('.log-form').submit(function(event) {
 		event.preventDefault();
 		let typeValue = $('.log-form li').find('input:checked').val();
-		let fullTypeValue = Types[typeValue];
-		console.log('fullTypeValue:', fullTypeValue)
-		if (fullTypeValue === undefined) {
+		if (typeValue === undefined) {
 			alert('Please make a selection for Log Content Type');
 		} else {
 			let titleTarget = $(this).find('#add-title');
@@ -33,21 +31,19 @@ function bindHandlers() {
 			let contentValue = contentTarget.val();
 			let tagTarget = $(this).find('#add-tag');
 			let tagValue = tagTarget.val();
-			createLogEntry(titleValue, contentValue, tagValue, fullTypeValue);	
+			createLogEntry(titleValue, contentValue, tagValue, typeValue);	
 			// Make inputs uneditable upon submit
 			$('.log-form input, .log-form textarea').prop('readonly', true);
 			$('.log-form input:radio').prop('disabled', true)
 			$('#add-title, #add-content, #add-tag').css('background-color', '#E3E2DD');
 		}
 	});
-
 	$('button').focus(function() {
 		$(this).css('background-color', '#ffde4d');
 	});
 	$('button').blur(function() {
 		$(this).css('background-color', 'white');
 	});
-
 	$('#abortBtn').click(() => {
 		let answer = confirm('Any unsaved log data will be lost. Do you wish to continue?');
 		if (answer) {

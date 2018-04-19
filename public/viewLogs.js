@@ -50,10 +50,8 @@ function sortLogs(sortValue) {
 			return 0;
 		});
 	}
-	console.log('sorted logsData:', logsData)
+	// Sets up rendering of sorted logs:
 	const logsHTML = renderLogs(logsData);
-
-	// $('#log-table').children().not(':first').empty();
 	let renderedTable = $('table');
 	renderedTable.find("tr:gt(0)").empty();
 	$('#table-head-row').after(logsHTML.join(''));	
@@ -68,7 +66,7 @@ function bindHandlers() {
 		let logId = $(this).find('.log-id').text();
 		window.location.href = `/view-log/${logId}`;
 	});
-	$('.new-page').keypress((event) => {
+	$('.new-page').keypress(event => {
 		if (event.which === 13) {
 			window.location.href = '/add-log'
 		}
@@ -80,6 +78,12 @@ function bindHandlers() {
 	$('#filter-select').change(function() {
 		let filterValue = $(this).val();
 		Data.getLogs(handleLogs, { type: filterValue });
+	});
+	$('.new-page a').focus(event => {
+		$('.new-page').css('background-color', '#ffde4d');
+	});
+	$('.new-page a').blur(event => {
+		$('.new-page').css('background-color', 'white');
 	});
 }
 
