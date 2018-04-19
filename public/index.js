@@ -5,7 +5,7 @@
 		}
 	});
 	$('.new-page a').focus((event) => {
-		$('.new-page').css('background-color', '#ffde4d');
+		$('.new-page').css('background-color', '#FF6F59');
 	});
 	$('.new-page a').blur((event) => {
 		$('.new-page').css('background-color', 'white');
