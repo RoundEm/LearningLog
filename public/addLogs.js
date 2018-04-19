@@ -35,14 +35,24 @@ function bindHandlers() {
 			// Make inputs uneditable upon submit
 			$('.log-form input, .log-form textarea').prop('readonly', true);
 			$('.log-form input:radio').prop('disabled', true)
-			$('#add-title, #add-content, #add-tag').css('background-color', '#E3E2DD');
+			$('#add-title, #add-content, #add-tag, .log-form ul').css('background-color', '#E3E2DD');
 		}
 	});
 	$('button').focus(function() {
-		$(this).css('background-color', '#ffde4d');
+		$(this).css('background-color', '#FF6F59');
 	});
 	$('button').blur(function() {
-		$(this).css('background-color', 'white');
+		$(this).css('background-color', '#FFFCF2');
+	});
+	$('button').keypress((event) => {
+		if (event.which === 13) {
+			if ($(event.target).attr('id') === 'abort-btn') {
+				let answer = confirm('Any unsaved log data will be lost. Do you wish to continue?');
+				if (answer) {
+					window.location.href = '/view-logs';
+				}
+			}
+		}
 	});
 	$('#abortBtn').click(() => {
 		let answer = confirm('Any unsaved log data will be lost. Do you wish to continue?');
