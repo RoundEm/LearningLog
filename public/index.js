@@ -1,8 +1,11 @@
-	function bindButton() {
+function bindButton() {
 	$('.new-page').keypress((event) => {
 		if (event.which === 13) {
 			window.location.href = '/view-logs'
 		}
+	});
+	$('.new-page').click(() => {
+		window.location.href = '/view-logs'
 	});
 	$('.new-page a').focus((event) => {
 		$('.new-page').css('background-color', '#FF6F59');
