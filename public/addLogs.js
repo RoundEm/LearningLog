@@ -46,7 +46,7 @@ function bindHandlers() {
 	});
 	$('button').keypress((event) => {
 		if (event.which === 13) {
-			if ($(event.target).attr('id') === 'abort-btn') {
+			if ($(event.target).prop('id') === 'abort-btn') {
 				let answer = confirm('Any unsaved log data will be lost. Do you wish to continue?');
 				if (answer) {
 					window.location.href = '/view-logs';
@@ -54,7 +54,7 @@ function bindHandlers() {
 			}
 		}
 	});
-	$('#abortBtn').click(() => {
+	$('#abort-btn').click(() => {
 		let answer = confirm('Any unsaved log data will be lost. Do you wish to continue?');
 		if (answer) {
 			window.location.href = '/view-logs';
