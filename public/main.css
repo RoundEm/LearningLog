@@ -2,34 +2,46 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	font-family: 'Quattrocento', serif;
+	font-family: 'Ruda', sans-serif;
 }
 body {
-	/*background: linear-gradient(to right, #57dfa5, #299868);*/
-	/*background-color: #1E1905;*/
-	/*background-image: url('/images/tim-marshall-267249-unsplash.jpg');
-	background-size: cover;
-	background-repeat: repeat; */
-	/*height: 100%;*/
 	width: 85%;
 	margin: 0 auto;
+	/*background: linear-gradient(#011214, #053c43);*/
+	padding: 0 0 100px;
+	background-color: #011214;
+	/*background-image: url('https://vectr.com/squarebush/ieTXE7JyF.svg?width=1240&height=1240&select=ieTXE7JyFpage0	');
+	background-repeat: repeat;*/
 }
+/*body#landing-page {
+	background-color: #011214;
+	background-image: url('/images/elcarito-600085-unsplash.jpg');
+	background-size: cover;
+} */
 header {
+	margin: 70px 0 0 0;
+}
+#landing-page header {
 	font-size: 1.55em;
 	margin: 20px 0 15px;
-	border: 2px solid #424242;
+	/*border: 2px solid #424242;*/
 }
-header.index {
-	margin: 60px 0 0 0;
-}
+
 header h1 {
 	text-align: center;
 	padding: 7px 0;
-	background-color: white;
+	/*background-color: #011214;*/
+	border: 2px solid #FF6F59;
+	color: #FF6F59;
+	
+}
+#landing-page h1 {
+	background-color: none;
 }
 header p {
-	background-color: white;
-	padding: 0 50px 7px;
+	padding: 10px 10px 0;
+	/*border: 2px solid #FF6F59;*/
+	color: white;
 }
 .main-contain {	
 	font-size: 1.4em;
@@ -41,15 +53,16 @@ select:disabled {
 	cursor: not-allowed;
 }
 .benefits {
-	background-color: white;
 	margin: 30px 0 0 0;
 	padding: 10px;
-	border: 2px solid #424242;
+	/*border: 2px solid #424242;*/
+	/*background-color: white;*/
 }
 .benefits h1 {
 	margin: 10px 0 0 0;
 	text-align: center;
 	font-weight: bolder;
+	color: white;
 }
 .benefits ul {
 	margin: 5px auto;
@@ -59,18 +72,28 @@ select:disabled {
 .benefits li {
 	margin: 7px 0;
 }
+.benefits li:nth-child(odd) {
+	color: #84DCC6;
+}
+.benefits li:nth-child(even) {
+	color: #FF6F59;
+}
 .sort-section {
 	margin: 10px 0 0 0;
 }
 .log-section {
 	margin: 40px 0;
-}
-.log-section {
 	background-color: white;
 	padding: 10px;
-	border: 2px solid;
+	border: 2px solid #d8d8d2;
+	color: #252422;
 }
-
+.log-section p {
+    font-style: italic;
+}
+.view-log-page .render-log-section {
+	background-color: white;
+}
 /* ensures the <p> elements except the log ID are displayed correctly. Otherwise the ID will render instead of staying hidden */
 .log-entry p:not(.log-id) {
 	display: inline-block;
@@ -95,7 +118,8 @@ select:disabled {
 button {
 	padding: 10px;
 	margin: 25px 0 15px;
-	border: 2px solid #F4DF89;
+	border: 2px solid #84DCC6;
+	background-color: #FFFCF2;
 	font-size: .85em;
 }
 button[name='return'], button[name='delete'], button[name='abort'] {
@@ -106,20 +130,21 @@ a {
 	text-decoration: none;
 }
 .new-page:focus, .new-page a:focus {
-	background-color: #ffde4d;
+	background-color: #FF6F59;
 }
 .new-page:blur {
-	background-color: white;
+	background-color: #FFFCF2;
 }
 .new-page {
 	width: 35%;
 	padding: 10px 15px;
 	margin: 40px auto;
-	border: 2px solid;
+	border: 2px solid #84DCC6;
 	text-align: center;
+	background-color: #FFFCF2;
 }
 .new-page:hover, button:hover {
-	background: #f4df89;
+	background: #FF6F59;
 	cursor: pointer;
 }
 
@@ -128,6 +153,10 @@ table {
     border-collapse: collapse;
     table-layout: fixed;
     width: 100%;
+    color: black;
+}
+th {
+	background-color: #B2B09B;
 }
 td {
 	font-size: .85em;
@@ -142,13 +171,17 @@ td, th {
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }
+tr:nth-child(odd) {
+    background-color: white;
+}
 #table-head-row {
 	background-color: #dddddd;
 }
 #log-table .log-entry:hover, #log-table .log-entry:focus {
-	background-color: #ffde4d;
+	background-color: #FF6F59;
+	color: #FFFCF2;
 }
-#log-table .log-entry:hover { 
+#log-table .log-entry:hover, .log-form ul input:hover, .log-form ul label:hover  { 
 	cursor: pointer;
 }
 #log-table .log-entry:blur {
@@ -199,6 +232,9 @@ textarea {
 	display: inline-block;
 	margin-right: 10px;
 }
+.log-form > label {
+	color: #B2B09B;
+}
 .log-form input[name="title"] {
 	height: 35px;
 	width: 75%
@@ -210,14 +246,42 @@ textarea {
 .log-form input[name="submit"] {
 	margin: 25px 0;
 }
+.log-form ul {
+	background-color: white;
+}
 
-/* breakpoint */
+/* breakpoint 960px */
+@media only screen and (max-width: 960px) {
+	td, th {
+		font-size: .75em;
+	}
+	.log-form input[name="title"] {
+		width: 85%
+	} 
+	.log-form input[name="tag"] {
+		width: 70%
+	} 
+	.new-page {
+		width: 75%;
+	}
+}
+
+/* breakpoint 640px */
 @media only screen and (max-width: 640px) {
 	td, th {
 		font-size: .65em;
 	}
 	.col-date {
 		display: none;
+	}
+	.log-form input[name="title"], .log-form input[name="tag"] {
+		width: 100%
+	} 
+	.log-form li {
+		display: block;
+	}
+	.new-page {
+		width: 80%;
 	}
 }
 
