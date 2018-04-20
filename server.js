@@ -44,8 +44,6 @@ app.get('/logEntries', (req, res) => {
 	const query = req.query || {};
 	Log.find(query)
 		.then((logs) => {
-			console.log('LOGS:', logs);
-			
 			res.json(logs.map((log) => {
 				return log.serialize();
 			}));
