@@ -18,10 +18,10 @@ function bindHandlers() {
 		window.location.href = '/view-logs';
 	});
 	$('button').focus(function() {
-		$(this).css('background-color', '#ffde4d');
+		$(this).css('background-color', '#FF6F59');
 	});
 	$('button').blur(function() {
-		$(this).css('background-color', 'white');
+		$(this).css('background-color', '#FFFCF2');
 	});
 }
 
