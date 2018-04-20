@@ -45,8 +45,8 @@ LogSchema.methods.serialize = function() {
 		title: this.title,
 		content: this.content,
 		publishDate: this.publishDate,
+		type: Types[this.type] || this.type,
 		tag: this.tag,
-		type: Types[this.type],
 		id: this._id
 	}
 }
