@@ -66,6 +66,9 @@ function bindHandlers() {
 		let logId = $(this).find('.log-id').text();
 		window.location.href = `/view-log/${logId}`;
 	});
+	$('.new-page').click(() => {
+			window.location.href = '/add-log'
+	});
 	$('.new-page').keypress(event => {
 		if (event.which === 13) {
 			window.location.href = '/add-log'
@@ -79,11 +82,11 @@ function bindHandlers() {
 		let filterValue = $(this).val();
 		Data.getLogs(handleLogs, { type: filterValue });
 	});
-	$('.new-page a').focus(event => {
-		$('.new-page').css('background-color', '#ffde4d');
+	$('.new-page, .new-page a').focus(event => {
+		$('.new-page').css('background-color', '#FF6F59');
 	});
-	$('.new-page a').blur(event => {
-		$('.new-page').css('background-color', 'white');
+	$('.new-page, .new-page a').blur(event => {
+		$('.new-page').css('background-color', '#FFFCF2');
 	});
 }
 
