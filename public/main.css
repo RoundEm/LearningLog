@@ -79,6 +79,9 @@ select:disabled {
 .log-section p {
     font-style: italic;
 }
+/*.render-log-section {
+		font-size: 1em;
+}*/
 .view-log-page .render-log-section {
 	background-color: white;
 	margin: 10px 0 0;
@@ -244,6 +247,9 @@ textarea {
 
 /* breakpoint 960px */
 @media only screen and (max-width: 960px) {
+	.render-log-section, .log-form {
+		font-size: .85em;
+	}
 	td, th {
 		font-size: .75em;
 	}
@@ -256,10 +262,14 @@ textarea {
 	.new-page {
 		width: 75%;
 	}
+	
 }
 
 /* breakpoint 640px */
 @media only screen and (max-width: 640px) {
+	.render-log-section, .log-form {
+		font-size: .75em;
+	}
 	td, th {
 		font-size: .65em;
 	}
