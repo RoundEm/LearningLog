@@ -20,16 +20,16 @@ function renderLogs(logs) {
 function renderViewLog(log) {
 	let dateTime = formatDateTime(log.publishDate);
 	return `<div class="view-log">
-				<span>Title:</span>	
-				<p>${log.title}</p>
-				<span>Content:</span>
-				<p>${log.content}</p>
-				<span>Tag:</span>
-				<p>${log.tag}</p>
-				<span>Type:</span>
-				<p>${log.type}</p>
-				<span>Last Saved:</span>
-				<p>${dateTime}</p>
+				<span tabindex="0">Title:</span>	
+				<p tabindex="0">${log.title}</p>
+				<span tabindex="0">Content:</span>
+				<p tabindex="0">${log.content}</p>
+				<span tabindex="0">Tag:</span>
+				<p tabindex="0">${log.tag}</p>
+				<span tabindex="0">Type:</span>
+				<p tabindex="0">${log.type}</p>
+				<span tabindex="0">Last Saved:</span>
+				<p tabindex="0">${dateTime}</p>
 				<p class="log-id" hidden>${log.id}</p>
 			</div>`;
 }
