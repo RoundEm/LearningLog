@@ -45,9 +45,9 @@ describe('My app', () => {
 					expect(res.body).to.be.a('array');
 					expect(res).to.be.json;
 					res.body.forEach((log) => {
-						expect(log).to.be.a('object');
+							expect(log).to.be.a('object');
 						expect(log).to.include.keys('id', 'title', 'content', 'tag', 'publishDate', 'type');
-						expect(res.body).to.have.lengthOf(10);
+						expect(res.body).to.have.lengthOf(14);
 					});
 				});
 		});	
