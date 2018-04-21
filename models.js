@@ -15,7 +15,7 @@ const LogSchema = new Schema({
 	},
 	publishDate: { 
 		type: Date, 
-		default: Date.now(),
+		default: Date.now,
 		required: true
 	},
 	type: {
