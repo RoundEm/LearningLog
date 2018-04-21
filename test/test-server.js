@@ -47,7 +47,7 @@ describe('My app', () => {
 					res.body.forEach((log) => {
 							expect(log).to.be.a('object');
 						expect(log).to.include.keys('id', 'title', 'content', 'tag', 'publishDate', 'type');
-						expect(res.body).to.have.lengthOf(14);
+						expect(res.body).to.have.lengthOf(10);
 					});
 				});
 		});	
