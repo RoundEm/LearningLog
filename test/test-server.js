@@ -57,16 +57,16 @@ describe('My app', () => {
 			let id = '';
 			return Log
 				.findOne()
-					.then((log) => {
-						id = log._id;
-						return chai.request(app) 
-							.get(`/logEntries/${id}`)
-							.then((res) => {
-								expect(res).to.have.status(200);
-								expect(res.body).to.be.a('object');
-								expect(res.body).to.include.keys('id', 'title', 'content', 'tag', 'publishDate', 'type');
-							});
-					});
+				.then((log) => {
+					id = log._id;
+					return chai.request(app) 
+						.get(`/logEntries/${id}`)
+						.then((res) => {
+							expect(res).to.have.status(200);
+							expect(res.body).to.be.a('object');
+							expect(res.body).to.include.keys('id', 'title', 'content', 'tag', 'publishDate', 'type');
+						});
+				});
 		});
 	});
 	describe('POST endpoint', () => {
@@ -93,20 +93,20 @@ describe('My app', () => {
 		const logToUpdate = generateLogData();	
 			return Log
 				.findOne()
-					.then((log) => {
-						logToUpdate.id = log._id;
-						return chai.request(app)
-							.put(`/logEntries/${log._id}`)
-							.send(logToUpdate)
-					})
-					.then((res) => {
-						expect(res).to.have.status(200);
-						expect(res.body).to.be.a('object');
-						expect(res.body.title).to.equal(logToUpdate.title);
-						expect(res.body.content).to.equal(logToUpdate.content);
-						expect(res.body.tag).to.equal(logToUpdate.tag);
-						expect(res.body.type).to.equal(logToUpdate.type);
-					});
+				.then((log) => {
+					logToUpdate.id = log._id;
+					return chai.request(app)
+						.put(`/logEntries/${log._id}`)
+						.send(logToUpdate)
+				})
+				.then((res) => {
+					expect(res).to.have.status(200);
+					expect(res.body).to.be.a('object');
+					expect(res.body.title).to.equal(logToUpdate.title);
+					expect(res.body.content).to.equal(logToUpdate.content);
+					expect(res.body.tag).to.equal(logToUpdate.tag);
+					expect(res.body.type).to.equal(logToUpdate.type);
+				});
 		});
 	});
 	describe('DELETE endpont', () => {
@@ -114,16 +114,16 @@ describe('My app', () => {
 			let log;
 			return Log
 				findOne()
-					.then((_log) => {
-						return chai.request(app).delete(`/logEntries/${log.id}`);
-					})
-					.then((res) => {
-						expect(res).to.have.status(204);
-						return Log.findById(log.id);
-					})
-					.then((_log) => {
-						expect(_log).to.be.null;
-					});
+				.then((_log) => {
+					return chai.request(app).delete(`/logEntries/${log.id}`);
+				})
+				.then((res) => {
+					expect(res).to.have.status(204);
+					return Log.findById(log.id);
+				})
+				.then((_log) => {
+					expect(_log).to.be.null;
+				});
 		});
 	});	
 });
