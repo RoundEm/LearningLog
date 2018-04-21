@@ -10,14 +10,7 @@ body {
 	/*background: linear-gradient(#011214, #053c43);*/
 	padding: 0 0 100px;
 	background-color: #011214;
-	/*background-image: url('https://vectr.com/squarebush/ieTXE7JyF.svg?width=1240&height=1240&select=ieTXE7JyFpage0	');
-	background-repeat: repeat;*/
 }
-/*body#landing-page {
-	background-color: #011214;
-	background-image: url('/images/elcarito-600085-unsplash.jpg');
-	background-size: cover;
-} */
 header {
 	margin: 70px 0 0 0;
 }
@@ -26,21 +19,18 @@ header {
 	margin: 20px 0 15px;
 	/*border: 2px solid #424242;*/
 }
-
+#landing-page h1 {
+	background-color: none;
+}
 header h1 {
 	text-align: center;
 	padding: 7px 0;
-	/*background-color: #011214;*/
 	border: 2px solid #FF6F59;
 	color: #FF6F59;
 	
 }
-#landing-page h1 {
-	background-color: none;
-}
 header p {
 	padding: 10px 10px 0;
-	/*border: 2px solid #FF6F59;*/
 	color: white;
 }
 .main-contain {	
@@ -55,8 +45,6 @@ select:disabled {
 .benefits {
 	margin: 30px 0 0 0;
 	padding: 10px;
-	/*border: 2px solid #424242;*/
-	/*background-color: white;*/
 }
 .benefits h1 {
 	margin: 10px 0 0 0;
@@ -93,6 +81,10 @@ select:disabled {
 }
 .view-log-page .render-log-section {
 	background-color: white;
+	margin: 10px 0 0;
+}
+.view-log-page span {
+	color: #FF6F59;
 }
 /* ensures the <p> elements except the log ID are displayed correctly. Otherwise the ID will render instead of staying hidden */
 .log-entry p:not(.log-id) {
