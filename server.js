@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 const { DB_URL, PORT } = require('./config');
 
 mongoose.connect(DB_URL);
-
+console.log(DB_URL)
 if (process.env.NODE_ENV !== 'test') {
 	app.use(morgan('common'));
 }   
