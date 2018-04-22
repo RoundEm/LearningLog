@@ -86,7 +86,7 @@ select:disabled {
 	margin: 10px 0 0;
 }
 .view-log-page span {
-	color: #FF6F59;
+	color: #011214;
 }
 /* ensures the <p> elements except the log ID are displayed correctly. Otherwise the ID will render instead of staying hidden */
 .log-entry p:not(.log-id) {
@@ -96,6 +96,7 @@ select:disabled {
 .view-log span {
 	font-weight: bolder;
 	text-decoration: underline;
+	text-decoration-color: #FF6F59;
 }
 .view-log p {
 	margin: 0 0 10px;
