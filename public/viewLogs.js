@@ -1,7 +1,7 @@
 'use strict'
 
 let logsData = [];
-
+	
 function handleLogs(err, logs) {
 	if (err) {
 		return console.log(err);
