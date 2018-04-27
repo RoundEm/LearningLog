@@ -28,7 +28,7 @@ function renderViewLog(log) {
 				<p tabindex="0">${log.tag}</p>
 				<span tabindex="0">Type:</span>
 				<p tabindex="0">${log.type}</p>
-				<span tabindex="0">Last Saved:</span>
+				<span tabindex="0">Log Created:</span>
 				<p tabindex="0">${dateTime}</p>
 				<p class="log-id" hidden>${log.id}</p>
 			</div>`;
