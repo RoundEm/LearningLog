@@ -29,8 +29,8 @@
 
 				<section class="sort-section">
 					<form>
-						<h3>Sort Results</h3>
-						<select id="sort-select">
+						<h3 id="sort-results">Sort Results</h3>
+						<select id="sort-select" aria-labelledby="sort-results">
 							<option value="log_newest" class="sortLog_newest">Newest to Oldest</option>
 							<option value="log_oldest" class="sortLog_oldest">Oldest to Newest</option>
 							<option value="tag_a" class="sortTag_a">A-Z by Tag</option>
@@ -41,8 +41,8 @@
 
 				<section class="filter-section">
 					<form>
-						<h3>Filter Logs by Type</h3>
-							<select id="filter-select">
+						<h3 id="filter-results">Filter Logs by Type</h3>
+							<select id="filter-select" aria-labelledby="filter-results">
 								<option value="all" id="filter-all">All Types</option>
 								<option value="concept" id="filter-concepts">Concepts</option>
 								<option value="question" id="filter-questions">Questions</option>
