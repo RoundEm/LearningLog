@@ -5,7 +5,7 @@ chai.use(chaiHttp);
 
 const { runServer, closeServer, app } = require('../server');
 const { seedLogs, generateLogData } = require('../seeder');
-const Log = require('../models');
+const { Log } = require('../models');
 
 function tearDownDb() {
 	console.log('Removing database');
