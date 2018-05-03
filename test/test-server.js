@@ -1,7 +1,10 @@
+
+const mongoose = require('mongoose')
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const expect = chai.expect;
 chai.use(chaiHttp);
+
 
 const { runServer, closeServer, app } = require('../server');
 const { seedLogs, generateLogData } = require('../seeder');
