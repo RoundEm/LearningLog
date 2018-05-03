@@ -17,7 +17,7 @@ if (process.env.NODE_ENV !== 'test') {
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-const Log = require('./models');
+const { Log } = require('./models');
 
 app.get('/', (req, res) => {
 	res.sendFile(`${__dirname}/views/index.html`);
