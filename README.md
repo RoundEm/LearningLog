@@ -28,7 +28,7 @@ The app was built using the following technologies/methodologies:
 
 ## Features I'd like to add:
 * User authentication
-* Formatting of log entry text
-* Allow user to attach documentation and images
+* Integrate with a WYSIWYG editor to allow formatting of log entries
+* Allow user to upload attachments to log entries
 * Integration with a messaging or email API so that the app can send notifications to the user containing prior log entries in spaced repitition to assist with retention and knowledge refinement
 * Search logs by keywords
