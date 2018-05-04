@@ -15,11 +15,11 @@ The app was built using the following technologies/methodologies:
 ### Link to live app: https://log-and-learn.herokuapp.com/
 
 ## Images of App:
-![alt text](Log_and_Learn/public/AppScreenshots/Home.png "Home page")
-![alt text](Log_and_Learn/public/AppScreenshots/Log_Entries.png "View Log Entries page")
-![alt text](Log_and_Learn/public/AppScreenshots/Edit_Log_editing.png "Add Log page")
-![alt text](Log_and_Learn/public/AppScreenshots/Add_Log_Entry.png "View Log page")
-![alt text](Log_and_Learn/public/AppScreenshots/View_Log_Entry.png "Edit Log page")
+![alt text](/public/AppScreenshots/Home.png "Home page")
+![alt text](/public/AppScreenshots/Log_Entries.png "View Log Entries page")
+![alt text](/public/AppScreenshots/Edit_Log_editing.png "Add Log page")
+![alt text](/public/AppScreenshots/Add_Log_Entry.png "View Log page")
+![alt text](/public/AppScreenshots/View_Log_Entry.png "Edit Log page")
 
 
 ## API Endpoints:
