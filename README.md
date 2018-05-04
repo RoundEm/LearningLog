@@ -16,10 +16,15 @@ The app was built using the following technologies/methodologies:
 ## API
 ### Routes:
 **GET /logEntries -** Returns all saved log entries
+
 **GET /logEntries/:logId -** Returns an individual log entry
+
 **POST /logEntries -** Create a new log entry
+
 **PUT /logEntries/:logId -** Update a specific log entry
+
 **DELETE /logEntries/:logId -** Remove a specific log entry
+
 
 ## Features I'd like to add:
 * User authentication
