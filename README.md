@@ -17,9 +17,9 @@ The app was built using the following technologies/methodologies:
 ## Images of App:
 ![alt text](/public/AppScreenshots/Home.png "Home page")
 ![alt text](/public/AppScreenshots/Log_Entries.png "View Log Entries page")
-![alt text](/public/AppScreenshots/Edit_Log_editing.png "Edit Log page")
 ![alt text](/public/AppScreenshots/Add_Log_Entry.png "Add Log page")
 ![alt text](/public/AppScreenshots/View_Log_Entry.png "View Log page")
+![alt text](/public/AppScreenshots/Edit_Log_editing.png "Edit Log page")
 
 
 ## API Endpoints:
@@ -41,3 +41,4 @@ The app was built using the following technologies/methodologies:
 * Allow user to upload attachments to log entries
 * Integration with a messaging or email API so that the app can send notifications to the user containing prior log entries in spaced repitition to assist with retention and knowledge refinement
 * Search logs by keywords
+* Allow user to create different Log sets so different subjects can be separated out
