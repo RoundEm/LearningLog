@@ -42,3 +42,4 @@ The app was built using the following technologies/methodologies:
 * Integration with a messaging or email API so that the app can send notifications to the user containing prior log entries in spaced repitition to assist with retention and knowledge refinement
 * Search logs by keywords
 * Allow user to create different Log sets so different subjects can be separated out
+
