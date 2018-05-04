@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const LogSchema = mongoose.Schema;({
+const LogSchema = mongoose.Schema({
 	title: {
 		type: String, 
 		min: 2,
