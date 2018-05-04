@@ -4,21 +4,22 @@ This app is aimed toward being a simple learning aid that allows a user to recor
 The app was built using the following technologies/methodologies:
 * Javascript/jQuery
 * Express.js/Node.js
+* Mongoose/MongoDB
 * REST API
 * Mocha/Chai/Chai-http
 * HTML
 * CSS
 * Responsive Design
 
-## Link to live app: https://radiant-cove-60627.herokuapp.com/
+### Link to live app: https://radiant-cove-60627.herokuapp.com/
 
 ## API
 ### Routes:
-** GET /logEntries - ** Returns all saved log entries
-** GET /logEntries/:logId - ** Returns an individual log entry
-** POST /logEntries - ** Create a new log entry
-** PUT /logEntries/:logId - ** Update a specific log entry
-** DELETE /logEntries/:logId - ** Remove a specific log entry
+**GET /logEntries -** Returns all saved log entries
+**GET /logEntries/:logId -** Returns an individual log entry
+**POST /logEntries -** Create a new log entry
+**PUT /logEntries/:logId -** Update a specific log entry
+**DELETE /logEntries/:logId -** Remove a specific log entry
 
 ## Features I'd like to add:
 * User authentication
