@@ -52,3 +52,4 @@ LogSchema.methods.serialize = function() {
 const Log = mongoose.model('Log', LogSchema)
 
 module.exports = { Log }
+
