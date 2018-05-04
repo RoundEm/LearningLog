@@ -17,9 +17,9 @@ The app was built using the following technologies/methodologies:
 ## Images of App:
 ![alt text](/public/AppScreenshots/Home.png "Home page")
 ![alt text](/public/AppScreenshots/Log_Entries.png "View Log Entries page")
-![alt text](/public/AppScreenshots/Edit_Log_editing.png "Add Log page")
-![alt text](/public/AppScreenshots/Add_Log_Entry.png "View Log page")
-![alt text](/public/AppScreenshots/View_Log_Entry.png "Edit Log page")
+![alt text](/public/AppScreenshots/Edit_Log_editing.png "Edit Log page")
+![alt text](/public/AppScreenshots/Add_Log_Entry.png "Add Log page")
+![alt text](/public/AppScreenshots/View_Log_Entry.png "View Log page")
 
 
 ## API Endpoints:
