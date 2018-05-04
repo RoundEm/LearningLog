@@ -6,15 +6,24 @@ The app was built using the following technologies/methodologies:
 * Express.js/Node.js
 * Mongoose/MongoDB
 * REST API
-* Mocha/Chai/Chai-http
 * HTML
 * CSS
 * Responsive Design
+* Mocha/Chai/Chai-http
+* TravisCI
 
-### Link to live app: https://radiant-cove-60627.herokuapp.com/
+### Link to live app: https://log-and-learn.herokuapp.com/
 
-## API
-### Routes:
+## Images of App:
+![alt text](Log_and_Learn/public/AppScreenshots/Home.png "Home page")
+![alt text](Log_and_Learn/public/AppScreenshots/Log_Entries.png "View Log Entries page")
+![alt text](Log_and_Learn/public/AppScreenshots/Edit_Log_editing.png "Add Log page")
+![alt text](Log_and_Learn/public/AppScreenshots/Add_Log_Entry.png "View Log page")
+![alt text](Log_and_Learn/public/AppScreenshots/View_Log_Entry.png "Edit Log page")
+
+
+## API Endpoints:
+
 **GET /logEntries -** Returns all saved log entries
 
 **GET /logEntries/:logId -** Returns an individual log entry
