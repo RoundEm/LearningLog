@@ -17,8 +17,9 @@ The app was built using the following technologies/methodologies:
 * REST API
 * HTML
 * CSS
-* Responsive Design
 * Mocha/Chai/Chai-http
+* Responsive Design
+* Accessibility
 * TravisCI
 
 ## API Endpoints:
