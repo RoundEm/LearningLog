@@ -1,5 +1,5 @@
 # Log & Learn: Thinkful Capstone Project #2
-This app is aimed toward being a simple and easy-to-use learning aid that allows a user to record log entries that detail reflections and progress made when learning a new subject. Each log entry can be categorized under a specific type of post (e.g. Concepts, Questions, Needs Improvement, etc), which allows for easy organization and filtering. You can also sort logs by log title or metadata. For a list of enhancements that I plan on adding in the future please see bottom of README. 
+This app is aimed toward being a simple and easy-to-use learning aid that allows a user to record log entries that detail reflections and progress made when learning a new subject. Each log entry can be categorized under a specific type of post (e.g. Concepts, Questions, Needs Improvement, etc), which allows for easy organization and filtering. You can also sort logs by log title or metadata. For a list of enhancements that I'd like to add in the future please see bottom of README. 
 
 The app was built using the following technologies/methodologies:
 * Javascript/jQuery
