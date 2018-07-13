@@ -1,9 +1,2 @@
 language: node_js
 node_js: node
-deploy:
-  provider: heroku
-  api_key:
-    secure: dO/tpRDS6G0I8r2tswEUh4Eo5ibL1/BCgyokf5cBjDgJSm8eEgfeCAoVEOghp9F+32m13z+ZRq67R7cyDYgYTlzYlsMbkMShTU0aWZ+WyEDHRDjiT6PvEzw9Vim4wjWumByvhrytwm1Rbj1+ptVg3e7DXbICjWOKbQgQkEeW2xQhyyultdLIlgVebHsNO+2vFpUsj4pRlBAGfQ1rWMlok3QHBCAZdD48aBk/R4OL9QH2KrN4R0eglAMPZmNx/WJBtw146irJnxZk0jJ4kktuWn/6wnoA0Agz/ZN/lvimw+wh3JzLufx+Ro/vBN9LEqZZX8mDGsv/xZIz9YIoBfy33h3cUzfaJW5hDX0VtrVmp0k37i7bttkl//Cb8dy81j5AKzc262YO/Qbhw0LSdsA1uHktG9SK+fxj4/zfm8C22DVbw6S58yMc5/vpMlPoBX278amdYBZ7THV5YILIjaUIOSLolGPxl6WMjiA4WuFyR21NTtsdF1ToJs9/U/yLh58xLyTSkXNhjogj0TPuJaQhCPgs+EcRtZyuybAzUugm0EzjMFo50/y4TuS6pD/+mX9CefJH62Wkbc6clyhzBp4DrjOO+T7sx1OgHRJLXD2vU064BMkVbhW5QAkoyFZ4FVlcddSP0xpyftsd+FK5C3hdnqQogPFJyZqXij3b9FXz/aY=
-  app: log-and-learn
-  on:
-    repo: RoundEm/log-and-learn
