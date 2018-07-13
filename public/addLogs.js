@@ -1,5 +1,7 @@
 'use strict';
 
+// const editor = new Quill('#add-content');
+
 function createLogEntry(title, content, tag, type) {
 	const params = {
 		title: title,

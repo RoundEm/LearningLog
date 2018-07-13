@@ -1,4 +1,4 @@
-var Data = {
+const Data = {
 	// GET log entry by id
 	getLog: function (logId, cb) {
 		$.ajax({

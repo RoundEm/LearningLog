@@ -90,7 +90,7 @@ app.put('/logEntries/:logId', jsonParser, (req, res) => {
 
 app.delete('/logEntries/:logId', (req, res) => {
 	Log.findByIdAndRemove(req.params.logId)
-		.then(() => {
+		.then(res => {
 			res.status(204).end();
 		})
 		.catch((error) => {
@@ -125,7 +125,6 @@ function closeServer() {
 		server.close(err => {
 			if (err) {
 				reject(err);
-				// so we don't also call `resolve()`
 				return;
 			}
 			resolve();
